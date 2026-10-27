@@ -21,6 +21,7 @@ CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento,
 ## Operating Context
 
 - Una sola página con scroll: hero → cifras → `#soluciones` → `#gobierno` → `#por-que-ciisa` → `#proceso` → `#cotiza` (formulario) → pie.
+- Hero: en escritorio la animación de mosaicos va a la derecha del texto; en tablet y móvil (≤ 1024 px) va arriba del texto y del CTA, en tamaño compacto. Se pausa fuera de pantalla y con `prefers-reduced-motion` solo hace un fundido.
 - El formulario manda JSON a un flujo de Power Automate (`origen: "landing-adobe"` + UTM). Sin endpoint, valida pero no envía y muestra el teléfono de respaldo.
 - Sin backend propio; sitio estático en GitHub Pages.
 
@@ -33,8 +34,9 @@ CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento,
 
 ## Brand Commitments
 
-- Marca que opera el sitio: **CiiSA**. Todo degradado respeta el orden fijo `#bcf200 → #01fbce → #00ccff`, y solo como acento (nunca texto sobre blanco).
-- Rojo Adobe (`#eb1000`) solo como acento puntual; no se mezcla con el degradado ni se usa en botones.
+- Marca que opera el sitio: **CiiSA**. El degradado de CiiSA respeta el orden fijo `#bcf200 → #01fbce → #00ccff`, y solo como acento (nunca texto sobre blanco).
+- **Excepción confirmada por el equipo (27 oct 2026):** el texto en degradado sobre fondo oscuro (`.grad`: titular del hero y del formulario) conserva los verdes y cambia el azul por el rojo de Adobe: `#bcf200 → #01fbce → #eb1000`. Los demás degradados (subrayados, barras) siguen con el azul.
+- Rojo Adobe (`#eb1000`) solo como acento puntual: el punto del kicker, el mosaico rojo del hero y el texto en degradado de la excepción anterior. No se usa en botones.
 - Los logotipos de Adobe no se alteran, animan ni rodean de efectos; solo versiones de una tinta.
 - Adobe **autorizó por escrito** el uso de su marca, logotipo y estilo, según confirmó el equipo. Las condiciones exactas de uso y la leyenda legal siguen las indicaciones de esa autorización (`docs/HANDOFF.md` aún lo marca como pendiente: actualizarlo y archivar el documento).
 - CiiSA tiene un **nivel de partner con Adobe confirmado**. El nombre del nivel no está registrado aquí: no se nombra en el sitio hasta asentarlo, con el documento que lo respalde, en `docs/CONTENIDO.md`.

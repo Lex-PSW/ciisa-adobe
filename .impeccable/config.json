@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-10-27T20:16:52.415Z",
         "reason": "Sanctioned in project CLAUDE.md: gradient text on dark hero is accepted on purpose; pre-existing .grad span, not part of this change"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-27T20:22:24.250Z",
+        "reason": "False positive: .soln::before is a 5px top bar (top/left/right 0), not a side border; the only real side-tab (.benef li) was removed"
       }
     ]
   }

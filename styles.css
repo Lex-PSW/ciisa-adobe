@@ -266,17 +266,16 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
 .benef li { border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: flex-start; gap: 12px; }
 .benef li::before { content: ''; flex: none; width: 8px; height: 8px; margin-top: 0.45em; border-radius: 50%; background: var(--psw-mint); }
 
-/* Hero en tablet y móvil: los mosaicos dejan de ocultarse y pasan debajo del texto, en tamaño compacto para que
-   el botón principal no se desplace. Sin desenfoque de fondo en pantallas chicas (las animaciones cuestan menos). */
+/* Hero en tablet y móvil: los mosaicos dejan de ocultarse y van arriba del texto y del botón, en tamaño compacto
+   para desplazar lo menos posible el botón principal. Sin desenfoque de fondo en pantallas chicas (las animaciones cuestan menos). */
 @media (max-width: 1024px) {
-  .hero__art { display: block; }
-  .stack { width: min(300px, 74vw); --k: 0.7; }
+  .hero__art { display: block; order: -1; }
+  .stack { width: min(240px, 60vw); --k: 0.6; }
   .tile { backdrop-filter: none; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
 }
 @media (max-width: 640px) {
-  .hero__art { margin-top: 8px; }
-  .stack { width: min(240px, 66vw); --k: 0.55; }
-  .tile { border-radius: 18px; }
+  .stack { width: min(180px, 52vw); --k: 0.45; }
+  .tile { border-radius: 14px; }
 }
 
 /* Texto en degradado (hero y formulario): se conservan los verdes de CiiSA y el azul se sustituye por el rojo
