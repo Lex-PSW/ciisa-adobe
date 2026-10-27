@@ -1,0 +1,30 @@
+# Lo que NO debe ser público va en privada/ (se comparte por zip, ver docs/HANDOFF.md)
+privada/
+
+# Contexto privado de cada máquina
+CLAUDE.local.md
+*.local.md
+
+# Secretos y configuración local: nunca al repositorio
+.env
+.env.*
+*.pem
+*.key
+secrets*
+
+# Temporales, respaldos y copias de trabajo
+*.bak
+*.bak-*
+*.tmp
+*~
+_tmp/
+tmp/
+*.zip
+
+# Dependencias, caches de herramientas y sistema operativo
+node_modules/
+.impeccable/hook.cache.json
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*

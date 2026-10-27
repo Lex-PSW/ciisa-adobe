@@ -1,0 +1,4454 @@
+﻿/* =============================================
+   PYXOOM 4.2.3 — MÓDULO PERSONALIZADO PARA HUBSPOT CMS
+   Archivo: styles.css
+   ============================================= */
+
+/* =============================================
+   FUENTES LOCALES
+   ============================================= */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('assets/types/Poppins-Thin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url('assets/types/Poppins-ThinItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('assets/types/Poppins-ExtraLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url('assets/types/Poppins-ExtraLightItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/types/Poppins-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/types/Poppins-LightItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/types/Poppins-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/types/Poppins-Italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/types/Poppins-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/types/Poppins-MediumItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/types/Poppins-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/types/Poppins-SemiBoldItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/types/Poppins-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/types/Poppins-BoldItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('assets/types/Poppins-ExtraBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url('assets/types/Poppins-ExtraBoldItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('assets/types/Poppins-Black.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('assets/types/Poppins-BlackItalic.woff2') format('woff2');
+}
+
+/* =============================================
+   VARIABLES Y RESET
+   ============================================= */
+:root {
+  --black:       #000000;
+  --navy-deep:  #001c71;
+  --electric-blue:#213acd;
+  --electric-pyx:#00ccff;
+  --white:      #FFFFFF;
+  --off-white:  #F0F4FF;
+  --psw-mint: #01fbce;
+  --ciisa-green: #bcf200;
+  --neon-rose: #fc01c3;
+  --neon-purple: #d802f0;
+  --success:    #00C896;
+  --danger:     #FF4D6D;
+  --muted:      rgba(255,255,255,0.55);
+  --border:     rgba(255,255,255,0.10);
+  --font-head:  'Poppins', sans-serif;
+  --font-body:  'Poppins', sans-serif;
+  --radius:     12px;
+  --radius-lg:  20px;
+  --shadow:     0 8px 40px rgba(11,30,75,0.35);
+  --glow:       0 0 30px rgba(37,99,235,0.4);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+.cip-page {
+  position: relative;
+  z-index: 0;
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* Video de fondo fijo: pinned al viewport durante todo el scroll de la página,
+   queda detrás de las secciones (que tienen fondo opaco) y se revela de nuevo
+   donde una sección deja el fondo transparente/translúcido (ver Registro). */
+.cip-hero__video {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+/* =============================================
+   ① HERO
+   ============================================= */
+.cip-hero {
+  position: relative;
+  min-height: 92vh;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 48px;
+}
+
+/* Noise texture overlay 
+.cip-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}*/
+
+/* Diagonal accent line 
+.cip-hero::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: 28%;
+  width: 2px;
+  height: 130%;
+  background: linear-gradient(180deg, transparent 0%, rgba(37,99,235,0.4) 50%, transparent 100%);
+  transform: rotate(-15deg);
+  pointer-events: none;
+}*/
+
+.cip-hero__nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 60px;
+}
+
+.cip-logo {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.cip-hero__logo {
+  position: relative;
+  z-index: 1;
+  width: 40%;
+  transition: filter 0.35s ease;
+}
+.cip-logo::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--ciisa-green),
+    var(--psw-mint),
+    var(--electric-pyx),
+    var(--ciisa-green)
+  );
+  transform: translate(-50%, -50%) rotate(0deg) scale(0.96);
+  filter: blur(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.cip-logo:hover::before {
+  opacity: 0.7;
+  animation: cip-logo-glow 16s ease-in-out infinite;
+}
+.cip-logo:hover .cip-hero__logo {
+  filter: drop-shadow(0 0 10px rgba(0,204,255,0.26));
+}
+
+@keyframes cip-logo-glow {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(0.96); }
+  to   { transform: translate(-50%, -50%) rotate(360deg) scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cip-logo::before { animation: none; }
+}
+.cip-logo__mark {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--electric), #60A5FA);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: -1px;
+  box-shadow: var(--glow);
+}
+
+.cip-logo__text {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.cip-logo__text span { color: rgba(255,255,255,0.5); font-weight: 400; }
+
+.cip-hero__body {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 60px 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cip-hero__date-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  text-align: center;
+}
+
+.cip-hero__content { max-width: 640px; }
+
+.cip-hero__date-container .cip-hero__sub {
+  display: block;
+  max-width: min(760px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.cip-hero__headlines {
+  position: relative;
+  height: max(var(--headline-area-height, 180px), 180px);
+  overflow: hidden;
+}
+
+.cip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37,99,235,0.2);
+  border: 1px solid rgba(37,99,235,0.5);
+  border-radius: 100px;
+  padding: 7px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #93C5FD;
+  margin-bottom: 28px;
+  backdrop-filter: blur(8px);
+}
+
+.cip-badge::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: #60A5FA;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #60A5FA;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.5; transform:scale(0.8); }
+}
+
+.cip-hero__headline {
+  position: absolute;
+  inset: 0;
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(21px, 6vw, 55px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin: 0;
+}
+
+.cip-hero__headline:not(.is-active) {
+  display: none;
+}
+
+.cip-hero__headline-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(0.18em);
+  transition: opacity 0.5s ease, filter 0.7s ease, transform 0.5s ease;
+}
+
+.cip-hero__headline-word.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.cip-hero__headline-span--ciisa { color: var(--ciisa-green); }
+.cip-hero__headline-span--psw { color: var(--psw-mint); }
+.cip-hero__headline-span--pulse {
+  background-image: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: cip-headline-gradient-flow 18s ease-in-out infinite;
+}
+
+@keyframes cip-headline-gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.cip-hero__headline.is-leaving {
+  opacity: 0;
+  filter: blur(5px);
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+.cip-hero__headline em {
+  font-style: normal;
+  color: var(--electric-lt);
+  display: block;
+}
+
+.cip-hero__sub {
+  font-size: clamp(10px, 1.25vw, 17px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.45;
+  margin-top: 13px;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.cip-hero__sub--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.cip-hero__sub--traking {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(14px, 2.4vw, 26px);
+  margin-bottom: 12px;
+}
+
+.cip-cta-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.cip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.cip-btn--primary {
+  --cip-primary-gradient: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--ciisa-green));
+  background-image: var(--cip-primary-gradient);
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  color: var(--navy-deep);
+  animation: cip-gradient-flow 18s ease-in-out infinite;
+  box-shadow: 0 4px 24px rgba(1,251,206,0.28), 0 4px 24px rgba(188,242,0,0.2);
+}
+.cip-btn--primary:hover {
+  color: var(--navy-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(1,251,206,0.42), 0 8px 32px rgba(188,242,0,0.3);
+}
+
+.cip-btn--outline {
+  --cip-gradient: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  color: var(--white);
+  border: 2.5px solid transparent;
+  background-image: linear-gradient(var(--black), var(--black)), var(--cip-gradient);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 300% 300%;
+  background-position: 0 0, 0% 50%;
+  animation: cip-gradient-flow 18s ease-in-out infinite;
+  transition: color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition-delay: 0.25s;
+}
+.cip-btn--outline:hover {
+  color: var(--white);
+  background-image: var(--cip-gradient), var(--cip-gradient);
+  background-clip: padding-box, border-box;
+  box-shadow: 0 8px 30px rgba(216,2,240,0.24), 0 0 22px rgba(0,204,255,0.2);
+  border: 2.5px solid transparent;
+  transition: color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition-delay: 0.25s;
+}
+
+@keyframes cip-gradient-flow {
+  0%, 100% { background-position: 0 0, 0% 50%; }
+  50% { background-position: 0 0, 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cip-btn--primary,
+  .cip-btn--outline { animation: none; }
+}
+
+.cip-btn--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
+}
+
+.cip-hero__image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 520px;
+}
+
+.cip-hero__image--featured {
+  height: auto;
+  width: 100%;
+}
+
+.cip-hero__image-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(37,99,235,0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.cip-hero__photo {
+  position: relative;
+  z-index: 2;
+  width: 380px;
+  max-height: 500px;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 20px 60px rgba(11,30,75,0.6));
+}
+
+.cip-hero__photo--large {
+  width: min(500px, 100%);
+  max-height: 700px;
+}
+
+.cip-hero__logo-stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+/* Tablet, laptop y desktop: separación Beyond / by CiiSA reducida al 50% (móvil conserva 18px) */
+@media (min-width: 641px) {
+  .cip-hero__logo-stack { gap: 9px; }
+}
+
+.cip-hero__lottie {
+  position: relative;
+  width: 100%;
+  filter: drop-shadow(0 20px 60px rgba(11,30,75,0.6));
+}
+.cip-hero__lottie svg {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.cip-hero__lottie--beyond { width: 100%; }
+
+/* "by" + CiiSA, alineados a la derecha (bajo la N y la D) bajo el logo de Beyond.
+   --ciisa-w = ancho del logo CiiSA relativo al de Beyond; el "by" mide 50% del alto de la palabra
+   CiiSA (que ocupa ~0.2305 del ancho del lienzo Lottie; cap-height de Poppins ~0.74em). */
+.cip-hero__by-ciisa {
+  --ciisa-w: 14.55; /* 15 - 3% */
+  container-type: inline-size;
+  align-self: flex-start;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+.cip-hero__by {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  color: var(--white);
+  font-size: calc(var(--ciisa-w) * 1cqw * 0.2305 * 0.5 / 0.74);
+  flex: none;
+}
+/* El conjunto "by CiiSA" queda centrado bajo el tramo N-D de Beyond (centro = 81.86% del lienzo:
+   la N empieza en 66.7% y la D termina en 97.1%). Para otra posición, cambiar el 18.14cqw
+   (= 100 - centro; con el centro en 50% sería 50cqw). El conjunto visible mide ~1.022 x --ciisa-w (by + palabra CiiSA) y termina 0.091 x --ciisa-w antes
+   del borde del lienzo de CiiSA; de ahí el margen derecho responsivo (todo en cqw). */
+.cip-hero__lottie--ciisa {
+  width: calc(var(--ciisa-w) * 1cqw);
+  flex: none;
+  margin-right: calc(18.14cqw - var(--ciisa-w) * 0.602cqw);
+}
+
+/* CiiSA mark relative to the Beyond wordmark's width: tablet 20%, mobile 30% */
+@media (max-width: 1024px) {
+  .cip-hero__by-ciisa { --ciisa-w: 19.4; }
+}
+@media (max-width: 640px) {
+  .cip-hero__by-ciisa { --ciisa-w: 29.1; }
+}
+
+/* Giro infinito de la "O" de Beyond, controlado por JS/CSS (no por keyframes de Lottie) */
+.cip-beyond-o-spin {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: cip-beyond-o-spin 3.4s linear infinite;
+}
+@keyframes cip-beyond-o-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-beyond-o-spin { animation: none; }
+}
+
+.cip-hero__photo-sequence {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 0;
+  width: min(500px, 100%);
+  height: min(500px, 100%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.cip-hero__photo-sequence-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  filter: blur(14px);
+  transform: rotate(0deg) scale(1.015);
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s ease;
+}
+
+.cip-hero__photo-sequence-item.is-active {
+  opacity: 1;
+  filter: blur(0);
+  transform: rotate(0deg) scale(1);
+}
+
+.cip-hero__photo-sequence-item.is-stacked {
+  opacity: 1;
+  filter: blur(var(--photo-stack-blur, 2px));
+  transform: rotate(var(--photo-stack-rotation, 0deg)) scale(0.985);
+}
+
+.cip-hero__photo-sequence.is-clearing .cip-hero__photo-sequence-item {
+  opacity: 0;
+  filter: blur(16px);
+  transform: rotate(0deg) scale(1.025);
+}
+
+.cip-hero__image--featured > .cip-hero__photo {
+  --logo-blur: 0px;
+  filter: blur(var(--logo-blur));
+  transition: filter 0.9s ease;
+}
+
+.cipia__animation {
+  animation: bounceSoft 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+/* Placeholder cuando no hay foto */
+.cip-hero__photo-placeholder {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  height: 420px;
+  background: linear-gradient(160deg, rgba(37,99,235,0.15) 0%, rgba(11,30,75,0.3) 100%);
+  border: 1px solid rgba(37,99,235,0.25);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.cip-hero__photo-placeholder svg { opacity: 0.4; }
+.cip-hero__photo-placeholder p  { font-size:13px; color:var(--muted); text-align:center; }
+
+/* Floating stats */
+.cip-stat-card {
+  position: absolute;
+  background: rgba(15,35,71,0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  backdrop-filter: blur(16px);
+  z-index: 10;
+}
+.cip-stat-card--left { left: -30px; top: 40%; }
+.cip-stat-card--left-V2 { left: -30px; top: 27%; }
+.cip-stat-card--right { right: -20px; top: 20%; }
+.cip-stat-card--right-V2 { right: -30px; top: 35%; }
+.cip-stat-card__num {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--electric-lt);
+  line-height: 1;
+}
+.cip-stat-card__label { font-size: 11px; color: var(--muted); margin-top:3px; }
+
+.cip-hero__scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 8;
+  pointer-events: none;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+.cip-hero__scroll svg { width:20px; height:20px; }
+@keyframes scrollBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* =============================================
+   PULSE CLAIM
+   ============================================= */
+.cip-pulse-claim-wrap {
+  position: relative;
+  background: linear-gradient(to bottom, transparent 0%, var(--black) 100%);
+  padding: 60px 0 90px;
+  overflow: hidden;
+}
+.cip-pulse-claim-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  text-align: center;
+}
+.cip-pulse-claim__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  background-image: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: cip-headline-gradient-flow 10s ease-in-out infinite;
+}
+.cip-pulse-claim__title--top {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  margin-bottom: 24px;
+}
+.cip-pulse-claim__title--bottom {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  margin-top: 24px;
+}
+.cip-pulse-claim__desc {
+  max-width: 640px;
+  font-weight: 200;
+  margin: 28px auto 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--white);
+}
+.cip-pulse-claim__desc strong {
+  color: var(--white);
+  font-weight: 700;
+}
+.cip-pulse-claim-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.cip-pulse-scanner {
+  filter: drop-shadow(0 0 14px rgba(255,255,255,0.9)) drop-shadow(0 0 28px var(--electric-pyx));
+}
+
+@media (max-width: 640px) {
+  .cip-pulse-claim-inner { padding: 0 24px; }
+}
+
+/* =============================================
+   MARCAS PARTICIPANTES (carrusel)
+   ============================================= */
+.cip-brands-wrap {
+  position: relative;
+  z-index: 5;
+  padding: 100px 0 140px;
+  overflow: hidden;
+  /* arranca en el mismo velo (0.3) con que termina el clon de Sobre Beyond, sin costura */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 55%, var(--black) 100%);
+}
+
+.cip-brands-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.cip-brands__viewport {
+  margin-top: 56px;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 64px, black calc(100% - 64px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 64px, black calc(100% - 64px), transparent 100%);
+}
+
+.cip-brands__track {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: max-content;
+  cursor: grab;
+  touch-action: pan-y;
+  will-change: transform;
+}
+.cip-brands__track.is-dragging { cursor: grabbing; }
+
+.cip-brands__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cip-brands__item img {
+  display: block;
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.cip-brands__item--hpe img {
+  height: 62px;
+}
+.cip-brands__item--hpi img {
+  height: 74px;
+}
+.cip-brands__item--sm img {
+  height: 49px;
+}
+.cip-brands__item--xl img {
+  height: 79px;
+}
+/* Wordmarks muy anchos (Autodesk, Fortinet, Sophos): menos altura para igualar el peso visual */
+.cip-brands__item--wide img {
+  height: 36px;
+}
+.cip-brands__item--ibm img {
+  height: 89px;
+}
+.cip-brands__item:hover img {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+@media (max-width: 900px) {
+  .cip-brands-wrap { padding: 64px 0 90px; }
+  .cip-brands-inner { padding: 0 24px; }
+  .cip-brands-wrap .cip-agenda-header { gap: 12px; margin-bottom: 44px; }
+  .cip-brands-wrap .cip-agenda-header__line { max-width: 32px; }
+  .cip-brands-wrap .cip-agenda-header__title {
+    font-size: clamp(14px, 4.2vw, 18px);
+    letter-spacing: 0.16em;
+    white-space: normal;
+    text-align: center;
+  }
+  .cip-brands__viewport {
+    margin-top: 36px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+  }
+  .cip-brands__track { gap: 32px; }
+  .cip-brands__item img { height: 44px; }
+  .cip-brands__item--hpe img { height: 43px; }
+  .cip-brands__item--hpi img { height: 51px; }
+  .cip-brands__item--sm img { height: 34px; }
+  .cip-brands__item--xl img { height: 54px; }
+  .cip-brands__item--wide img { height: 26px; }
+  .cip-brands__item--ibm img { height: 62px; }
+}
+
+@media (max-width: 420px) {
+  .cip-brands-wrap .cip-agenda-header__title { font-size: 13px; letter-spacing: 0.12em; }
+  .cip-brands__track { gap: 24px; }
+  .cip-brands__item img { height: 36px; }
+  .cip-brands__item--hpe img { height: 35px; }
+  .cip-brands__item--hpi img { height: 42px; }
+  .cip-brands__item--sm img { height: 28px; }
+  .cip-brands__item--xl img { height: 44px; }
+  .cip-brands__item--wide img { height: 21px; }
+  .cip-brands__item--ibm img { height: 51px; }
+}
+
+/* =============================================
+   ② AGENDA DEL EVENTO
+   ============================================= */
+.cip-agenda-wrap {
+  background: var(--black);
+  padding: 90px 0;
+  overflow: hidden;
+}
+.cip-agenda-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.cip-agenda-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 90px;
+}
+.cip-agenda-header__line {
+  flex: 1;
+  max-width: 160px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), transparent);
+  opacity: 0.6;
+}
+.cip-agenda-header__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.cip-agenda-labels {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: end;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 14px;
+}
+.cip-agenda-label {
+  text-align: center;
+  padding: 0 8px;
+}
+.cip-agenda-marker__time {
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-size: 14px;
+  white-space: nowrap;
+  color: currentColor;
+}
+.cip-agenda-marker__label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.cip-agenda-wave {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  aspect-ratio: 1200 / 260;
+}
+.cip-agenda-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.cip-agenda-glow-path {
+  filter: blur(8px);
+  opacity: 0.55;
+}
+.cip-agenda-scanner {
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 16px var(--electric-pyx));
+}
+
+.cip-agenda-markers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.cip-agenda-marker {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 100%;
+  text-align: center;
+}
+.cip-agenda-marker__line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  border-left: 1px dashed rgba(255,255,255,0.35);
+}
+.cip-agenda-marker__dot {
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor, 0 0 22px currentColor;
+  transform: translate(-50%, -50%);
+  animation: cip-agenda-pulse 5s ease-in-out infinite;
+}
+
+.cip-agenda-marker--rose   { color: var(--ciisa-green); }
+.cip-agenda-marker--purple { color: var(--psw-mint); }
+.cip-agenda-marker--blue   { color: var(--electric-pyx); }
+
+@keyframes cip-agenda-pulse {
+  0%, 24%, 100% { transform: translate(-50%, -50%) translateY(0) scale(1); }
+  6%  { transform: translate(-50%, -50%) translateY(-9px) scale(1.2); }
+  12% { transform: translate(-50%, -50%) translateY(0) scale(1); }
+  18% { transform: translate(-50%, -50%) translateY(-5px) scale(1.1); }
+}
+
+.cip-agenda-icons {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+.cip-agenda-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px currentColor, inset 0 0 10px rgba(255,255,255,0.08);
+}
+.cip-agenda-icon svg { width: 30px; height: 30px; color: currentColor; }
+.cip-agenda-icon--rose   { color: var(--ciisa-green); }
+.cip-agenda-icon--purple { color: var(--psw-mint); }
+.cip-agenda-icon--blue   { color: var(--electric-pyx); }
+
+.cip-agenda-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 56px;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cip-agenda-tagline__line {
+  flex: 1;
+  max-width: 220px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+@media (max-width: 900px) {
+  .cip-agenda-inner { padding: 0 24px; }
+  .cip-agenda-labels { gap: 4px; }
+  .cip-agenda-icons { grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .cip-agenda-icon { width: 48px; height: 48px; }
+  .cip-agenda-icon svg { width: 20px; height: 20px; }
+  .cip-agenda-marker { width: 90px; }
+  .cip-agenda-marker__time { font-size: 9.5px; }
+  .cip-agenda-marker__label { font-size: 9px; }
+}
+
+.cip-agenda-cards { display: none; }
+.cip-agenda-wave--mobile { display: none; }
+
+@media (max-width: 640px) {
+  .cip-agenda-header { gap: 12px; margin-bottom: 60px; }
+  .cip-agenda-header__line { max-width: 40px; }
+
+  .cip-agenda-labels,
+  .cip-agenda-wave,
+  .cip-agenda-icons { display: none; }
+
+  .cip-agenda-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+
+  .cip-agenda-wave--mobile {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -18px;
+    width: 90%;
+    height: 90%;
+    transform: translateY(-50%) rotate(90deg);
+    opacity: 0.18;
+    overflow: visible;
+    pointer-events: none;
+  }
+  .cip-agenda-wave--mobile .cip-agenda-glow-path {
+    filter: blur(6px);
+  }
+
+  .cip-agenda-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid currentColor;
+    border-radius: 14px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.35), inset 0 0 10px rgba(255,255,255,0.05);
+  }
+
+  .cip-agenda-card--rose   { color: var(--ciisa-green); }
+  .cip-agenda-card--purple { color: var(--psw-mint); }
+  .cip-agenda-card--blue   { color: var(--electric-pyx); }
+
+  .cip-agenda-card__icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px currentColor;
+  }
+  .cip-agenda-card__icon svg { width: 22px; height: 22px; color: currentColor; }
+
+  .cip-agenda-card__content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: left;
+  }
+  .cip-agenda-card__time {
+    font-family: var(--font-head);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-size: 13px;
+    white-space: nowrap;
+    color: currentColor;
+  }
+  .cip-agenda-card__label.cip-agenda-card__label--solo {
+    margin-left: auto;
+    text-align: right;
+    font-size: 13px;
+  }
+  .cip-agenda-card__label {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: right;
+    line-height: 1.4;
+  }
+}
+
+/* =============================================
+   SECCIÓN WRAPPER
+   ============================================= */
+.cip-section {
+  padding: 90px 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.cip-section--dark {
+  background: var(--black);
+  max-width: 100%;
+  padding: 90px 0;
+}
+.cip-section--dark .cip-section { padding-top: 0; padding-bottom: 0; }
+
+.cip-section__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--electric-lt);
+  margin-bottom: 12px;
+}
+.cip-section__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.cip-section__subtitle {
+  font-family: var(--font-head);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin-bottom: 24px;
+}
+.cip-section__desc {
+  color: var(--white);
+  font-size: 21px;
+  line-height: 1.8;
+  max-width: 560px;
+}
+.cip-section__desc--center {
+  margin: 0 auto;
+  padding-top: 12px;
+  text-align: center;
+}
+.cip-form-section--gradient-bg .cip-hero__photo {
+  border-radius: var(--radius-lg);
+}
+
+/* =============================================
+   ② CALENDARIOS
+   ============================================= */
+.cip-calendars-wrap {
+  background: var(--black);
+  padding: 90px 0;
+}
+
+.cip-calendars-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.cip-calendars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.cip-calendar {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.3s;
+}
+.cip-calendar:hover { border-color: rgba(37,99,235,0.3); }
+
+.cip-calendar__month {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cip-calendar__month-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background: rgba(37,99,235,0.2);
+  color: #93C5FD;
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+.cip-calendar__days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.cip-calendar__day-name {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.cip-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cip-cal-day {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  border-radius: 8px;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.cip-cal-day--empty { pointer-events: none; }
+
+.cip-cal-day--session {
+  background: var(--electric);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(37,99,235,0.5);
+}
+.cip-cal-day--session:hover {
+  background: var(--electric-lt);
+  color: var(--navy);
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(37,99,235,0.7);
+  z-index: 20;
+}
+
+.cip-cal-day--past {
+  background: rgba(16, 200, 150, 0.12);
+  border: 1px solid rgba(16, 200, 150, 0.35);
+  color: var(--success);
+}
+
+.cip-cal-day--today {
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+}
+
+/* Tooltip */
+.cip-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0F2347;
+  border: 1px solid rgba(37,99,235,0.5);
+  border-radius: 10px;
+  padding: 12px 14px;
+  width: 200px;
+  font-size: 12px;
+  line-height: 1.5;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  white-space: normal;
+  text-align: left;
+}
+.cip-tooltip::after {
+  content:'';
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border:6px solid transparent;
+  border-top-color:#0F2347;
+}
+
+/* Container for multiple tooltips stacked vertically */
+.cip-tooltips {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  z-index: 100;
+}
+.cip-tooltips .cip-tooltip {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: 220px;
+}
+.cip-tooltips .cip-tooltip::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: #0F2347;
+}
+
+/* show on hover */
+.cip-cal-day--session:hover .cip-tooltip,
+.cip-cal-day--session .cip-tooltip:hover,
+.cip-cal-day--session:hover .cip-tooltips,
+.cip-cal-day--session .cip-tooltips:hover { opacity:1; visibility:visible; }
+
+.cip-tooltip__title { font-weight:700; color:var(--white); margin-bottom:4px; font-family:var(--font-head); font-size:13px; letter-spacing:0.02em; }
+.cip-tooltip__date  { color:#93C5FD; margin-bottom:6px; }
+.cip-tooltip__desc  { color:var(--muted); font-size:12px; line-height:1.4; margin-bottom:6px; font-weight: 400; }
+.cip-tooltip__link  { color:var(--electric-lt); text-decoration:underline; cursor:pointer; }
+.cip-tooltip__link.cip-btn { text-decoration: none; }
+.cip-tooltip--past { background: rgba(10,18,44,0.95); border-color: rgba(255,255,255,0.15); }
+
+/* Webinar destacado */
+.cip-webinar-card {
+  background: linear-gradient(145deg, rgba(37,99,235,0.2) 0%, rgba(11,30,75,0.6) 100%);
+  border: 1px solid rgba(37,99,235,0.4);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cip-webinar-card::before {
+  content: 'PRÓXIMO';
+  position: absolute;
+  top: 16px;
+  right: -28px;
+  background: var(--electric);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+}
+
+.cip-webinar-card__eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #93C5FD;
+  margin-bottom: 10px;
+}
+.cip-webinar-card__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+.cip-webinar-card__meta { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+.cip-webinar-card__meta-item {
+  display:flex;
+  align-items:top;
+  gap:10px;
+  font-size:13px;
+  color:var(--muted);
+}
+.cip-webinar-card__meta-item svg { width:16px; height:16px; color:var(--electric-lt); flex-shrink:0; }
+.cip-webinar-card__meta-item strong { color:var(--white); }
+
+/* =============================================
+   ③ FORMULARIO
+   ============================================= */
+.cip-step-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow);
+}
+.cip-step-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.cip-step-copy__title-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.cip-step-copy__title {
+  margin-bottom: 16px;
+  text-align: left;
+  font-size: clamp(28px, 2.4vw, 36px);
+}
+.cip-step-copy__text {
+  width: 100%;
+  max-width: 420px;
+  margin: 0;
+  text-align: left;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.cip-step-media {
+  display: flex;
+  justify-content: center;
+}
+.cip-step-media img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.cip-step-grid--reverse {
+  grid-template-columns: minmax(280px, 1.05fr) minmax(0, 0.95fr);
+}
+.cip-step-grid--reverse .cip-step-copy { order: 2; }
+.cip-step-grid--reverse .cip-step-media { order: 1; }
+
+.cip-form-section {
+  background: var(--black);
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+#como-llegar {
+  background: linear-gradient(
+    to bottom,
+    var(--black) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.cip-form-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cip-form-left__features { margin-top:40px; display:flex; flex-direction:column; gap:20px; }
+
+.cip-badges-stage {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  align-self: center;
+  justify-items: center;
+}
+.cip-badges-intro,
+.cip-badges-grid {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.cip-badges-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.cip-badges-intro.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.cip-badges-intro.is-hidden {
+  opacity: 0;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+.cip-badges-intro__img {
+  width: 100%;
+  max-width: min(75%, 260px);
+  height: auto;
+  filter: drop-shadow(0 0 40px rgba(188,242,0,0.45));
+}
+
+.cip-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 100%;
+  justify-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.cip-badges-grid.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cip-badge-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 1 / 1;
+  padding: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transform: translateY(28px) scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.cip-badge-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.cip-badge-item__img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-badge-item { transition: none; opacity: 1; transform: none; }
+}
+
+.cip-form-section--gradient-bg {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+.cip-form-section--gradient-bg .cip-form-inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 901px) {
+  .cip-form-section--gradient-bg .cip-form-inner {
+    align-items: stretch;
+  }
+  .cip-form-section--gradient-bg .cip-hero__image {
+    height: auto;
+    min-height: 100%;
+  }
+  .cip-form-section--gradient-bg .cip-hero__photo {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.cip-location-header { grid-column: 1 / -1; }
+/* Desktop/laptop: detalles a la izquierda, foto a la derecha, mapa debajo */
+@media (min-width: 901px) {
+  .cip-location-header {
+    grid-column: 1;
+    align-self: center;
+  }
+}
+/* Mismo tamaño y peso que .cip-pulse-claim__desc */
+.cip-location-header .cip-section__desc {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.7;
+  max-width: 640px;
+}
+.cip-location-header .cip-section__desc strong {
+  font-weight: 700;
+}
+
+/* Dirección como hipervínculo al salón en Google Maps */
+.cip-location-link {
+  display: block;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+}
+.cip-location-link .cip-section__desc {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+.cip-location-link:hover .cip-section__desc,
+.cip-location-link:focus-visible .cip-section__desc {
+  color: var(--psw-mint);
+  text-decoration-color: var(--psw-mint);
+}
+.cip-location-link:focus-visible {
+  outline: 2px solid var(--psw-mint);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.cip-location-photo {
+  width: 100%;
+  aspect-ratio: 1.5686 / 1; /* antes 4 / 3: altura -15% (1.3333 / 0.85) */
+  height: auto;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.cip-location-photo__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cip-register {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cip-register__cta { margin-top: 32px; }
+
+.cip-countdown {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: clamp(4px, 2.5vw, 32px);
+  margin-bottom: clamp(28px, 6vw, 48px);
+  width: 100%;
+}
+
+.cip-countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.cip-countdown__number {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 6vw, 5.5rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  background-image: linear-gradient(90deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: cip-headline-gradient-flow 10s ease-in-out infinite;
+}
+
+.cip-countdown__label {
+  margin-top: 6px;
+  font-size: clamp(0.55rem, 1.6vw, 1rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .cip-countdown {
+    gap: 4px;
+  }
+}
+
+/* Revela de nuevo el video fijo del hero: el fondo pasa de negro sólido
+   a un degradado translúcido para que el video se vea a través. */
+.cip-form-section--reveal-video {
+  position: relative;
+  background: transparent;
+}
+
+.cip-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.cip-feature-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(37,99,235,0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cip-feature-icon svg { width:18px; height:18px; color:var(--electric-lt); }
+.cip-feature-text h4 { font-size:14px; font-weight:600; margin-bottom:4px; }
+.cip-feature-text p  { font-size:13px; color:var(--muted); line-height:1.5; }
+
+.cip-form-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.cip-form-box__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cip-form-box__subtitle { font-size:13px; color:var(--muted); margin-bottom:32px; }
+
+/* HubSpot form override — los estilos reales del módulo de HubSpot Forms */
+.hs-form fieldset { max-width: 100% !important; }
+.hs-form .hs-form-field { margin-bottom:20px; }
+.hs-form label {
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:8px;
+}
+.hs-form input,
+.hs-form select,
+.hs-form textarea {
+  width:100%;
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 10px !important;
+  padding: 14px 18px !important;
+  color: var(--white) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  outline: none !important;
+  transition: border-color 0.2s !important;
+}
+.hs-form input:focus,
+.hs-form select:focus {
+  border-color: var(--electric) !important;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15) !important;
+}
+.hs-form select { cursor:pointer; appearance:auto; }
+.hs-form .hs-button {
+  width: 100% !important;
+  background: var(--electric) !important;
+  color: var(--white) !important;
+  border: none !important;
+  border-radius: 100px !important;
+  padding: 18px 32px !important;
+  font-family: var(--font-head) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.5) !important;
+  margin-top: 8px !important;
+}
+.hs-form .hs-button:hover {
+  background: var(--electric-lt) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 32px rgba(37,99,235,0.65) !important;
+}
+.hs-form .hs-error-msgs { margin-top:4px; }
+.hs-form .hs-error-msg { font-size:12px; color:#F87171; }
+.hs-form .submitted-message { color:var(--white); }
+
+/* Mensaje de confirmación custom */
+.cip-success {
+  display: none;
+  background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.1));
+  border: 1px solid rgba(16,185,129,0.4);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  margin-top: 20px;
+}
+.cip-success.show { display:block; animation: fadeInUp 0.4s ease; }
+.cip-success svg { width:48px; height:48px; color:#34D399; margin-bottom:14px; }
+.cip-success h3 { font-family:var(--font-head); font-weight:800; font-size:22px; text-transform:uppercase; margin-bottom:8px; }
+.cip-success p   { font-size:14px; color:var(--muted); }
+
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* =============================================
+   ④ TIMELINE
+   ============================================= */
+.cip-timeline-wrap {
+  background: var(--black);
+  padding: 90px 0;
+  overflow: hidden;
+}
+.cip-timeline-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.cip-timeline { margin-top: 56px; position:relative; }
+
+/* Línea horizontal */
+.cip-timeline__line {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric), transparent);
+  opacity: 0.4;
+}
+
+.cip-timeline__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.cip-tl-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cip-tl-card {
+  perspective: 1400px;
+}
+
+.cip-tl-card__inner {
+  width: 100%;
+  min-height: 270px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  background: var(--black);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(.2,.9,.2,1), box-shadow 0.25s ease;
+  padding: 24px 20px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cip-tl-card__inner:hover {
+  box-shadow: 0 24px 56px rgba(0,0,0,0.35);
+}
+
+.cip-tl-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 20px;
+  border-radius: inherit;
+  backface-visibility: hidden;
+}
+
+.cip-tl-card__face--front {
+  gap: 12px;
+}
+
+.cip-tl-card__face--back {
+  transform: rotateY(180deg);
+  gap: 12px;
+}
+
+.cip-tl-card.is-flipped .cip-tl-card__inner {
+  transform: rotateY(180deg);
+}
+
+.cip-tl-card__inner:focus-visible {
+  outline: 2px solid var(--electric-lt);
+  outline-offset: 3px;
+}
+
+.cip-tl-item__dot {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--electric), #1D4ED8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 0 0 0 8px rgba(37,99,235,0.1), var(--glow);
+  flex-shrink: 0;
+}
+.cip-tl-item__dot svg { width:36px; height:36px; color:var(--white); }
+
+.cip-tl-item__date {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--electric-lt);
+  margin-bottom: 8px;
+}
+
+.cip-ordered-list {
+  margin: 20px 0 0;
+  padding-left: 1rem;
+  color: var(--white);
+}
+.cip-ordered-list__item {
+  color: var(--off-white);
+  font-weight: 600;
+}
+.cip-ordered-list li {
+  margin-bottom: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  padding-left: 1rem;
+}
+
+.cip-ordered-list a {
+  color: var(--electric-lt);
+  text-decoration: none;
+}
+
+.cip-ordered-list a:hover {
+  color: var(--white);
+}
+
+.cip-ordered-list li::marker {
+  color: var(--electric-lt);
+  font-weight: 700;
+}
+.cip-tl-item__name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.cip-tl-item__name--no_uppercase{
+  text-transform: none;
+}
+.cip-tl-item__desc { font-size:13px; color:var(--muted); line-height:1.6; }
+
+.cip-timeline--single-line .cip-timeline__items {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+}
+.cip-timeline--single-line .cip-timeline__line {
+  display: block;
+}
+.cip-timeline--single-line .cip-tl-item {
+  align-items: center;
+}
+.cip-timeline--single-line .cip-tl-item__desc {
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .cip-timeline--single-line .cip-timeline__items {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cip-timeline--single-line .cip-timeline__items {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  .cip-timeline--single-line .cip-timeline__line {
+    display: none;
+  }
+  .cip-timeline--single-line .cip-tl-card__inner {
+    min-height: 240px;
+  }
+  .cip-timeline--single-line .cip-tl-item__dot {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .cip-timeline--single-line .cip-tl-item__desc {
+    margin: 0;
+    max-width: none;
+  }
+}
+@media (max-width: 425px) {
+  .cip-timeline--single-line .cip-timeline__items {
+    grid-template-columns: repeat(1, minmax(0,1fr));
+  }
+  .cip-tl-card__face {justify-content: center; padding: 24px; }
+}
+
+/* =============================================
+   ⑤ BENEFICIOS
+   ============================================= */
+.cip-benefits-wrap {
+  background: var(--black);
+  padding: 90px 0;
+}
+.cip-benefits-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.cip-contact-wrap {
+  background: var(--black);
+  padding: 90px 0;
+}
+.cip-contact-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.cip-contact-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+.cip-contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+}
+.cip-contact-card {
+  padding: 24px;
+  border: 2px solid var(--electric-lt);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cip-contact-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+}
+.cip-contact-card__desc {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.cip-contact-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cip-contact-card__list li {
+  font-size: 14px;
+}
+.cip-contact-card__list a {
+  color: var(--electric-lt);
+  text-decoration: none;
+  font-weight: 600;
+}
+.cip-contact-card__list a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.cip-benefits-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cip-pill {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 16px 28px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.cip-pill:hover {
+  background: rgba(37,99,235,0.12);
+  border-color: rgba(37,99,235,0.4);
+  transform: translateX(8px);
+}
+.cip-pill__icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--electric), #1D4ED8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cip-pill__icon svg { width:20px; height:20px; color:var(--white); }
+.cip-pill__label {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.cip-pill__desc { font-size:13px; color:var(--muted); margin-top:2px; }
+
+.cip-benefits-copy { max-width: 440px; }
+.cip-benefits-copy .cip-section__title { margin-bottom: 20px; }
+.cip-benefits-copy p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.cip-footer {
+  background: #080F1E;
+  border-top: 1px solid var(--border);
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.psw__logo {
+  width: 8%;
+}
+.cip-footer__copy { font-size:13px; color:rgba(255,255,255,0.3); }
+.cip-footer__links { display:flex; gap:24px; }
+.cip-footer__links a { font-size:13px; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s; }
+.cip-footer__links a:hover { color:var(--white); }
+
+/* =============================================
+   RESPONSIVO
+   ============================================= */
+@media (max-width: 1100px) {
+  .cip-hero__photo--large { width: min(420px, 100%); max-height: 320px; }
+  .cip-hero__photo-sequence { width: min(420px, 100%); height: 320px; }
+  .cip-calendars-grid { grid-template-columns: 1fr 1fr; }
+  .cip-webinar-card { grid-column: span 2; }
+}
+
+@media (max-width: 900px) {
+  .cip-hero__nav    { padding: 20px 24px; }
+  .cip-hero__body   { padding: 24px 24px 60px; }
+  .cip-hero__photo  { width: 220px; }
+  .cip-hero__photo--large { width: min(420px, 100%); max-height: 320px; }
+  .cip-stat-card--left  { display:none; }
+  .cip-stat-card--left-V2 { display:none; }
+  .cip-stat-card--right { display:none; }
+  .cip-stat-card--right-V2 { display:none; }
+  .cip-section      { padding: 60px 24px; }
+  .cip-form-inner   { grid-template-columns: 1fr; gap:40px; padding:0 24px; }
+  .cip-benefits-inner { grid-template-columns: 1fr; gap:40px; padding:0 24px; }
+  .cip-contact-inner { padding:0 24px; }
+  .cip-contact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cip-timeline-inner { padding:0 24px; }
+  .cip-timeline__items { grid-template-columns:repeat(2,1fr); }
+  .cip-timeline__line { display:none; }
+  .cip-footer { flex-direction:column; gap:16px; text-align:center; padding:32px 24px; }
+  .cip-hero__logo { width: 50%; }
+  .cip-hero__headlines { height: max(var(--headline-area-height, 220px), 220px); }
+  .psw__logo { width: 8%; }
+}
+
+@media (max-width: 640px) {
+  .cip-hero {
+    padding-bottom: 20px;
+  }
+
+  .cip-hero__body {
+    padding-bottom: 82px;
+  }
+
+  .cip-hero__date-container {
+    padding: 0 20px;
+  }
+
+  .cip-hero__sub {
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+
+  .cip-hero__sub--traking {
+    font-size: clamp(13px, 4vw, 18px);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .cip-hero__scroll {
+    bottom: 10px;
+    gap: 6px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .cip-step-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+  .cip-step-copy__title-wrap {
+    justify-content: flex-start;
+  }
+  .cip-step-copy__title {
+    text-align: left;
+  }
+  .cip-step-copy__text {
+    max-width: none;
+  }
+  .cip-calendars-inner { padding:0 16px; }
+  .cip-contact-cards { grid-template-columns: 1fr; }
+  .cip-calendars-grid  { grid-template-columns:1fr; overflow-x:auto; display:flex; gap:16px; padding-bottom:16px; scroll-snap-type:x mandatory; }
+  .cip-calendar        { min-width:280px; scroll-snap-align:start; }
+  .cip-webinar-card    { min-width:280px; scroll-snap-align:start; }
+  .cip-timeline__items { grid-template-columns:1fr; }
+  .cip-tl-item         { flex-direction:row; text-align:left; gap:20px; }
+  .cip-tl-item__dot    { width:56px; height:56px; margin-bottom:0; flex-shrink:0; }
+  .cip-hero__headline  { font-size:36px; }
+  .cip-hero__logo { width: 50%; }
+  .psw__logo { width: 8%; }
+}
+@media (max-width: 425px) {
+  .cip-hero__logo { width: 70%; }
+  .psw__logo { width: 5%; }
+  .cip-timeline__items { grid-template-columns: repeat(0, 1fr); }
+}
+@media (max-width: 375px) {
+  .cip-hero__logo { width: 70%; }
+  .psw__logo { width: 5%; }
+}
+@media (max-width: 320px) {
+  .cip-hero__logo { width: 70%; }
+  .psw__logo { width: 5%; }
+}
+/* Nav en móvil: logo 40% / botón 60% */
+@media (max-width: 640px) {
+  .cip-hero__nav {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 16px;
+  }
+  .cip-hero__nav > .cip-hero__logo,
+  .cip-hero__nav > .cip-btn {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .cip-hero__nav .cip-logo { display: block; }
+  .cip-hero__nav .cip-logo .cip-hero__logo {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .cip-hero__nav > .cip-btn {
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+    line-height: 1.25;
+  }
+}
+
+/* Título de registro con ornamentos laterales (mismo patrón que la agenda) */
+.cip-register__heading { margin-bottom: 24px; }
+.cip-register__heading .cip-section__title { margin: 0; white-space: nowrap; }
+
+/* "Sobre Beyond" ahora va justo debajo del hero: hereda el fundido de video -> negro que antes
+   daba la sección de marcas (transparente arriba, negro sólido después). */
+#ilusionista {
+  /* Fundido más largo: el negro sólido llega hasta el último tercio de la sección */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 25%,
+    rgba(0, 0, 0, 0.7) 50%,
+    var(--black) 80%,
+    var(--black) 100%
+  );
+}
+
+/* Sección clon (#ilusionista-2): 35 aniversario y badges 20% más grandes, misma grilla y proporciones */
+#ilusionista-2 .cip-badges-intro__img { max-width: min(90%, 312px); }  /* 260px x 1.2 (75% x 1.2) */
+#ilusionista-2 .cip-badges-grid { gap: 24px; }                          /* 20px x 1.2 */
+#ilusionista-2 .cip-badge-item { max-width: 180px; padding: 19px; }     /* 150px / 16px x 1.2 */
+
+/* Tramo final (registro -> sobre Beyond clon -> marcas): el negro se recorre hacia abajo para que el
+   video fijo (parallax) se aprecie. Registro ya es transparente; el clon queda casi transparente
+   (un velo leve para legibilidad) y el negro sólido llega hasta el final de Marcas Participantes. */
+#ilusionista-2 {
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Grilla de logos en "Sobre Beyond": 3 columnas (16 logos = 5 filas de 3 + 1 centrado) */
+.cip-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  align-self: center;
+}
+.cip-logos-grid__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 8 / 5; /* CELL_RATIO = 1.6 en logos-grid.js */
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transform: translateY(20px) scale(0.94);
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease;
+}
+.cip-logos-grid__item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.cip-logos-grid__item img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  max-height: 70%;
+  object-fit: contain;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.cip-logos-grid__item:hover { background: rgba(255, 255, 255, 0.08); }
+.cip-logos-grid__item:hover img { opacity: 1; }
+
+/* El logo suelto de la última fila queda centrado */
+.cip-logos-grid__item:last-child:nth-child(3n + 1) { grid-column: 2; }
+@media (max-width: 600px) {
+  .cip-logos-grid { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-logos-grid__item { opacity: 1; transform: none; transition: none; }
+}
+
+/* Título display: grande y con presencia junto a la grilla de logos ("Sobre Beyond").
+   "tecnología" baja a su propia línea con el degradado animado. */
+/* Desktop/laptop: "MÁS ALLÁ DE LA" mide ~9 em, así que 10.7cqw del ancho de la columna lo deja en una
+   sola línea (con "tecnología" debajo = 2 líneas) en cualquier ancho de laptop o desktop. */
+.cip-form-left { container-type: inline-size; }
+.cip-section__title--display {
+  font-size: clamp(36px, 10.7cqw, 84px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  overflow-wrap: break-word;
+}
+.cip-section__title--display .cip-hero__headline-span--pulse {
+  display: block;
+  margin-top: 0.04em;
+}
+@media (max-width: 900px) {
+  .cip-section__title--display {
+    font-size: clamp(40px, 10.5vw, 84px);
+    margin-bottom: 20px;
+  }
+}
+
+/* Subtítulo grande bajo el título display: sin mayúsculas, peso extralight, tracking de 5pt */
+.cip-section__label--subtitle {
+  font-family: var(--font-head);
+  font-size: clamp(24px, 5.2cqw, 40px);
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: 5pt;
+  text-transform: none;
+  color: var(--white);
+  margin-bottom: 20px;
+  max-width: 18em;
+}
+@media (max-width: 900px) {
+  .cip-section__label--subtitle { font-size: clamp(20px, 5.4vw, 32px); }
+}
+
+/* Texto solo para buscadores y lectores de pantalla: no ocupa espacio ni se ve */
+.cip-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Botón flotante de WhatsApp: simple en reposo, degradado animado en hover / activo */
+.cip-whatsapp {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: var(--white);
+  background-color: rgba(8, 15, 30, 0.85);
+  background-image: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  background-blend-mode: normal;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  /* El degradado está debajo, oculto por una capa sólida que se desvanece en hover */
+  isolation: isolate;
+  overflow: hidden;
+}
+.cip-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(8, 15, 30, 0.92);
+  transition: opacity 0.35s ease;
+}
+.cip-whatsapp:hover,
+.cip-whatsapp:focus-visible,
+.cip-whatsapp:active {
+  color: var(--navy-deep);
+  border-color: transparent;
+  transform: translateY(-3px);
+  animation: cip-gradient-flow 6s ease-in-out infinite;
+}
+.cip-whatsapp:hover::before,
+.cip-whatsapp:focus-visible::before,
+.cip-whatsapp:active::before { opacity: 0; }
+.cip-whatsapp:focus-visible { outline: 2px solid var(--psw-mint); outline-offset: 4px; }
+.cip-whatsapp svg { position: relative; }
+
+@media (max-width: 640px) {
+  .cip-whatsapp { right: 16px; bottom: 16px; width: 52px; height: 52px; }
+  .cip-whatsapp svg { width: 25px; height: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-whatsapp:hover, .cip-whatsapp:focus-visible, .cip-whatsapp:active { animation: none; transform: none; }
+}
+
+/* Experiencia Beyond: la ola animada (desktop) y las cartas (móvil) quedan ocultas;
+   se reemplazan por una grilla 3x2 de tarjetas. */
+.cip-agenda-labels,
+.cip-agenda-wave,
+.cip-agenda-icons,
+.cip-agenda-cards { display: none !important; }
+
+.cip-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.cip-exp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 190px;
+  padding: 32px 24px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  transition: background 0.3s ease;
+}
+.cip-exp-card::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  background-size: 300% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cip-exp-card:hover { background: rgba(255, 255, 255, 0.08); }
+.cip-exp-card:hover::after {
+  opacity: 1;
+  animation: cip-exp-border-flow 3s linear infinite;
+}
+@keyframes cip-exp-border-flow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 150% 50%; }
+}
+.cip-exp-card__icon { width: 44px; height: 44px; margin-bottom: 6px; }
+.cip-exp-card__icon svg { width: 100%; height: 100%; display: block; }
+.cip-exp-card:nth-child(1) .cip-exp-card__icon,
+.cip-exp-card:nth-child(2) .cip-exp-card__icon { color: var(--ciisa-green); }
+.cip-exp-card:nth-child(3) .cip-exp-card__icon,
+.cip-exp-card:nth-child(4) .cip-exp-card__icon { color: var(--psw-mint); }
+.cip-exp-card:nth-child(5) .cip-exp-card__icon,
+.cip-exp-card:nth-child(6) .cip-exp-card__icon { color: var(--electric-pyx); }
+.cip-exp-card__time {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.cip-exp-card__label {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+@media (max-width: 640px) {
+  .cip-exp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 44px; }
+  .cip-exp-card { min-height: 150px; padding: 22px 14px; }
+  .cip-exp-card__icon { width: 36px; height: 36px; }
+  .cip-exp-card__label { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-exp-card:hover::after { animation: none; }
+}
+
+/* Fila 1: cifras + subtítulo, sin caja. Hover: fundido a bold. */
+.cip-exp-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 8px 4px 20px;
+  text-align: left;
+  cursor: default;
+}
+.cip-exp-head__num {
+  font-family: var(--font-head);
+  font-weight: 200;
+  font-size: clamp(64px, 7.5vw, 112px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 12px;
+}
+.cip-exp-head__suffix {
+  font-size: 0.32em;
+  letter-spacing: 0;
+  color: var(--white);
+  white-space: nowrap;
+}
+.cip-exp-head__label {
+  font-family: var(--font-head);
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--white);
+}
+/* Hover: fundido cruzado entre la versión delgada y la bold (sin pasar por los pesos intermedios).
+   Las dos capas se apilan en la misma celda; la bold define el ancho para que nada salte. */
+.cip-exp-fade { display: grid; }
+.cip-exp-fade > span {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: inherit;
+  transition: opacity 0.45s ease;
+}
+.cip-exp-fade__bold { font-weight: 700; opacity: 0; }
+.cip-exp-head:hover .cip-exp-fade__base { opacity: 0; }
+.cip-exp-head:hover .cip-exp-fade__bold { opacity: 1; }
+
+/* Fila 2: descripciones (misma caja y hover de borde degradado) */
+.cip-exp-card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  min-height: 0;
+}
+.cip-exp-card__desc {
+  margin: 0;
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--white);
+}
+.cip-exp-card__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cip-exp-card__list li {
+  position: relative;
+  padding-left: 18px;
+}
+.cip-exp-card__list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  background-image: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: cip-headline-gradient-flow 10s ease-in-out infinite;
+}
+/* Móvil: una columna, cada cifra seguida de su descripción */
+@media (max-width: 640px) {
+  .cip-exp-grid { grid-template-columns: 1fr; }
+  .cip-exp-head { padding: 12px 0 4px; }
+  .cip-exp-head__num { font-size: clamp(56px, 17vw, 80px); }
+  .cip-exp-head__label { font-size: 18px; }
+  .cip-exp-card__desc { font-size: 14px; }
+  /* 3 cifras (1-3), 3 descripciones (4-6), 2 separadores (7-8): cifra, descripción, línea */
+  .cip-exp-grid > :nth-child(1) { order: 1; }
+  .cip-exp-grid > :nth-child(4) { order: 2; }
+  .cip-exp-grid > :nth-child(7) { order: 3; }
+  .cip-exp-grid > :nth-child(2) { order: 4; }
+  .cip-exp-grid > :nth-child(5) { order: 5; }
+  .cip-exp-grid > :nth-child(8) { order: 6; }
+  .cip-exp-grid > :nth-child(3) { order: 7; }
+  .cip-exp-grid > :nth-child(6) { order: 8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-exp-fade > span { transition: none; }
+}
+
+/* Tarjetas de Experiencia Beyond: título bold y palabras clave destacadas */
+.cip-exp-card__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+.cip-exp-card__desc strong {
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Numerales y subtítulos fijos en bold en todos los tamaños (sin fundido light → bold) */
+.cip-exp-fade__base { opacity: 0 !important; }
+.cip-exp-fade__bold { opacity: 1 !important; }
+.cip-exp-fade > span { transition: none; }
+
+/* Tablet y desktop (≥641px): 2 columnas, numeral a la izquierda y su descripción a la derecha */
+@media (min-width: 641px) {
+  .cip-exp-grid {
+    /* 222px: "Conferencias de casos" (210px en bold 18px) cabe y "de éxito" baja al 2º renglón */
+    grid-template-columns: 222px minmax(0, 1fr);
+    column-gap: 24px;
+    row-gap: 20px;
+    align-items: center;
+  }
+  .cip-exp-grid > :nth-child(1) { grid-area: 1 / 1; }
+  .cip-exp-grid > :nth-child(4) { grid-area: 1 / 2; }
+  .cip-exp-grid > :nth-child(7) { grid-area: 2 / 1 / 3 / -1; }
+  .cip-exp-grid > :nth-child(2) { grid-area: 3 / 1; }
+  .cip-exp-grid > :nth-child(5) { grid-area: 3 / 2; }
+  .cip-exp-grid > :nth-child(8) { grid-area: 4 / 1 / 5 / -1; }
+  .cip-exp-grid > :nth-child(3) { grid-area: 5 / 1; }
+  .cip-exp-grid > :nth-child(6) { grid-area: 5 / 2; }
+  .cip-exp-head { padding: 0; }
+  .cip-exp-head__num { font-size: clamp(56px, 9vw, 88px); }
+  .cip-exp-head__label { font-size: 18px; }
+  .cip-exp-card { align-self: stretch; justify-content: center; }
+}
+
+/* Separador entre filas: línea de 0.8px con degradado animado, en todos los tamaños */
+@media all {
+  .cip-exp-sep {
+    display: block;
+    /* 1px real escalado a 0.8: una altura fraccionaria (0.8px) se redondea a 0 o 1 píxel según
+       la posición vertical y la línea parpadea al redimensionar. */
+    height: 1px;
+    transform: scaleY(0.8);
+    background: linear-gradient(90deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+    background-size: 300% 100%;
+    animation: cip-exp-border-flow 3s linear infinite;
+    margin: 8px 0;
+  }
+}
+
+/* Salto de línea solo en móvil (p. ej. "Experiencia / Beyond") */
+.cip-br-mobile { display: none; }
+@media (max-width: 640px) {
+  .cip-br-mobile { display: inline; }
+  .cip-agenda-header__title:has(.cip-br-mobile) { text-align: center; line-height: 1.2; }
+
+  /* Numerales y subtítulos centrados en móvil */
+  .cip-exp-head { align-items: center; text-align: center; }
+  .cip-exp-head__num,
+  .cip-exp-fade > span { justify-content: center; }
+}
+
+/* Tagline de la agenda centrado en móvil */
+@media (max-width: 640px) {
+  .cip-agenda-tagline {
+    text-align: center;
+    gap: 12px;
+    letter-spacing: 0.18em;
+    line-height: 1.7;
+  }
+  .cip-agenda-tagline__line { max-width: 32px; flex: 0 0 32px; }
+}
+
+/* Botón de registro: 90% del ancho del contenedor, versión con orilla animada, en mayúsculas */
+.cip-register__cta { width: 100%; }
+.cip-register__btn {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+/* ===== Registro propio (rsvp-form.js) ===== */
+.cip-rsvp {
+  width: 100%;
+  text-align: left;
+}
+.cip-rsvp__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.cip-rsvp__field { display: flex; flex-direction: column; gap: 8px; }
+.cip-rsvp__field--full { grid-column: 1 / -1; }
+.cip-rsvp__label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.8);
+}
+.cip-rsvp input[type="text"],
+.cip-rsvp input[type="email"],
+.cip-rsvp input[type="tel"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  font: inherit;
+  font-size: 16px; /* evita el zoom automático en iOS */
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cip-rsvp input:focus {
+  outline: none;
+  border-color: var(--psw-mint);
+  background: rgba(0, 0, 0, 0.75);
+}
+/* Validación por campo */
+.cip-rsvp input::placeholder { color: rgba(255, 255, 255, 0.35); }
+.cip-rsvp__field.is-invalid input { border-color: #ff6b6b; }
+.cip-rsvp__field.is-valid input { border-color: rgba(188, 242, 0, 0.6); }
+.cip-rsvp__error {
+  min-height: 1.2em;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #ff8a8a;
+}
+.cip-rsvp__check-wrap { margin: 4px 0 16px; }
+.cip-rsvp__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}
+.cip-rsvp__check input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--ciisa-green);
+  cursor: pointer;
+}
+.cip-rsvp__check-wrap .cip-rsvp__error { display: block; margin: 6px 0 0 32px; }
+.cip-rsvp__status a,
+.cip-rsvp__status a { color: var(--psw-mint); }
+.cip-rsvp__status {
+  min-height: 1.4em;
+  margin: 0 0 12px;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+.cip-rsvp__status.is-error { color: #ff8a8a; }
+.cip-rsvp button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  animation-play-state: paused;
+}
+.cip-rsvp.is-busy button[disabled] { cursor: progress; }
+
+@media (max-width: 640px) {
+  .cip-rsvp__grid { grid-template-columns: 1fr; }
+}
+
+/* Modal de agradecimiento */
+.cip-thanks {
+  width: min(520px, calc(100% - 32px));
+  margin: auto; /* el reset global quita el centrado nativo de <dialog> */
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+}
+.cip-thanks::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.cip-thanks__box {
+  position: relative;
+  padding: 40px 32px 32px;
+  text-align: center;
+  background: #080F1E;
+  border: 1px solid var(--border);
+}
+.cip-thanks__box::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), var(--ciisa-green));
+  background-size: 300% 100%;
+  animation: cip-exp-border-flow 3s linear infinite;
+}
+.cip-thanks__eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--psw-mint);
+}
+.cip-thanks__title {
+  margin: 0 0 14px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(26px, 5vw, 34px);
+  line-height: 1.15;
+}
+.cip-thanks__text {
+  margin: 0 0 28px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+.cip-thanks__text strong { font-weight: 700; color: var(--white); }
+.cip-thanks[open] .cip-thanks__box { animation: cip-thanks-in 0.35s ease-out; }
+@keyframes cip-thanks-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-thanks[open] .cip-thanks__box,
+  .cip-thanks__box::before { animation: none; }
+}
+/* Botón de registro desactivado: sin el relleno de hover */
+.cip-rsvp button[disabled]:hover {
+  background-image: linear-gradient(var(--black), var(--black)), var(--cip-gradient);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Registro responsivo: margen lateral para que el formulario no toque las orillas */
+.cip-register {
+  box-sizing: border-box;
+  max-width: calc(640px + 48px);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.cip-rsvp input[type="text"],
+.cip-rsvp input[type="email"],
+.cip-rsvp input[type="tel"] { min-width: 0; text-overflow: ellipsis; }
+@media (max-width: 640px) {
+  .cip-register { padding-left: 20px; padding-right: 20px; }
+  .cip-rsvp__grid { gap: 12px; }
+  .cip-rsvp input[type="text"],
+  .cip-rsvp input[type="email"],
+  .cip-rsvp input[type="tel"] { padding: 13px 14px; }
+}
+
+/* Hipervínculos de texto (fuera del footer) en verde CiiSA */
+.cip-page section a:not(.cip-btn):not(.cip-logo) {
+  color: var(--ciisa-green);
+  text-decoration-color: currentColor;
+}
+.cip-page section a:not(.cip-btn):not(.cip-logo):hover { color: var(--psw-mint); }
+.cip-location-header .cip-location-link .cip-section__desc {
+  color: var(--ciisa-green);
+  text-decoration-color: rgba(188, 242, 0, 0.5);
+}
+.cip-location-header .cip-location-link:hover .cip-section__desc,
+.cip-location-header .cip-location-link:focus-visible .cip-section__desc {
+  color: var(--psw-mint);
+  text-decoration-color: var(--psw-mint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cip-exp-sep { animation: none; }
+}
+
+/* Numerales tipo slot (exp-slots.js): cada dígito es un rodillo vertical que gira hasta su valor */
+/* Todo el numeral en la misma rejilla de 1.1em: el "+" y los rodillos quedan alineados */
+.cip-slot-num { display: inline-flex; align-items: flex-start; line-height: 1.1em; }
+.cip-slot-num > span:not(.cip-slot) { display: block; height: 1.1em; }
+.cip-slot {
+  display: inline-block;
+  height: 1.1em;
+  line-height: 1.1em;
+  /* Recorta solo arriba y abajo; a los lados los dígitos anchos pueden sobresalir al girar */
+  clip-path: inset(0 -0.5em);
+}
+.cip-slot__strip { align-items: center; }
+.cip-slot__strip {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* frena suave al final */
+  will-change: transform;
+}
+.cip-slot__strip > span { display: block; height: 1.1em; }
+.is-slot-done .cip-slot__strip {
+  transform: translateY(calc(var(--slot-steps) * -1.1em));
+}
+.is-slot-instant .cip-slot__strip { transition: none; }
+
+/* Barrido: desenfoque mientras gira, nítido al llegar al número final */
+.is-slot-done:not(.is-slot-instant) .cip-slot__strip,
+.is-slot-done:not(.is-slot-instant) .cip-slot__sym {
+  animation:
+    cip-headline-gradient-flow 18s ease-in-out infinite,
+    cip-slot-blur var(--slot-dur, 1400ms) cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes cip-slot-blur {
+  0%   { filter: blur(0); }
+  12%  { filter: blur(0.07em); }
+  55%  { filter: blur(0.05em); }
+  85%  { filter: blur(0.015em); }
+  100% { filter: blur(0); }
+}
+.cip-slot__strip > span { text-align: center; }
+.cip-slot__probe {
+  position: absolute;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+/* Subtítulos de cifras como bloque (no flex) para que respeten los <br> manuales */
+.cip-exp-head__label.cip-exp-fade > span { display: block; }
+
+/* Tablet y móvil: la fecha se ancla 60px arriba del logo de Beyond sin mover el logo.
+   La fecha original conserva su espacio (visibility) para que el centrado del hero no cambie. */
+.cip-hero__date--anchored { display: none; }
+@media (max-width: 1024px) {
+  .cip-hero__image--featured { position: relative; }
+  .cip-hero__date-container { visibility: hidden; }
+  .cip-hero__date--anchored {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(100% + 60px);
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* ===== ¿Para quién es BEYOND?: banda delgada horizontal (desktop) / lista (móvil) ===== */
+.cip-offer {
+  position: relative;
+  background: var(--black);
+  padding: 72px 0 76px;
+}
+.cip-offer::before,
+.cip-offer::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ciisa-green), var(--psw-mint), var(--electric-pyx), transparent);
+  opacity: 0.55;
+}
+.cip-offer::before { top: 0; }
+.cip-offer::after { bottom: 0; }
+.cip-offer__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  text-align: center;
+}
+.cip-offer__title {
+  font-family: var(--font-head);
+  font-weight: 900; /* Black, en mayúsculas como "Más allá de la tecnología" */
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: clamp(32px, 3.8vw, 56px);
+  line-height: 1;
+  color: var(--white);
+  margin: 0 0 32px;
+}
+/* Desktop: una sola línea de perfiles separados por puntos en degradado */
+.cip-offer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+}
+.cip-offer__item {
+  display: flex;
+  align-items: center;
+  font-size: clamp(19px, 1.7vw, 26px);
+  font-weight: 200;
+  line-height: 1.3;
+  color: var(--white);
+  white-space: nowrap;
+}
+.cip-offer__item + .cip-offer__item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin: 0 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx));
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .cip-offer__inner { padding: 0 24px; }
+  .cip-offer__item { font-size: 20px; }
+  .cip-offer__item + .cip-offer__item::before { margin: 0 14px; }
+}
+/* Móvil: lista vertical centrada, cada perfil con su punto */
+@media (max-width: 640px) {
+  .cip-offer { padding: 56px 0 60px; }
+  .cip-offer__title { font-size: 34px; margin-bottom: 26px; }
+  .cip-offer__list { flex-direction: column; row-gap: 16px; }
+  .cip-offer__item { font-size: 21px; }
+  .cip-offer__item::before,
+  .cip-offer__item + .cip-offer__item::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin: 0 12px 0 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx));
+  }
+}
+
+/* Título "Experiencia Beyond" oculto a la vista (sigue disponible para lectores de pantalla y buscadores) */
+#agenda .cip-agenda-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* "¿Para quién es BEYOND?" fusionado dentro de Experiencia Beyond (#agenda):
+   conserva sus estilos; sin fondo ni márgenes propios y con una línea degradada que lo separa de las cifras */
+.cip-offer--merged {
+  background: transparent;
+  padding: 0 0 56px;
+  margin-bottom: 56px;
+}
+.cip-offer--merged::before { display: none; }
+.cip-offer--merged .cip-offer__inner { max-width: none; padding: 0; }
+@media (max-width: 640px) {
+  .cip-offer--merged { padding-bottom: 44px; margin-bottom: 44px; }
+}
+
+/* ===== Total destacado (+400 Asistentes) ===== */
+.cip-exp-total {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.cip-exp-head--total {
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0 22px;
+  flex-wrap: wrap;
+  padding: 0;
+  text-align: center;
+}
+.cip-exp-head--total .cip-exp-head__num { font-size: clamp(72px, 9vw, 140px); }
+.cip-exp-head--total .cip-exp-head__label { font-size: clamp(34px, 4vw, 60px); }
+
+/* ===== Al asistir obtendrás ===== */
+.cip-exp-benefits { margin: 8px 0 64px; text-align: center; }
+.cip-exp-benefits__title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: clamp(30px, 3.4vw, 50px);
+  line-height: 1;
+  margin: 0 0 28px;
+}
+.cip-exp-benefits__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+/* Beneficios sin caja: ícono arriba y texto centrado */
+.cip-exp-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 200;
+  line-height: 1.5;
+  color: var(--white);
+}
+.cip-exp-benefit__icon { width: 44px; height: 44px; color: var(--ciisa-green); flex: none; }
+.cip-exp-benefit:nth-child(2) .cip-exp-benefit__icon,
+.cip-exp-benefit:nth-child(3) .cip-exp-benefit__icon { color: var(--psw-mint); }
+.cip-exp-benefit:nth-child(4) .cip-exp-benefit__icon { color: var(--electric-pyx); }
+.cip-exp-benefit__text { margin: 0; max-width: 16em; }
+
+/* Subtítulo de cada beneficio: la palabra clave con degradado animado (sin barrido) */
+.cip-exp-benefit__title {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(22px, 1.9vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.cip-exp-benefit { gap: 10px; }
+.cip-exp-benefit__icon { margin-bottom: 4px; }
+
+
+@media (max-width: 1024px) {
+  .cip-exp-total { margin-bottom: 36px; }
+  .cip-exp-benefits__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .cip-exp-head--total { flex-direction: column; align-items: center; }
+  .cip-exp-benefits { margin-bottom: 48px; }
+  .cip-exp-benefits__grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Desktop: mismo acomodo que tablet, con columna de numerales más ancha */
+@media (min-width: 1025px) {
+  .cip-exp-grid {
+    grid-template-columns: 340px minmax(0, 1fr);
+    column-gap: 48px;
+    row-gap: 28px;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cip-exp-head__num { font-size: 96px; }
+  .cip-exp-head__label { font-size: 22px; }
+  .cip-exp-card { padding: 32px 36px; }
+  .cip-exp-card__desc { font-size: 17px; }
+}
+
+/* Beneficios: misma entrada que .cip-badge-item (sube, crece y aparece).
+   Solo se ocultan si el script está activo (.is-reveal-ready), así sin JS siempre se ven. */
+.is-reveal-ready .cip-exp-benefit {
+  opacity: 0;
+  transform: translateY(28px) scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.is-reveal-ready .cip-exp-benefit.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Detalles del evento: "Participa a tu ritmo" y el horario como subtítulos; lugar y dirección abajo */
+.cip-location-subs { margin: 18px 0 26px; }
+.cip-location-sub {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white);
+}
+.cip-location-sub--light {
+  margin-top: 6px;
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 300;
+}
+.cip-location-header .cip-location-venue { margin-bottom: 2px; }
+
+/* Tu registro incluye: 5 beneficios (se sumó Demos). Escritorio en 5 columnas; tablet 3 + 2 centrados; móvil sigue en 1 columna */
+.cip-exp-benefits__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cip-exp-benefits__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .cip-exp-benefit { grid-column: span 2; }
+  .cip-exp-benefit:nth-child(4) { grid-column: 2 / span 2; }
+}
+@media (max-width: 640px) {
+  .cip-exp-benefits__grid { grid-template-columns: 1fr; }
+}
+
+/* ¿Quién te invitó?: lista de sugerencias del autocompletado (invito-field.js) */
+.cip-combo { position: relative; }
+.cip-combo__list {
+  position: absolute;
+  top: calc(100% - 8px - 15.6px); /* borde inferior del campo: quita el gap (8px) y el texto de error (13px × 1.2) */
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #0b1220;
+  border: 1px solid var(--psw-mint);
+  border-top: 0;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+.cip-combo__list[hidden] { display: none; }
+.cip-combo__option {
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--white);
+  cursor: pointer;
+}
+.cip-combo__option--canal { color: rgba(255, 255, 255, 0.78); }
+.cip-combo__option:hover,
+.cip-combo__option[aria-selected="true"] { background: rgba(1, 251, 206, 0.12); color: var(--psw-mint); }
+.cip-combo__empty { padding: 12px 16px; font-size: 14px; color: rgba(255, 255, 255, 0.6); }
+
+/* Registro: casilla opcional de marketing (15 oct). Va pegada a la del aviso de privacidad y su texto
+   es un poco más tenue; la etiqueta "(Opcional)" la distingue de la obligatoria. No entra a la validación. */
+.cip-rsvp__check-wrap--optional { margin-top: -8px; }
+.cip-rsvp__check-wrap--optional .cip-rsvp__check { color: rgba(255, 255, 255, 0.78); }
+.cip-rsvp__optional { color: rgba(255, 255, 255, 0.55); white-space: nowrap; }
+
+/* =============================================
+   AGENDA POR HORA (#programa, 15 oct)
+   Tablero de tres espacios. Escritorio: una columna por espacio y una fila por cada 5 minutos, así cada
+   bloque mide lo que dura (agenda-board.js fija --c, --r1 y --r2 de cada elemento). Tablet y celular (≤1024):
+   la misma estructura se vuelve una lista cronológica agrupada por hora, con filtros por espacio.
+   No usa sticky: .cip-page tiene overflow-x oculto y lo rompería.
+   ============================================= */
+.cip-program {
+  background: var(--black);
+  padding: 90px 0 70px;
+}
+.cip-program__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+.cip-program .cip-agenda-header { margin-bottom: 18px; }
+.cip-program__lead {
+  margin: 0 auto 48px;
+  max-width: 34em;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Colores por espacio */
+.cip-program [data-stage="exito"] { --sc: var(--ciisa-green); }
+.cip-program [data-stage="labs"]  { --sc: var(--psw-mint); }
+.cip-program [data-stage="pc"]    { --sc: var(--electric-pyx); }
+.cip-program [data-stage="todos"] { --sc: rgba(255, 255, 255, 0.55); }
+
+.cip-program__filters { display: none; }
+
+.cip-program__board {
+  --u: 18px;                                     /* alto de cada 5 minutos: 3.6 px por minuto */
+  display: grid;
+  grid-template-columns: 64px 46px minmax(0, 1fr) 46px minmax(0, 1fr);
+  grid-template-rows: auto repeat(var(--rows, 126), var(--u));
+  column-gap: 10px;
+}
+.cip-program__board > * {
+  grid-column: var(--c);
+  grid-row: var(--r1) / var(--r2);
+}
+
+.cip-program__head {
+  align-self: end;
+  padding: 0 4px 14px;
+  border-bottom: 3px solid var(--sc);
+}
+.cip-program__head-name {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--sc);
+}
+.cip-program__head-place {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.cip-program__rule {
+  align-self: start;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.09);
+}
+.cip-program__hour {
+  align-self: start;
+  justify-self: end;
+  transform: translateY(-50%);
+  padding-right: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* Etiqueta vertical de un tema o espacio (Ciberseguridad, Manufactura | Productividad, PC Experiencias): ocupa el carril
+   junto a su columna, con la línea del lado de las tarjetas (el giro de 180° la deja a la derecha). */
+.cip-program__rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ciisa-green);
+  background: linear-gradient(270deg, rgba(188, 242, 0, 0.14), rgba(188, 242, 0, 0.03));
+  border-left: 3px solid var(--ciisa-green);
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+}
+.cip-program__rail--pc {
+  color: var(--electric-pyx);
+  background: linear-gradient(270deg, rgba(0, 204, 255, 0.16), rgba(0, 204, 255, 0.03));
+  border-left-color: var(--electric-pyx);
+}
+
+.cip-program__item {
+  align-self: stretch;
+  margin: 1px 0;
+  padding: 6px 12px 6px 11px;
+  overflow: hidden;
+  border-left: 3px solid var(--sc);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+  transition: background 0.2s ease;
+}
+.cip-program__item:hover { background: rgba(255, 255, 255, 0.1); }
+.cip-program__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.cip-program__time { font-weight: 700; color: var(--sc); }
+.cip-program__dur { font-size: 11px; color: rgba(255, 255, 255, 0.55); }
+.cip-program__brand {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.cip-program__stage,
+.cip-program__tema { display: none; }
+.cip-program__title {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--white);
+}
+.cip-program__item.is-short { padding-top: 4px; padding-bottom: 4px; }
+.cip-program__item.is-short .cip-program__dur { display: none; }
+/* Bloques de 10 minutos o menos: se compactan para caber en dos filas */
+.cip-program__item.is-tiny { padding-top: 2px; padding-bottom: 2px; }
+.cip-program__item.is-tiny .cip-program__meta { line-height: 1.2; }
+.cip-program__item.is-tiny .cip-program__title { margin-top: 0; line-height: 1.15; }
+
+/* Networking y clausura: bloques neutros, sin color de espacio */
+.cip-program__item.is-networking {
+  border-left-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+.cip-program__item.is-networking .cip-program__title,
+.cip-program__item.is-clausura .cip-program__title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+.cip-program__item.is-clausura {
+  border-left-color: var(--ciisa-green);
+  background: linear-gradient(90deg, rgba(188, 242, 0, 0.16), rgba(1, 251, 206, 0.1) 55%, rgba(0, 204, 255, 0.1));
+}
+.cip-program__item.is-clausura .cip-program__time { color: var(--ciisa-green); }
+
+@media (max-width: 1024px) {
+  .cip-program__inner { padding: 0 24px; }
+  .cip-program__lead { margin-bottom: 28px; font-size: 16px; }
+
+  .cip-program__filters {
+    display: flex;
+    gap: 8px;
+    margin: 0 -24px 22px;
+    padding: 0 24px 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cip-program__filters::-webkit-scrollbar { display: none; }
+  .cip-program__chip {
+    flex: none;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--white);
+    cursor: pointer;
+  }
+  .cip-program__chip.is-active {
+    border-color: var(--sc, var(--ciisa-green));
+    background: var(--sc, var(--ciisa-green));
+    color: #000;
+  }
+  .cip-program__chip[data-stage="all"] { --sc: var(--white); }
+
+  .cip-program__board {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cip-program__board > * { grid-column: auto; grid-row: auto; }
+  .cip-program__head,
+  .cip-program__rule,
+  .cip-program__rail { display: none; }
+
+  .cip-program__hour {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: auto;
+    justify-self: auto;
+    margin-top: 14px;
+    padding: 0;
+    transform: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--psw-mint);
+  }
+  .cip-program__hour::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+  .cip-program__hour[hidden] { display: none; }
+
+  .cip-program__item,
+  .cip-program__item.is-short,
+  .cip-program__item.is-tiny { display: block; align-self: auto; margin: 0; padding: 12px 14px 12px 13px; overflow: visible; }
+  .cip-program__meta { font-size: 13px; gap: 2px 10px; }
+  .cip-program__dur { font-size: 12px; }
+  .cip-program__item.is-short .cip-program__dur { display: inline; }
+  .cip-program__stage {
+    display: inline;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sc);
+  }
+  .cip-program__brand { margin-left: 0; width: 100%; font-size: 12px; }
+  .cip-program__title { margin-top: 4px; font-size: 16px; }
+  .cip-program__tema {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ciisa-green);
+  }
+
+  .cip-program__board[data-filter="exito"] .cip-program__item:not([data-stage="exito"]):not([data-stage="todos"]),
+  .cip-program__board[data-filter="labs"] .cip-program__item:not([data-stage="labs"]):not([data-stage="todos"]),
+  .cip-program__board[data-filter="pc"] .cip-program__item:not([data-stage="pc"]):not([data-stage="todos"]) { display: none; }
+}
+@media (max-width: 640px) {
+  .cip-program { padding: 64px 0 48px; }
+}
+
+/* =============================================
+   NAVEGACIÓN FIJA Y PARALLAX (15 oct)
+   Pastilla con Inicio, Agenda y Registro. Escritorio (≥1025 px): arriba a la derecha, donde el hero tenía su
+   botón. Tablet y celular: abajo a la izquierda, a la altura del botón de WhatsApp, para no tapar el logo del hero.
+   site-nav.js marca la sección activa (--thumb-x/--thumb-w) y fija --hero-p, --vid-y y --par para el parallax.
+   ============================================= */
+.cip-sitenav {
+  position: fixed;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(8, 15, 30, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.cip-sitenav__thumb {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: var(--thumb-w, 0);
+  transform: translateX(var(--thumb-x, 0));
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ciisa-green), var(--psw-mint));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cip-sitenav__link {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.25s ease;
+}
+.cip-sitenav__link:hover { color: var(--white); }
+.cip-sitenav__link.is-active { color: #000; }
+.cip-sitenav__link:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
+@media (min-width: 1025px) {
+  .cip-sitenav { top: 22px; right: 60px; }
+}
+@media (max-width: 1024px) {
+  .cip-sitenav {
+    left: 16px;
+    right: calc(24px + 58px + 12px);
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    height: 58px;
+    max-width: 340px;
+  }
+  .cip-sitenav__link { flex: 1; min-height: 46px; padding: 0 8px; }
+  .cip-sitenav.is-away { opacity: 0; transform: translateY(16px); pointer-events: none; }
+}
+@media (max-width: 360px) {
+  .cip-sitenav__link { font-size: 13px; }
+}
+
+/* Parallax: el contenido del hero se queda atrás y se desvanece al salir; el video de fondo se desplaza un poco;
+   los elementos con data-parallax se retrasan respecto al scroll. Sin --hero-p, --vid-y ni --par no se mueve nada. */
+.cip-hero__body {
+  transform: translate3d(0, calc(var(--hero-p, 0) * 150px), 0) scale(calc(1 - var(--hero-p, 0) * 0.05));
+  opacity: calc(1 - var(--hero-p, 0) * 0.9);
+  will-change: transform, opacity;
+}
+.cip-hero__date-container {
+  transform: translate3d(0, calc(var(--hero-p, 0) * 70px), 0);
+  opacity: calc(1 - var(--hero-p, 0) * 1.2);
+}
+.cip-hero__video {
+  transform: translate3d(0, calc(var(--vid-y, 0) * 1px), 0) scale(1.12);
+}
+[data-parallax] {
+  transform: translate3d(0, calc(var(--par, 0) * 1px), 0);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-sitenav,
+  .cip-sitenav__thumb,
+  .cip-sitenav__link { transition: none; }
+  .cip-hero__body,
+  .cip-hero__date-container,
+  .cip-hero__video,
+  [data-parallax] { transform: none; opacity: 1; }
+  .cip-hero__video { transform: scale(1.12); opacity: 0.34; }
+}
+
+/* =============================================
+   AGENDA EN VIVO Y CELEBRACIÓN (15 oct)
+   El día del evento agenda-board.js marca cada bloque como is-live o is-past con la hora de Monterrey.
+   Escritorio: una línea de "ahora" baja por el tablero y los eventos terminados quedan en gris.
+   Tablet y celular: los terminados se ocultan (el botón de la pastilla los muestra) y el que está en curso
+   trae una barra de avance dentro de su tarjeta.
+   ============================================= */
+.cip-program__live,
+.cip-program__progress { display: none; }
+
+.cip-program__item.is-past {
+  opacity: 0.42;
+  filter: grayscale(1);
+  border-left-color: rgba(255, 255, 255, 0.25);
+}
+.cip-program__item.is-live {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 1px var(--sc);
+}
+.cip-program__item.is-live .cip-program__time::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  vertical-align: 1px;
+  border-radius: 50%;
+  background: var(--sc);
+  animation: cip-live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes cip-live-pulse { 50% { opacity: 0.25; } }
+
+/* Línea de "ahora" (solo escritorio): la capa mide lo mismo que las filas del tablero, así que --now-off,
+   en minutos desde el inicio, se convierte directo en píxeles (3.6 por minuto). */
+.cip-program__now-layer {
+  position: relative;
+  z-index: 6;
+  pointer-events: none;
+}
+.cip-program__now-layer[hidden] { display: none; }
+.cip-program__now {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--now-off, 0) * var(--u) / 5);
+  height: 2px;
+  margin-top: -1px;
+  background: linear-gradient(90deg, var(--ciisa-green), var(--psw-mint), var(--electric-pyx));
+  transition: top 1s linear;
+}
+.cip-program__now::after {
+  content: "";
+  position: absolute;
+  left: 74px;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ciisa-green);
+}
+.cip-program__now-label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  padding: 3px 0;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #000;
+  background: var(--ciisa-green);
+}
+
+@media (max-width: 1024px) {
+  .cip-program__now-layer { display: none; }
+
+  /* Mientras el evento está en curso, los bloques terminados se ocultan hasta que el botón los muestre */
+  .cip-program__board[data-live="live"]:not(.show-past) .cip-program__item.is-past { display: none; }
+
+  .cip-program__item.is-live .cip-program__live {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #000;
+    background: var(--sc);
+  }
+  .cip-program__item.is-live .cip-program__time::before { display: none; }
+  .cip-program__item.is-live .cip-program__progress {
+    display: block;
+    position: relative;
+    height: 4px;
+    margin-top: 14px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.16);
+  }
+  .cip-program__progress span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--pct, 0%);
+    border-radius: 2px;
+    background: var(--sc);
+    transition: width 1s linear;
+  }
+  .cip-program__progress span::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sc);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.6);
+  }
+
+  .cip-sitenav__link { min-width: 0; padding: 0 4px; font-size: 13px; }
+}
+@media (max-width: 340px) {
+  .cip-sitenav__link { font-size: 12px; }
+}
+
+/* "¡Ya empezamos!": confeti en Lottie y la frase, por encima de todo (ya-empezamos.js) */
+.cip-celebra {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.cip-celebra.is-in { opacity: 1; }
+.cip-celebra.is-out { opacity: 0; transition-duration: 0.6s; }
+.cip-celebra::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-side at 50% 50%, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 75%);
+}
+.cip-celebra__lottie { position: absolute; inset: 0; }
+.cip-celebra__text {
+  position: relative;
+  margin: 0;
+  padding: 0 24px;
+  text-align: center;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(44px, 10vw, 132px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.55);
+  transform: scale(0.6);
+}
+.cip-celebra.is-in .cip-celebra__text { animation: cip-celebra-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+@keyframes cip-celebra-pop { from { transform: scale(0.6); } to { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .cip-program__now,
+  .cip-program__progress span,
+  .cip-celebra { transition: none; }
+  .cip-program__item.is-live .cip-program__time::before { animation: none; }
+  .cip-celebra__text,
+  .cip-celebra.is-in .cip-celebra__text { animation: none; transform: none; }
+}
+
+/* Agenda de escritorio en dos columnas (16 oct): las sesiones de PC Experiencias comparten la segunda columna con los
+   laboratorios y la primera se solapa un poco con la tarjeta de Autodesk, así que va por encima y con sombra. */
+.cip-program__item[data-stage="pc"] {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+}
+@media (max-width: 1024px) {
+  .cip-program__item[data-stage="pc"] { box-shadow: none; }
+}
+
+/* Lista (tablet y celular): el espacio de cada tarjeta lleva también su lugar en palabras, por ejemplo
+   "Laboratorios · Salón Terraza"; el color solo ya no alcanza para distinguirlos. En escritorio no se ve. */
+.cip-program__place { display: none; }
+@media (max-width: 1024px) {
+  .cip-program__place {
+    display: inline;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.78);
+  }
+}
+
+/* "Beyond is Now" (16 oct): a partir de las 10:00 del 21 de octubre la sección de registro cambia la cuenta regresiva por este
+   título y "Confirma tu asistencia" por "Regístrate para ingresar" (countdown.js pone .is-now). Sin JS se ve el estado de antes. */
+.cip-now { display: none; }
+#registro.is-now .cip-now {
+  display: block;
+  margin: 0 0 clamp(28px, 6vw, 48px);
+  font-family: var(--font-head);
+  font-weight: 900; /* Poppins Black y en mayúsculas, como "¿Para quién es BEYOND?" y "Tu registro incluye" */
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 10vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--white);
+}
+#registro.is-now .cip-now .cip-hero__headline-span--pulse { animation-duration: 7s; }
+#registro.is-now .cip-state--before { display: none; }
+#registro:not(.is-now) .cip-state--now { display: none; }
+/* "Regístrate para ingresar" tiene dos letras más que "Confirma tu asistencia": un poco menos de tamaño y de espaciado para que quepa en una línea */
+#registro.is-now .cip-register__heading .cip-section__label--subtitle {
+  max-width: none;
+  letter-spacing: 3pt;
+  font-size: clamp(20px, 3.4vw, 34px);
+}
+
+/* Botón del hero: "Confirma tu asistencia" antes de las 10:00 del 21 de octubre y "Regístrate para ingresar" después
+   (countdown.js pone .is-now en <html>). Sin JS se ve el texto de antes. */
+.cip-hero .cip-state--now { display: none; }
+html.is-now .cip-hero .cip-state--before { display: none; }
+html.is-now .cip-hero .cip-state--now { display: inline; }
+
+/* Modal de gracias: antes de las 10:00 del 21 de octubre confirma el lugar; después avisa que en unos momentos se entrega el QR
+   (countdown.js pone .is-now en <html>). Sin JS se ve el texto de antes. */
+.cip-thanks .cip-state--now { display: none; }
+html.is-now .cip-thanks .cip-state--before { display: none; }
+html.is-now .cip-thanks .cip-state--now { display: inline; }
+
+/* Laboratorio práctico DevKit AI (16 oct, #laboratorio): sección nueva entre "Experiencia Beyond" y "Cómo llegar", con la
+   propuesta visual de reff/. Reutiliza la cabecera con líneas, el texto en degradado, los botones y la casilla del registro;
+   lo propio es la rejilla texto + ilustración, los pasos 01-02-03 (verde, menta y cian) y la tarjeta de cierre. */
+.cip-devkit {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--black);
+  padding: 90px 0 110px;
+}
+.cip-devkit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 80% 40%, rgba(0, 204, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse at 10% 100%, rgba(188, 242, 0, 0.07), transparent 60%);
+  pointer-events: none;
+}
+.cip-devkit__inner { max-width: 1280px; margin: 0 auto; padding: 0 60px; }
+.cip-devkit__header { margin-bottom: 64px; }
+.cip-devkit__kicker { margin: 0; }
+
+.cip-devkit__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+.cip-devkit__label {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.cip-devkit__title {
+  margin: 0 0 8px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(34px, 4.4vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+.cip-devkit__title .cip-hero__headline-span--pulse { display: block; margin-top: 0.1em; }
+.cip-devkit__desc { margin: 24px 0 36px; max-width: 34em; }
+
+.cip-devkit__steps {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.cip-devkit__num {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ciisa-green);
+}
+.cip-devkit__num::after { content: ""; flex: 1; height: 1px; background: rgba(255, 255, 255, 0.22); }
+.cip-devkit__step:nth-child(2) .cip-devkit__num { color: var(--psw-mint); }
+.cip-devkit__step:nth-child(3) .cip-devkit__num { color: var(--electric-pyx); }
+.cip-devkit__step-title { margin: 14px 0 6px; font-size: 20px; font-weight: 700; color: var(--white); }
+.cip-devkit__step-text { margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(255, 255, 255, 0.72); }
+
+/* Pasos: misma entrada que los beneficios (sube, crece y aparece); solo se ocultan con el script activo */
+.cip-devkit__steps.is-reveal-ready .cip-devkit__step {
+  opacity: 0;
+  transform: translateY(28px) scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.cip-devkit__steps.is-reveal-ready .cip-devkit__step.is-visible { opacity: 1; transform: none; }
+
+.cip-devkit__note { margin: 16px 0 0; font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+.cip-devkit__audience { margin: 22px 0 0; max-width: 36em; font-size: 14px; font-weight: 300; line-height: 1.65; color: rgba(255, 255, 255, 0.72); }
+.cip-devkit__audience strong { font-weight: 600; color: var(--white); }
+
+.cip-devkit__art {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  margin-left: auto;
+  filter: drop-shadow(0 8px 30px rgba(0, 204, 255, 0.08));
+}
+/* Las líneas de conexión recorren su trazo poco a poco, como un flujo de datos */
+.cip-devkit__wire { stroke-dasharray: 10 14; animation: cip-devkit-flow 2.4s linear infinite; }
+@keyframes cip-devkit-flow { to { stroke-dashoffset: -48; } }
+
+.cip-devkit__note a { color: var(--psw-mint); }
+/* La instrucción para inscribirse al laboratorio, un poco más visible que la nota original */
+.cip-devkit__note { max-width: 34em; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.75); }
+.cip-devkit__note strong { color: var(--white); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cip-devkit__wire { animation: none; }
+}
+
+@media (max-width: 1024px) {
+  .cip-devkit { padding: 72px 0 88px; }
+  .cip-devkit__inner { padding: 0 40px; }
+  .cip-devkit__header { margin-bottom: 48px; }
+  .cip-devkit__grid { grid-template-columns: 1fr; gap: 24px; }
+  .cip-devkit__title { font-size: clamp(30px, 6.2vw, 56px); }
+  .cip-devkit__art { max-width: 460px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .cip-devkit { padding: 56px 0 72px; }
+  .cip-devkit__inner { padding: 0 16px; }
+  .cip-devkit__header { margin-bottom: 36px; }
+  .cip-devkit__label { font-size: 11px; letter-spacing: 0.2em; }
+  .cip-devkit__steps { gap: 14px; }
+  .cip-devkit__num { font-size: 24px; }
+  .cip-devkit__step-title { font-size: 17px; }
+  .cip-devkit__step-text { font-size: 13px; }
+  .cip-devkit__cta { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+}
+
+/* Selector de horario del laboratorio DevKit AI (16 oct, devkit-lab.js): se monta dentro del modal de gracias y en el modal
+   que abre la liga ?id=BYD-…. Radios nativos en tarjetas; los horarios llenos o cerrados quedan apagados. Los colores siguen
+   el orden de los pasos 01-02-03 (verde, menta, cian). */
+.cip-lab { margin: 0; text-align: left; }
+.cip-lab__fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.cip-lab__legend {
+  padding: 0;
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.cip-lab__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.cip-lab__slot {
+  --slot: var(--ciisa-green);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cip-lab__slot:nth-child(2), .cip-lab__slot:nth-child(3) { --slot: var(--psw-mint); }
+.cip-lab__slot:nth-child(4) { --slot: var(--electric-pyx); }
+.cip-lab__slot input { grid-row: span 2; width: 20px; height: 20px; margin: 0; accent-color: var(--slot); cursor: pointer; }
+.cip-lab__time { font-size: 16px; font-weight: 700; color: var(--white); }
+.cip-lab__state { font-size: 13px; font-weight: 500; color: var(--slot); min-height: 1.2em; }
+.cip-lab__slot:hover, .cip-lab__slot:has(input:checked) { border-color: var(--slot); background: rgba(255, 255, 255, 0.06); }
+.cip-lab__slot:has(input:focus-visible) { outline: 2px solid var(--white); outline-offset: 2px; }
+.cip-lab__slot.is-off { opacity: 0.5; cursor: not-allowed; }
+.cip-lab__slot.is-off input { cursor: not-allowed; }
+.cip-lab__slot.is-off .cip-lab__state { color: rgba(255, 255, 255, 0.7); }
+.cip-lab__status { min-height: 1.4em; margin: 12px 0; font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, 0.8); }
+.cip-lab__status.is-error { color: #ff8a8a; }
+.cip-lab__status a { color: var(--psw-mint); }
+.cip-lab__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.cip-lab__submit:disabled { opacity: 0.55; cursor: default; transform: none; }
+.cip-lab__done { margin: 0; font-size: 16px; line-height: 1.6; color: var(--psw-mint); text-align: left; }
+@media (max-width: 640px) {
+  .cip-lab__grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-lab__slot { transition: none; }
+}
+/* Selector dentro del modal de gracias: separado del mensaje por una línea; "Ahora no" como enlace discreto */
+.cip-thanks__lab { margin: 24px 0 8px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); text-align: left; }
+.cip-thanks__lab-title { margin: 0 0 14px; font-family: var(--font-head); font-size: 20px; font-weight: 800; line-height: 1.25; color: var(--white); }
+.cip-lab__skip {
+  padding: 8px 4px;
+  border: 0;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.cip-lab__skip:hover { color: var(--white); }
+/* Modal de la liga (?id=BYD-…): mismo diseño que el de gracias; el selector no lleva la línea superior porque abre el modal */
+.cip-lab-dialog .cip-lab-dialog__body { margin-top: 8px; padding-top: 0; border-top: 0; }
+/* Celular: el modal de gracias con el selector puede pasar del alto de la pantalla; más compacto y con scroll propio */
+@media (max-width: 640px) {
+  .cip-thanks { max-height: calc(100dvh - 32px); overflow-y: auto; }
+  .cip-thanks__lab { margin-top: 18px; padding-top: 18px; }
+  .cip-lab__slot { padding: 10px 12px; }
+}
+/* Botones del selector centrados dentro de los modales, alineados con "Cerrar" / "Entendido" */
+.cip-thanks .cip-lab__actions { justify-content: center; }
+.cip-thanks .cip-lab__status { text-align: center; }
+/* Textos del selector y de la confirmación centrados en los modales, como el título y el mensaje (16 oct) */
+.cip-thanks .cip-thanks__lab,
+.cip-thanks .cip-lab__done { text-align: center; }
+.cip-thanks .cip-lab__legend { width: 100%; text-align: center; }
+
+/* Laboratorio en la navegación y íconos en celular (18 oct).
+   1) Cuatro enlaces: Inicio, Agenda, Laboratorio y Registro. En tablet (641 a 1024 px) la pastilla se ensancha para que
+      "Laboratorio" quepa con texto.
+   2) Celular (≤640 px): cada enlace muestra solo su ícono; el texto queda oculto a la vista pero disponible para lectores
+      de pantalla (y como title al pasar el puntero).
+   (La tarjeta de cierre del laboratorio se quitó; ver el bloque de abajo.) */
+.cip-sitenav__icon { display: none; flex: none; }
+.cip-sitenav__label { display: inline; }
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cip-sitenav { max-width: 460px; }
+}
+@media (max-width: 640px) {
+  .cip-sitenav__link { padding: 0; }
+  .cip-sitenav__icon { display: block; }
+  .cip-sitenav__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* Laboratorio: texto completo y CTA al final (18 oct) */
+.cip-devkit__note--liga { margin-top: 8px; }
+.cip-devkit__cta { margin-top: 28px; }
+
+/* Botón de eventos pasados: flotante, aparte de la navegación y encima del de WhatsApp (tablet y celular).
+   Se ve solo cuando, dentro de la agenda, está en pantalla el "ahora" (el evento en curso o el siguiente; con los pasados revelados también mientras se recorren): aparece y se desvanece en 0.5 s, y al aparecer espera 0.3 s para
+   no parpadear si la persona pasa de largo con el scroll. site-nav.js pone .is-agenda; agenda-board.js lo habilita (hidden). */
+.cip-pastfab { display: none; }
+@media (max-width: 1024px) {
+  .cip-pastfab {
+    position: fixed;
+    z-index: 100;
+    right: 30px;
+    bottom: calc(24px + 58px + 10px);
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    background: rgba(8, 15, 30, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.92);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.5s;
+  }
+  .cip-pastfab[hidden] { display: none; }
+  .cip-pastfab.is-agenda {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: opacity 0.5s ease 0.3s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s, visibility 0s linear 0.3s;
+  }
+  .cip-pastfab[aria-pressed="true"] { background: rgba(255, 255, 255, 0.18); color: var(--white); }
+  .cip-pastfab:focus-visible { outline: 2px solid var(--psw-mint); outline-offset: 3px; }
+  .cip-pastfab__badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    color: #000;
+    background: var(--electric-pyx);
+  }
+}
+@media (max-width: 640px) {
+  .cip-pastfab { right: 19px; bottom: calc(16px + 52px + 10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-pastfab,
+  .cip-pastfab.is-agenda { transform: none; transition: opacity 0.5s ease; }
+}
+
+/* Celular: la barra de navegación y el botón de WhatsApp quedan alineados (misma altura, mismo borde inferior y el mismo
+   margen). Antes la barra medía 58 px a 24 px del borde y WhatsApp 52 px a 16 px, y se veían desfasados (18 oct). */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .cip-whatsapp { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+  .cip-pastfab { bottom: calc(24px + env(safe-area-inset-bottom, 0px) + 58px + 10px); }
+}
+@media (max-width: 640px) {
+  .cip-sitenav {
+    height: 52px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: calc(16px + 52px + 10px);
+  }
+  .cip-sitenav__link { min-height: 42px; }
+  .cip-whatsapp { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .cip-pastfab { bottom: calc(16px + env(safe-area-inset-bottom, 0px) + 52px + 10px); }
+}
+
+/* Ayudas cognitivas del botón de eventos pasados (18 oct): ojo cerrado cuando los pasados están escondidos y ojo abierto
+   cuando están a la vista; el globo cuenta los que aún no se han visto (puede estar apagado); y un aviso de texto aparece
+   una vez junto al botón al llegar a la agenda (site-nav.js pone .has-tip unos segundos). */
+.cip-pastfab__badge[hidden] { display: none; }
+@media (max-width: 1024px) {
+  .cip-pastfab__eye { display: none; }
+  .cip-pastfab__eye-off { display: block; }
+  .cip-pastfab[aria-pressed="true"] .cip-pastfab__eye { display: block; }
+  .cip-pastfab[aria-pressed="true"] .cip-pastfab__eye-off { display: none; }
+  .cip-pastfab__tip {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(8, 15, 30, 0.92);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--white);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-50%) translateX(6px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cip-pastfab.has-tip .cip-pastfab__tip { opacity: 1; transform: translateY(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cip-pastfab__tip,
+  .cip-pastfab.has-tip .cip-pastfab__tip { transform: translateY(-50%); transition: opacity 0.4s ease; }
+}
+
+/* Laboratorio DevKit AI: el fondo baja a negro 100 % al llegar al final de la sección, para que se mezcle con la siguiente
+   (#como-llegar empieza en negro). Se conservan los dos resplandores de siempre y se les suma, encima, un velo de 260 px
+   que va de transparente a negro puro. (19 oct) */
+.cip-devkit::before {
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - 260px), #000 100%),
+    radial-gradient(ellipse at 80% 40%, rgba(0, 204, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse at 10% 100%, rgba(188, 242, 0, 0.07), transparent 60%);
+}
