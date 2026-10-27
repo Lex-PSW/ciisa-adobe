@@ -34,9 +34,10 @@ CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento,
 
 ## Brand Commitments
 
-- Marca que opera el sitio: **CiiSA**. El degradado de CiiSA respeta el orden fijo `#bcf200 → #01fbce → #00ccff`, y solo como acento (nunca texto sobre blanco).
-- **Excepción confirmada por el equipo (27 oct 2026):** el texto en degradado sobre fondo oscuro (`.grad`: titular del hero y del formulario) conserva los verdes y cambia el azul por el rojo de Adobe: `#bcf200 → #01fbce → #eb1000`. Los demás degradados (subrayados, barras) siguen con el azul.
-- Rojo Adobe (`#eb1000`) solo como acento puntual: el punto del kicker, el mosaico rojo del hero y el texto en degradado de la excepción anterior. No se usa en botones.
+- Marca que opera el sitio: **CiiSA**. Solo como acento (nunca texto en degradado sobre blanco).
+- **Paleta de acento decidida por el equipo (27 oct 2026):** solo **verde CiiSA `#bcf200` y rojo Adobe `#eb1000`**. Se quitan el menta de PSW (`#01fbce`) y el azul (`#00ccff`) de todos los degradados y ornamentos: texto `.grad`, subrayados, barras, puntos, mosaicos y resplandores. Degradado: `#bcf200 → #eb1000 → #bcf200`. Sustituye al orden `#bcf200 → #01fbce → #00ccff` de CiiSA Beyond.
+- Rojo Adobe (`#eb1000`) como acento: el punto del kicker, los mosaicos rojos, los resplandores y el degradado. No se usa en botones.
+- El hero lleva el **ícono de Adobe** (el glifo de su logotipo, en una sola tinta blanca) fijo al centro de los mosaicos: no se anima ni lleva sombra.
 - Los logotipos de Adobe no se alteran, animan ni rodean de efectos; solo versiones de una tinta.
 - Adobe **autorizó por escrito** el uso de su marca, logotipo y estilo, según confirmó el equipo. Las condiciones exactas de uso y la leyenda legal siguen las indicaciones de esa autorización (`docs/HANDOFF.md` aún lo marca como pendiente: actualizarlo y archivar el documento).
 - CiiSA tiene un **nivel de partner con Adobe confirmado**. El nombre del nivel no está registrado aquí: no se nombra en el sitio hasta asentarlo, con el documento que lo respalde, en `docs/CONTENIDO.md`.
