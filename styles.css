@@ -138,7 +138,7 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
 .ticks li::before { content: ''; position: absolute; left: 0; top: 5px; width: 18px; height: 18px; border-radius: 50%; background: var(--gradient); }
 .ticks li::after { content: ''; position: absolute; left: 6px; top: 8px; width: 5px; height: 9px; border: solid var(--navy-deep); border-width: 0 2px 2px 0; transform: rotate(45deg); }
 .benef { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
-.benef li { padding: 18px 20px; border-radius: var(--radius); background: var(--ink); color: var(--paper); font-size: 16px; font-weight: 600; line-height: 1.35; border-left: 4px solid var(--psw-mint); }
+.benef li { padding: 18px 20px; border-radius: var(--radius); background: var(--ink); color: var(--paper); font-size: 16px; font-weight: 600; line-height: 1.35; }
 
 /* Por qué CiiSA */
 .why { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
@@ -233,12 +233,12 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
    con fases distintas y el resplandor respira. Solo translate/rotate/scale/opacity (propiedades individuales,
    para no pisar el transform base de cada mosaico). Sin JS no hay animación y todo se ve. */
 @keyframes tile-in {
-  from { opacity: 0; scale: 0.9; translate: var(--from-x) var(--from-y); rotate: var(--from-r); }
+  from { opacity: 0; scale: 0.9; translate: calc(var(--from-x) * var(--k, 1)) calc(var(--from-y) * var(--k, 1)); rotate: var(--from-r); }
   to { opacity: 1; scale: 1; translate: 0 0; rotate: 0deg; }
 }
 @keyframes tile-float {
   0%, 100% { translate: 0 0; }
-  50% { translate: var(--fl-x, 0px) var(--fl-y, -10px); }
+  50% { translate: calc(var(--fl-x, 0px) * var(--k, 1)) calc(var(--fl-y, -10px) * var(--k, 1)); }
 }
 @keyframes glow-breathe {
   0%, 100% { opacity: 0.7; }
@@ -265,3 +265,23 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
 /* Beneficios: se cambia el borde izquierdo grueso en menta por un filete fino y un punto de acento (evita el patrón "side-tab") */
 .benef li { border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: flex-start; gap: 12px; }
 .benef li::before { content: ''; flex: none; width: 8px; height: 8px; margin-top: 0.45em; border-radius: 50%; background: var(--psw-mint); }
+
+/* Hero en tablet y móvil: los mosaicos dejan de ocultarse y pasan debajo del texto, en tamaño compacto para que
+   el botón principal no se desplace. Sin desenfoque de fondo en pantallas chicas (las animaciones cuestan menos). */
+@media (max-width: 1024px) {
+  .hero__art { display: block; }
+  .stack { width: min(300px, 74vw); --k: 0.7; }
+  .tile { backdrop-filter: none; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
+}
+@media (max-width: 640px) {
+  .hero__art { margin-top: 8px; }
+  .stack { width: min(240px, 66vw); --k: 0.55; }
+  .tile { border-radius: 18px; }
+}
+
+/* Texto en degradado (hero y formulario): se conservan los verdes de CiiSA y el azul se sustituye por el rojo
+   de Adobe. La mezcla va en oklch para evitar el gris turbio entre menta y rojo; sin soporte queda el degradado normal. */
+.grad { background-image: linear-gradient(115deg, var(--ciisa-green), var(--psw-mint), var(--adobe-red), var(--ciisa-green)); }
+@supports (background-image: linear-gradient(in oklch, red, blue)) {
+  .grad { background-image: linear-gradient(115deg in oklch, var(--ciisa-green), var(--psw-mint), var(--adobe-red), var(--ciisa-green)); }
+}
