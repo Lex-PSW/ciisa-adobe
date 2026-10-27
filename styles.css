@@ -296,3 +296,16 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
 
 /* Ícono de Adobe al centro de los mosaicos: fijo (no se anima ni lleva sombra), en una sola tinta blanca */
 .stack__icon { position: absolute; left: 50%; top: 50%; width: 22%; translate: -50% -50%; z-index: 1; pointer-events: none; }
+
+/* Parallax al hacer scroll (site.js escribe --py en px). El resplandor del hero y el del formulario van más lentos que
+   el scroll y los mosaicos un poco más lentos que el texto; se agranda el fondo para que no se vean los bordes. */
+.hero__glow { inset: -20% 0; translate: 0 calc(var(--py, 0) * 1px); will-change: translate; }
+.stack { translate: 0 calc(var(--py, 0) * 1px); will-change: translate; }
+.sec--form::before { inset: -20% 0; translate: 0 calc(var(--py, 0) * 1px); }
+@media (prefers-reduced-motion: reduce) {
+  .hero__glow, .stack, .sec--form::before { translate: none; will-change: auto; }
+}
+
+/* Aparición por sección más pausada: entra cuando ya hay más sección a la vista (site.js: umbral 20 % y margen inferior
+   del 12 %), con 200 ms de espera y 140 ms entre elementos hermanos, y una transición más larga para que se alcance a ver. */
+.js .reveal { transition: opacity 1s ease, transform 1s cubic-bezier(.22, 1, .36, 1); }
