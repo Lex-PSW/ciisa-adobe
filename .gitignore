@@ -24,6 +24,11 @@ tmp/
 # Dependencias, caches de herramientas y sistema operativo
 node_modules/
 .impeccable/hook.cache.json
+# Impeccable: config.json sí se versiona; lo local y las copias creadas desde subcarpetas no
+.impeccable/config.local.json
+*/**/.impeccable/
+# Ajustes locales de Claude Code
+.claude/settings.local.json
 .DS_Store
 Thumbs.db
 desktop.ini
