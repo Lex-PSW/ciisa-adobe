@@ -36,11 +36,22 @@ CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento,
 - Marca que opera el sitio: **CiiSA**. Todo degradado respeta el orden fijo `#bcf200 → #01fbce → #00ccff`, y solo como acento (nunca texto sobre blanco).
 - Rojo Adobe (`#eb1000`) solo como acento puntual; no se mezcla con el degradado ni se usa en botones.
 - Los logotipos de Adobe no se alteran, animan ni rodean de efectos; solo versiones de una tinta.
-- **El estilo y el logotipo de Adobe requieren autorización de Adobe antes de publicar** (`docs/HANDOFF.md`).
+- Adobe **autorizó por escrito** el uso de su marca, logotipo y estilo, según confirmó el equipo. Las condiciones exactas de uso y la leyenda legal siguen las indicaciones de esa autorización (`docs/HANDOFF.md` aún lo marca como pendiente: actualizarlo y archivar el documento).
+- CiiSA tiene un **nivel de partner con Adobe confirmado**. El nombre del nivel no está registrado aquí: no se nombra en el sitio hasta asentarlo, con el documento que lo respalde, en `docs/CONTENIDO.md`.
 
 ## Product Principles
 
 1. Cada decisión de arriba del pliegue y de CTA optimiza la solicitud de cotización.
 2. Hablar de resultados (menos papel, trámites más ágiles, contenido más rápido), no de fichas técnicas.
 3. Un solo CTA principal; el resto de enlaces solo lleva al formulario o a una solución.
-4. Lo que no se puede afirmar con evidencia (alianza, cumplimiento normativo, validez legal) se redacta de forma neutral y se valida antes de publicar.
+4. Lo que no se puede afirmar con evidencia (nombre del nivel de partner, cumplimiento normativo, validez legal) se redacta de forma neutral y se valida antes de publicar.
+
+## Evidence on Hand
+
+- Cifras de CiiSA y contenido de cada sección: `docs/CONTENIDO.md` (origen de cada dato).
+- Autorización de uso de marca y nivel de partner de Adobe: confirmados por el equipo; falta archivar el documento y registrar el nombre del nivel.
+- Ausentes, no fabricar: casos de éxito, testimonios, logotipos de clientes, precios, planes y promociones.
+
+## Accessibility & Inclusion
+
+Cumplir **WCAG 2.2 AA**: contraste mínimo 4.5:1 en texto, foco visible, uso completo con teclado y respeto a `prefers-reduced-motion` (aplica a toda animación). Parte del público es de entidades de gobierno que pueden exigirlo.

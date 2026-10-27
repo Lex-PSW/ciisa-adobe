@@ -228,3 +228,40 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .soln, .btn { transition: none; }
 }
+
+/* Animación del hero: los cuatro mosaicos (los cuatro frentes de Adobe) se ensamblan al entrar, luego flotan
+   con fases distintas y el resplandor respira. Solo translate/rotate/scale/opacity (propiedades individuales,
+   para no pisar el transform base de cada mosaico). Sin JS no hay animación y todo se ve. */
+@keyframes tile-in {
+  from { opacity: 0; scale: 0.9; translate: var(--from-x) var(--from-y); rotate: var(--from-r); }
+  to { opacity: 1; scale: 1; translate: 0 0; rotate: 0deg; }
+}
+@keyframes tile-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: var(--fl-x, 0px) var(--fl-y, -10px); }
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.tile--a { --from-x: -36px; --from-y: -28px; --from-r: -8deg; --fl-y: -11px; --dur: 7s; --lag: 0ms; }
+.tile--b { --from-x: 36px; --from-y: -28px; --from-r: 8deg; --fl-y: 9px; --dur: 8.5s; --lag: 110ms; }
+.tile--c { --from-x: -36px; --from-y: 32px; --from-r: 8deg; --fl-y: 10px; --dur: 9s; --lag: 220ms; }
+.tile--d { --from-x: 36px; --from-y: 32px; --from-r: -8deg; --fl-y: -9px; --dur: 7.5s; --lag: 330ms; }
+.js .hero__art.is-in .tile {
+  animation: tile-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--lag) both,
+             tile-float var(--dur) ease-in-out calc(var(--lag) + 1s) infinite;
+}
+.js .hero__glow { animation: glow-breathe 9s ease-in-out infinite; }
+/* Se detiene cuando el hero sale de pantalla (site.js agrega .is-off) */
+.js .hero.is-off .hero__art .tile, .js .hero.is-off .hero__glow { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  /* Sin desplazamiento: los mosaicos solo aparecen con un fundido */
+  .js .hero__art.is-in .tile { animation: tile-fade 0.6s ease both; }
+  .js .hero__glow { animation: none; }
+}
+@keyframes tile-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Beneficios: se cambia el borde izquierdo grueso en menta por un filete fino y un punto de acento (evita el patrón "side-tab") */
+.benef li { border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: flex-start; gap: 12px; }
+.benef li::before { content: ''; flex: none; width: 8px; height: 8px; margin-top: 0.45em; border-radius: 50%; background: var(--psw-mint); }

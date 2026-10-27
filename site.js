@@ -21,3 +21,12 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   items.forEach(function (el) { io.observe(el); });
 })();
+
+// Pausa la animación del hero cuando no está en pantalla (ahorra CPU/batería)
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    hero.classList.toggle('is-off', !entries[0].isIntersecting);
+  }).observe(hero);
+})();

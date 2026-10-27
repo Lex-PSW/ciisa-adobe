@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-27T20:06:57.686Z",
+        "reason": "Sanctioned in project CLAUDE.md: gradient text on dark hero/form is accepted on purpose; pre-existing .grad, not part of this change"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-27T20:16:52.415Z",
+        "reason": "Sanctioned in project CLAUDE.md: gradient text on dark hero is accepted on purpose; pre-existing .grad span, not part of this change"
+      }
+    ]
+  }
+}
