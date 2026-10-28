@@ -27,7 +27,7 @@ Landing de **Adobe para empresas, gobierno y educación** operada por CiiSA, con
 | `index.html` | Página única, secciones con ids `inicio`, `soluciones`, `sectores`, `por-que-ciisa`, `soluciones-ciisa`, `proceso`, `cotiza` |
 | `styles.css` | CSS completo con tokens en `:root` |
 | `site.js` | Aparición al hacer scroll, parallax, cielo animado, loop de las ilustraciones y panel de apps |
-| `assets/img/` | Logotipos, favicon de CiiSA, 15 ilustraciones SVG propias (con `alt`, `<title>` y `<desc>`), `og-image.png` y `producto/` (íconos de app oficiales, sin modificar). Las herramientas de ilustración están en `privada/ilustraciones/` (ignorada por git) |
+| `assets/img/` | Logotipos, favicon de CiiSA, 15 ilustraciones SVG propias (con `alt`, `<title>` y `<desc>`), `og-image*.png` (4 formatos) y `producto/` (íconos de app oficiales, sin modificar). Las herramientas de ilustración están en `privada/ilustraciones/` (ignorada por git) |
 | `robots.txt`, `sitemap.xml` | SEO; usan la URL de GitHub Pages hasta que haya dominio (cambiarlas con el resto de URLs absolutas, ver `docs/HANDOFF.md`) |
 | `adobe-form.js` | Validación y envío al flujo (`ENDPOINT` vacío = no envía) |
 | `docs/referencia-beyond/` | Copia de la documentación y estilos de CiiSA Beyond; solo lectura |
