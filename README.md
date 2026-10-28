@@ -1,6 +1,6 @@
 # CiiSA + Adobe · landing de soluciones
 
-Landing de **Adobe para empresas y gobierno** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Adobe Express, sector público, soluciones de CiiSA, por qué CiiSA, cómo trabajamos y **formulario de cotización al final**. Mimetiza el lenguaje visual de Adobe (tema claro, titulares pesados, botones en píldora) con el sello de CiiSA.
+Landing de **Adobe para empresas, gobierno y educación** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Adobe Express, sector público, soluciones de CiiSA, por qué CiiSA, cómo trabajamos y **formulario de cotización al final**. Mimetiza el lenguaje visual de Adobe (tema claro, titulares pesados, botones en píldora) con el sello de CiiSA.
 
 - **Dominio previsto:** `adobe.ciisa.com` (CNAME en solicitud; ver `docs/HANDOFF.md`). **No hay archivo `CNAME` en este repo todavía, a propósito.**
 - **Stack:** HTML, CSS y JavaScript sin framework ni paso de build (igual que CiiSA Beyond y CiiSA + Lenovo). No agregues un framework ni un bundler sin acordarlo antes.
@@ -23,9 +23,9 @@ Landing de **Adobe para empresas y gobierno** operada por CiiSA: Creative Cloud,
 
 | Archivo | Qué hace |
 |---|---|
-| `index.html` | Página única: nav, hero, cifras, soluciones, sector público, por qué CiiSA, proceso, formulario, pie |
+| `index.html` | Página única: nav, hero, cifras, soluciones, sectores, por qué CiiSA, soluciones de CiiSA, proceso, formulario, pie |
 | `styles.css` | Todo el CSS. Los ajustes nuevos van **al final**, en bloques con un comentario |
-| `site.js` | Aparición al hacer scroll (respeta `prefers-reduced-motion`) |
+| `site.js` | Aparición al hacer scroll, parallax, cielo animado, loop de las ilustraciones y panel de apps (todo respeta `prefers-reduced-motion`) |
 | `adobe-form.js` | Validación, botón apagado hasta que todo es válido, UTM y POST JSON al flujo (`ENDPOINT` vacío = no envía) |
 | `assets/` | Poppins y logotipos de CiiSA y de Adobe (blanco, negro y rojo) |
 

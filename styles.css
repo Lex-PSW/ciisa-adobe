@@ -105,7 +105,6 @@ h3 { font-family: var(--font-display); font-size: 24px; font-weight: 800; line-h
 .chips li { font-size: 15px; font-weight: 600; padding: 7px 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.35); color: rgba(255, 255, 255, 0.9); }
 .stack { position: relative; width: min(420px, 100%); aspect-ratio: 1; margin-inline: auto; }
 .tile { position: absolute; width: 56%; aspect-ratio: 1; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.18); backdrop-filter: blur(2px); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); }
-.tile span { position: absolute; inset: 22%; border-radius: 12px; border: 2px solid rgba(255, 255, 255, 0.55); }
 .tile--a { left: 0; top: 4%; background: linear-gradient(145deg, rgba(188, 242, 0, 0.55), rgba(1, 251, 206, 0.12)); }
 .tile--b { right: 0; top: 0; background: linear-gradient(145deg, rgba(0, 204, 255, 0.5), rgba(255, 255, 255, 0.06)); transform: rotate(6deg); }
 .tile--c { left: 12%; bottom: 0; background: linear-gradient(145deg, rgba(1, 251, 206, 0.45), rgba(255, 255, 255, 0.05)); transform: rotate(-5deg); }
@@ -686,3 +685,28 @@ html .btn.btn.btn--dark:is(:hover, :focus-visible):not(:disabled) {
 /* Pastillas de producto: un poco más de aire vertical y a la izquierda del ícono (aviso de padding justo del detector) */
 .mini li { padding: 6px 14px; }
 .mini--app li { padding: 6px 14px 6px 10px; }
+
+/* Compendio del hero: cada tarjeta flotante lleva una ilustración (2 de CiiSA en las verdes y 2 de Adobe en las rojas), sin el
+   cuadro de borde blanco de antes. Se generan con privada/ilustraciones/hero.mjs, que lee el color de cada tarjeta. */
+.tile__art { position: absolute; inset: 11%; width: 78%; height: 78%; display: block; pointer-events: none; }
+
+/* Cargador del sitio (solo con JS): aparece si la carga tarda más de 0.3 s y se retira solo (site.js). Marca animada: el punto
+   del isotipo de CiiSA viaja hasta el cuadrado. */
+.loader { display: none; }
+.js .loader { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; background: linear-gradient(160deg, var(--navy-1100), var(--navy-900) 60%, var(--navy-1100)); opacity: 0; animation: loader-in .35s ease .3s forwards; }
+.loader svg { width: 112px; height: auto; overflow: visible; }
+.loader__dot { transform-box: fill-box; animation: loader-dot 1.8s ease-in-out infinite; }
+.loader__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@keyframes loader-in { to { opacity: 1; } }
+@keyframes loader-dot { 0%, 100% { transform: translateX(0); } 45%, 55% { transform: translateX(46px); } }
+@media (prefers-reduced-motion: reduce) { .loader__dot { animation: none; } }
+
+/* Esqueletos de las tarjetas: brillo navy mientras llega la ilustración (lazy) y aparición suave cuando carga */
+.js img.soln__art:not(.is-loaded), .js img.sector__art:not(.is-loaded), .js img.benef__art:not(.is-loaded) {
+  background: linear-gradient(100deg, var(--navy-900) 35%, var(--navy-800) 50%, var(--navy-900) 65%) 0 0 / 220% 100%;
+  animation: skeleton 1.4s linear infinite;
+}
+.js img.soln__art.is-loaded, .js img.sector__art.is-loaded, .js img.benef__art.is-loaded { animation: art-in .5s ease; }
+@keyframes skeleton { to { background-position: -220% 0; } }
+@keyframes art-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .js img.soln__art, .js img.sector__art, .js img.benef__art { animation: none !important; } }

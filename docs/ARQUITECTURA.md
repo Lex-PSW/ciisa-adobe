@@ -6,11 +6,11 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 
 | Pieza | Detalle |
 |---|---|
-| `index.html` | Una página. Secciones con id: `inicio`, `soluciones`, `gobierno`, `por-que-ciisa`, `proceso`, `cotiza`. El `<nav>` y los CTAs enlazan a esos ids |
+| `index.html` | Una página. Secciones con id: `inicio`, `soluciones`, `sectores`, `por-que-ciisa`, `soluciones-ciisa`, `proceso`, `cotiza`. El `<nav>` y los CTAs enlazan a esos ids |
 | `styles.css` | Tokens en `:root`, componentes y responsive. Ajustes nuevos **al final** |
-| `site.js` | Agrega la clase `js` a `<html>` y revela los `.reveal` al entrar en pantalla |
+| `site.js` | Cargador del sitio (`whenReady`) y carga diferida de las ilustraciones; clase `js` en `<html>` (también inline en el `<head>`); aparición de `.reveal`; pausa del hero; parallax (`data-parallax`, con `ResizeObserver`); cielo animado en canvas (`.sky`); incrusta y anima las ilustraciones de las tarjetas (loop seamless); botón del panel de apps |
 | `adobe-form.js` | Todo el formulario (abajo) |
-| `assets/` | `types/` Poppins (400 a 900, los de CiiSA Beyond); `img/` logotipos de CiiSA y de Adobe en blanco, negro y rojo |
+| `assets/` | `types/` Poppins (400 a 900, los de CiiSA Beyond); `img/` logotipos de CiiSA y de Adobe, favicon de CiiSA, 15 ilustraciones (`ill-`, `sector-`, `svc-`, `ben-*.svg`) y `producto/` (íconos oficiales de app, sin modificar) |
 | Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `adobe.ciisa.com` |
 
 ## Formulario `[data-adobe-form]`

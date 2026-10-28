@@ -12,16 +12,17 @@ Responsables de comunicación, marketing, diseño, TI, compras y administración
 
 ## Product Purpose
 
-Landing de soluciones **CiiSA + Adobe** en un subdominio propio (`adobe.ciisa.com`, por confirmar). Explica qué ofrece CiiSA en Adobe (cuatro soluciones, sector público, servicio) y **lleva al formulario de cotización**. **Éxito = solicitudes de cotización enviadas.**
+Landing de soluciones **CiiSA + Adobe** en un subdominio propio (`adobe.ciisa.com`, por confirmar). Explica qué ofrece CiiSA en Adobe (cuatro soluciones de Adobe, tres sectores —empresas, gobierno y educación— y los servicios de CiiSA) y **lleva al formulario de cotización**. **Éxito = solicitudes de cotización enviadas.**
 
 ## Positioning
 
-CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento, adaptación al sector público y privado, implementación y soporte. El sitio mimetiza la claridad visual de Adobe (tema claro, titulares muy pesados, botones en píldora) y firma como CiiSA (hero oscuro con resplandor, degradado de acento, lockup con CiiSA primero), sin copiar adobe.com.
+CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento, adaptación a empresas, gobierno y educación, implementación y soporte. El sitio mimetiza la claridad visual de Adobe (tema claro, titulares muy pesados, botones en píldora) y firma como CiiSA (hero oscuro con resplandor, degradado de acento, lockup con CiiSA primero), sin copiar adobe.com.
 
 ## Operating Context
 
 - Una sola página con scroll: hero → cifras → `#soluciones` → `#sectores` → `#por-que-ciisa` → `#soluciones-ciisa` → `#proceso` → `#cotiza` (formulario) → pie.
-- Hero: en escritorio la animación de mosaicos va a la derecha del texto; en tablet y móvil (≤ 1024 px) va arriba del texto y del CTA, en tamaño compacto. Se pausa fuera de pantalla y con `prefers-reduced-motion` solo hace un fundido.
+- Hero: en escritorio la animación de mosaicos va a la derecha del texto; en tablet y móvil (≤ 1024 px) va arriba del texto y del CTA, en tamaño compacto. Se pausa fuera de pantalla y con `prefers-reduced-motion` solo hace un fundido. Cada mosaico lleva una ilustración (verdes: ideas de CiiSA; rojos: ideas de Adobe).
+- Ilustraciones propias en las tarjetas (SVG con loop seamless al verse y al hover). La tarjeta de Creative Cloud muestra el top 4 de apps y un botón que despliega las 12; el panel va debajo de las cuatro columnas en escritorio y debajo de la tarjeta en tablet y móvil.
 - El formulario manda JSON a un flujo de Power Automate (`origen: "landing-adobe"` + UTM). Sin endpoint, valida pero no envía y muestra el teléfono de respaldo.
 - Sin backend propio; sitio estático en GitHub Pages.
 

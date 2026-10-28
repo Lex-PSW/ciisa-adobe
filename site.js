@@ -1,4 +1,35 @@
 // Comportamiento general de la landing: aparición al hacer scroll y sombra de la barra. Sin dependencias.
+
+// Cargador del sitio: solo se ve si la carga tarda más de 0.3 s (el CSS lo muestra con retraso); se retira cuando carga la página y
+// las fuentes (o a los 4 s). Las animaciones de aparición y de las ilustraciones esperan a que el sitio esté listo (whenReady).
+(function () {
+  var root = document.documentElement, ready = false, cbs = [];
+  window.whenReady = function (fn) { if (ready) fn(); else cbs.push(fn); };
+  function done() {
+    if (ready) return;
+    ready = true;
+    root.classList.add('is-ready');
+    var l = document.getElementById('loader');
+    if (l) {
+      var visible = parseFloat(getComputedStyle(l).opacity) > 0.05;
+      if (!visible) l.remove();
+      else { l.style.animation = 'none'; l.style.opacity = '1'; void l.offsetWidth; l.style.transition = 'opacity .45s ease'; l.style.opacity = '0'; setTimeout(function () { l.remove(); }, 520); }
+    }
+    cbs.splice(0).forEach(function (f) { f(); });
+  }
+  var cargada = new Promise(function (res) { if (document.readyState === 'complete') res(); else window.addEventListener('load', res); });
+  var fuentes = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  Promise.all([cargada, fuentes]).then(done);
+  setTimeout(done, 4000);
+})();
+
+// Esqueletos de las tarjetas: el brillo de carga se apaga cuando la imagen llega (las de abajo cargan al acercarse: loading="lazy")
+(function () {
+  [].slice.call(document.querySelectorAll('img.soln__art, img.sector__art, img.benef__art')).forEach(function (img) {
+    function ok() { img.classList.add('is-loaded'); }
+    if (img.complete && img.naturalWidth) ok(); else { img.addEventListener('load', ok); img.addEventListener('error', ok); }
+  });
+})();
 (function () {
   var root = document.documentElement;
   root.classList.add('js');
@@ -19,7 +50,7 @@
       io.unobserve(el);
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -12% 0px' });
-  items.forEach(function (el) { io.observe(el); });
+  whenReady(function () { items.forEach(function (el) { io.observe(el); }); });
 })();
 
 // Pausa la animación del hero cuando no está en pantalla (ahorra CPU/batería)
@@ -178,7 +209,7 @@
 // (empieza y termina en el mismo estado) la primera vez que se ve y cada vez que se pasa el cursor o se enfoca su tarjeta.
 // Si algo falla (sin fetch, abierto como archivo), se queda la imagen normal.
 (function () {
-  var imgs = [].slice.call(document.querySelectorAll('img.soln__art, img.sector__art, img.benef__art'));
+  var imgs = [].slice.call(document.querySelectorAll('img.soln__art, img.sector__art, img.benef__art, img.tile__art'));
   if (!imgs.length || !window.fetch) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var n = 0;
@@ -196,7 +227,7 @@
     entries.forEach(function (e) { if (e.isIntersecting) { play(e.target); io.unobserve(e.target); } });
   }, { threshold: 0.55 }) : null;
 
-  imgs.forEach(function (img) {
+  function incrustar(img) {
     fetch(img.getAttribute('src')).then(function (r) { return r.ok ? r.text() : Promise.reject(); }).then(function (txt) {
       var i = ++n;
       txt = txt.replace(/<\?xml[^>]*\?>/, '').replace(/<style[\s\S]*?<\/style>/g, '');
@@ -228,14 +259,18 @@
       stagger('.tw', 0.15, 6); stagger('.k-pop', 0.12, 6); stagger('.draw', 0.1, 5); stagger('.k-bar', 0.09, 5); stagger('.k-sheet', 0.18, 3);
       [].slice.call(svg.querySelectorAll('.k-trk, .k-knob')).forEach(function (el, k) { el.style.setProperty('--ad', (Math.floor(k / 2) * 0.5).toFixed(2) + 's'); });
       img.replaceWith(svg);
-      var card = svg.closest('.soln, .gov__col, .benef li');
+      var card = svg.closest('.soln, .gov__col, .benef li, .tile');
       if (card) {
         card.addEventListener('mouseenter', function () { play(svg); });
         card.addEventListener('focusin', function () { play(svg); });
       }
-      if (io) io.observe(svg);
+      whenReady(function () { if (io) io.observe(svg); });
     }).catch(function () { /* se queda la imagen */ });
-  });
+  }
+  var carga = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { carga.unobserve(e.target); incrustar(e.target); } });
+  }, { rootMargin: '400px 0px' }) : null;
+  imgs.forEach(function (img) { if (carga && !img.closest('.tile')) carga.observe(img); else incrustar(img); });
 })();
 
 // Botón "Ver todas las apps" de la tarjeta de Creative Cloud: muestra u oculta el panel con todas las apps

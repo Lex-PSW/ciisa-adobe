@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160"><defs>
+<linearGradient id="fvheroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".62"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="fsheroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".34"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="svheroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset=".7" stop-color="#ffffff" stop-opacity=".3"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="ftheroad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#793958" stop-opacity=".9"/><stop offset="1" stop-color="#793958" stop-opacity=".25"/></linearGradient>
+</defs>
+<g transform="rotate(-7 66 80)"><rect x="34" y="30" width="64" height="100" rx="6" fill="#ffffff" fill-opacity=".28"/></g>
+<path d="M50 24 H92 L118 50 V128 a6 6 0 0 1 -6 6 H50 a6 6 0 0 1 -6 -6 V30 a6 6 0 0 1 6 -6Z" fill="#ffffff" fill-opacity=".94"/>
+<path d="M92 24 L118 50 H98 a6 6 0 0 1 -6 -6Z" fill="#ffc6bb"/>
+<rect x="54" y="34" width="22" height="8" rx="4" fill="#793958" fill-opacity=".9"/>
+<g fill="#ffc6bb"><rect x="54" y="54" width="46" height="4" rx="2"/><rect x="54" y="64" width="56" height="4" rx="2"/><rect x="54" y="74" width="50" height="4" rx="2"/></g>
+<path class="draw" pathLength="100" d="M54 106 C 60 90, 66 112, 72 98 S 84 92, 88 104 S 98 112, 108 92" fill="none" stroke="#793958" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="54" x2="110" y1="116" y2="116" stroke="#793958" stroke-opacity=".25"/>
+<g class="k-pop"><circle cx="116" cy="116" r="15" fill="#ffffff" fill-opacity=".92"/><path d="M109 116 L114 121 L124 110" fill="none" stroke="#793958" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<path d="M32 29 Q32 34 37 34 Q32 34 32 39 Q32 34 27 34 Q32 34 32 29Z" fill="#ffffff" class="tw"/></svg>

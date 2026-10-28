@@ -1,8 +1,8 @@
 # Sistema visual · CiiSA + Adobe
 
-Este sitio **mimetiza el lenguaje visual de Adobe** (tema claro, titulares muy pesados, botones en píldora, tarjetas redondeadas) y le agrega el **sello de CiiSA** (hero oscuro con resplandor, degradado verde → menta → cian como acento). La identidad completa de CiiSA vive en `docs/referencia-beyond/` (`styles-beyond.css`, `PRODUCT-beyond.md`). Todo está en `styles.css`, con valores en variables de `:root`.
+Este sitio **mimetiza el lenguaje visual de Adobe** (tema claro, titulares muy pesados, botones en píldora, tarjetas redondeadas) y le agrega el **sello de CiiSA** (hero oscuro con resplandor, degradado verde → rojo como acento, sobre fondos navy). La identidad completa de CiiSA vive en `docs/referencia-beyond/` (`styles-beyond.css`, `PRODUCT-beyond.md`). Todo está en `styles.css`, con valores en variables de `:root`.
 
-> **Qué se imita y qué no.** Se imitan *principios*: tipografía grande y pesada, mucho aire, botones píldora, colores sobrios con un rojo de acento, mosaicos redondeados. **No** se copian la composición de adobe.com, sus imágenes, sus íconos de aplicación (los cuadrados con dos letras) ni sus textos. Ver riesgos en `HANDOFF.md`, sección 6.
+> **Qué se imita y qué no.** Se imitan *principios*: tipografía grande y pesada, mucho aire, botones píldora, colores sobrios con un rojo de acento, mosaicos redondeados. **No** se copian la composición de adobe.com, sus imágenes, sus capturas de producto (los íconos de app, solo en su archivo oficial de socio y sin modificar) (los cuadrados con dos letras) ni sus textos. Ver riesgos en `HANDOFF.md`, sección 6.
 
 ## 1. Observaciones de adobe.com (27 oct 2026, medidas en el navegador)
 
@@ -10,7 +10,7 @@ Este sitio **mimetiza el lenguaje visual de Adobe** (tema claro, titulares muy p
 |---|---|
 | Cuerpo | `"Adobe Clean"`, 16 px, 400, texto `#000`, fondo `#fff` |
 | Titulares | `"Adobe Clean Display Black"`, peso **900**; h1 40 px y h2 32 px en la vista móvil medida |
-| Botones | Píldora (`border-radius: 999px`), 40 px de alto, Adobe Clean 700; sobre imagen oscura van blancos con texto negro |
+| Botones | 16 px, 600, tracking 0.01em |
 | Tarjetas / mosaicos | Esquinas de 16 px |
 | Fondo | Blanco con secciones de imagen o video oscuras |
 | Navegación | Barra limpia con el logotipo "A" a la izquierda, botón "Iniciar sesión" en píldora blanca |
@@ -53,6 +53,10 @@ Poppins con titulares en 800 y espaciado negativo según tamaño (h1 −0.032em,
 
 Cuatro SVG propios en `assets/img/ill-*.svg` (320 × 160, decorativos con `alt` vacío) para las tarjetas de soluciones: diseño vectorial (Creative Cloud), destellos de IA (Firefly), documento con firma (Acrobat) y plantillas de marca (Adobe Express). Solo usan el mapa tonal; no copian ni imitan imágenes de Adobe ni usan sus logotipos. Animaciones suaves dentro del SVG, apagadas con `prefers-reduced-motion`.
 
+### Hero: una idea en cada tarjeta flotante
+
+Las cuatro tarjetas del hero llevan una ilustración propia (sin el cuadro de borde blanco): las verdes cuentan ideas de CiiSA (acompañamiento de principio a fin; soporte y renovación) y las rojas, de Adobe (crear; documentos y firma). Cada una usa solo tintes del color de su tarjeta, se compone en la parte que no tapan las otras tarjetas y conserva su loop seamless. Se generan con una herramienta local (`privada/ilustraciones/hero.mjs`), que lee el color de cada tarjeta del CSS.
+
 ### Logotipos de producto
 
 Íconos de app oficiales de socio, **sin modificar** (`assets/img/producto/`): junto al nombre en el título de las cuatro tarjetas de Adobe (32 px) y en las apps de Creative Cloud (20 px). Conservan sus colores (excepción de paleta), sin sombra, filtro, animación ni zoom, y con espacio libre de media anchura. Nunca en ilustraciones, hero ni textos corridos. Pendiente de revisión de marca.
@@ -65,6 +69,13 @@ La tarjeta de Creative Cloud muestra el top 4 de apps (Photoshop, Illustrator, P
 
 11 SVG más en `assets/img/` (320 × 160, decorativos, mapa tonal): `sector-empresas` (panorama de rascacielos de San Pedro Garza García: siete torres con muro cortina, remates escalonados, afilados o inclinados, antena con luz roja y la Sierra Madre translúcida al fondo; evoca la zona, no reproduce un edificio en particular), `sector-gobierno` (palacio cívico simétrico con pórtico de seis columnas clásicas con capitel, fuste con estrías y base, frontón, cúpula baja, alas con ventanas y escalinata) y `sector-educacion` (educación: campus universitario contemporáneo con atrio de vidrio de techo inclinado, alas con ventanas corridas, marquesina, árboles y estudiantes; arquetipo de edificio, minimalista y en 2D: cuerpos translúcidos cuyo relleno y contorno bajan de ~50 % a 0 % de opacidad, planos que se cruzan como vidrio y un solo acento por edificio, en verde o rojo) en el encabezado de cada tarjeta de sector; `svc-asesoria`, `svc-implementacion`, `svc-adopcion` y `svc-soporte` en las tarjetas de "Más allá de la licencia"; `ben-control`, `ben-proteccion`, `ben-papel` y `ben-ciisa` en las cuatro tarjetas navy de CiiSA. Las de CiiSA (`svc-*` y `ben-*`) siguen el mismo estilo serio que los edificios: trazos finos y rellenos que bajan a 0 % de opacidad; `ben-ciisa` usa la C del logo con el círculo y el cuadrado de esquinas rectas en verde CiiSA. Entre las tarjetas de Adobe (sectores) y las de CiiSA va un sello "+" (`.plus`), con el signo en verde CiiSA dibujado con dos trazos centrados en el círculo con la frase "Y en cualquier sector, esto es lo que suma CiiSA".
 
+### Cargador y carga diferida
+
+- **Cargador del sitio:** pantalla navy → negro con el isotipo de CiiSA (el punto viaja hasta el cuadrado). Solo aparece si la carga tarda más de 0.3 s (el CSS lo muestra con retraso, así que en cargas rápidas nunca se ve) y se retira solo cuando cargan la página y las fuentes, o a los 4 s. La clase `js` se pone desde el `<head>` para evitar parpadeos; las animaciones de aparición y de las ilustraciones esperan a que el sitio esté listo (`whenReady` en `site.js`).
+- **Carga diferida de las tarjetas:** las 15 ilustraciones de tarjetas no se descargan al cargar: se piden cuando están a 400 px de la pantalla (las 4 del hero, de inmediato). Mientras llegan, la imagen muestra un esqueleto con brillo navy (`.js img.soln__art:not(.is-loaded)`) y aparece con un fundido. Los íconos del panel de apps usan `loading="lazy"` y no se piden hasta abrir el panel.
+- **Sin JavaScript:** no hay cargador y las imágenes cargan de forma nativa (`loading="lazy"`).
+- **Reduced motion:** el isotipo del cargador queda quieto y los esqueletos sin brillo.
+
 ### Loop de las ilustraciones
 
 `site.js` incrusta cada ilustración de tarjeta como SVG (si falla, queda la imagen estática) y le da un ciclo de 2.8 s **sin saltos**: empieza y termina en el estado de reposo. Se reproduce la primera vez que la ilustración se ve (55 % visible) y en cada hover o foco de su tarjeta. Capas: flotación de 4 px de todo el dibujo, respiración del resplandor, pulso escalonado de los acentos (`.tw`) y trazo que se dibuja y redibuja (`.dr`, `.sg`). Cada ilustración suma su propia animación, que resalta lo que ejemplifica (clases `k-*` y `.draw` en el SVG, estilos en `styles.css`): Creative Cloud, formas que se superponen y pluma que dibuja; Firefly, destello que gira 90° y olas que se trazan; Acrobat, firma que se dibuja y palomita; Express, plantillas en abanico; Empresas, pisos que se encienden y sierra en paralaje; Gobierno, banderín y puerta; Educación, banderín y estudiantes que cruzan; Asesoría, flujo entre planes; Implementación, interruptores que se activan; Adopción, barras que crecen; Soporte, flechas que giran como ciclo de renovación; Control, líneas que salen del centro; Protección, escaneo y candado que se cierra; Papel, hojas que pasan a la pantalla; Acompañamiento, el punto viaja hasta el cuadrado. Todas terminan como empiezan. El CSS de las animaciones base está en `styles.css` (`.ill`); los SVG ya no llevan `<style>` propio. Sin animación con `prefers-reduced-motion`.
@@ -74,9 +85,9 @@ La tarjeta de Creative Cloud muestra el top 4 de apps (Photoshop, Illustrator, P
 Domina el negro: degradado en movimiento entre `--navy-1100` `#00030f`, `--navy-1000` y `--navy-950` (CSS, 34 s), con el navy del logo como islas de luz dentro de una aurora tenue en verde y rojo (CSS, 38 s) y una viñeta que oscurece los bordes y un canvas (`.sky`, en `site.js`) con estrellas, constelaciones que también se enlazan al cursor, destellos de cuatro puntas en verde CiiSA y rojo Adobe y adornos de círculo, cuadrado y cruz que recuerdan el logo. Se pausa fuera de pantalla y con la pestaña oculta; con `prefers-reduced-motion` queda un cuadro fijo.
 
 **Reglas**
-1. El degradado de CiiSA sigue siempre **`#bcf200 → #01fbce → #00ccff`, en ese orden**.
+1. El degradado de acento es **verde CiiSA → rojo Adobe → verde** (`#bcf200 → #eb1000 → #bcf200`, mezclado en oklch). Ya no se usan el menta ni el azul.
 2. **El degradado solo va como acento** (franja superior de las tarjetas, subrayado de palabras clave, círculos de las palomitas, palabras del hero y del formulario sobre fondo oscuro). **Nunca como texto sobre fondo blanco** (no pasa el contraste: por eso en las secciones claras es un subrayado `.underline`, no texto).
-3. El rojo de Adobe no se mezcla con el degradado ni se usa en botones.
+3. El rojo de Adobe aparece en el degradado, los mosaicos, los resplandores y como acento de las ilustraciones; no se usa como fondo de botones. Excepción deliberada a la regla 2: el texto del botón blanco del hero al hover lleva degradado en tonos oscuros (ver "CTAs en hover").
 
 ## 3. Tipografía
 
@@ -84,11 +95,11 @@ Domina el negro: degradado en movimiento entre `--navy-1100` `#00030f`, `--navy-
 |---|---|
 | Familia | **Poppins** (SIL OFL; la tipografía oficial de CiiSA, como en CiiSA Beyond). Archivos `assets/types/Poppins-{Regular,Medium,SemiBold,Bold,ExtraBold,Black}.woff2`. Pila: `Poppins, system-ui, …`. Titulares en 800 con interlineado 1.1 |
 | Por qué | Es la tipografía de CiiSA y la guía de Adobe para socios pide usar la propia, no *Adobe Clean* (propietaria y solo de Adobe) |
-| Cuerpo | 18 px (17 en móvil), peso 400, interlineado 1.5 |
-| h1 | `clamp(40px, 6vw, 72px)`, peso **900**, interlineado 1.02, tracking -0.02em |
-| h2 | `clamp(32px, 4.2vw, 52px)`, peso 900, interlineado 1.06 |
-| h3 | 24 px, peso 800 |
-| Kicker | 14 px, 700, mayúsculas, tracking 0.16em |
+| Cuerpo | 17 px, peso 400, interlineado 1.65, color navy |
+| h1 | `clamp(34px, 5vw, 62px)`, peso **800**, interlineado 1.08, tracking -0.032em, `text-wrap: balance` |
+| h2 | `clamp(28px, 3.5vw, 44px)`, peso 800, interlineado 1.14, tracking -0.028em |
+| h3 | 22 px, peso 700, interlineado 1.25 |
+| Kicker | 13 px, 600, mayúsculas, tracking 0.18em |
 | Botones | 17 px, 700 |
 
 ## 4. Layout
@@ -96,28 +107,31 @@ Domina el negro: degradado en movimiento entre `--navy-1100` `#00030f`, `--navy-
 - Contenedor `.wrap`: `min(1200px, 100% - 48px)` (móvil: `100% - 32px`).
 - Secciones: padding vertical `clamp(72px, 9vw, 128px)`; fondos alternos `--paper` y `--gray-50`; hero y formulario oscuros.
 - Breakpoints (los mismos de Beyond): **móvil ≤ 640**, **tablet 641 a 1024**, **escritorio ≥ 1025**.
-- Rejillas: soluciones 4 columnas (2 en tablet, 1 en móvil); sector público 4 y beneficios 4 (igual); proceso 3 (1 en tablet y móvil); "por qué" y formulario 2 (1 en tablet y móvil).
+- Rejillas: soluciones 4 columnas (2 en tablet, 1 en móvil; el panel de apps ocupa todo el ancho); sectores 3 (1 bajo 900 px); beneficios de CiiSA 4 (2 y 1); "más allá de la licencia" 4 (2 y 1); proceso 3 (1 en tablet y móvil); "por qué" y formulario 2 (1 en tablet y móvil).
 - Barra fija de 64 px, clara, con lockup y botón "Cotiza". En ≤1024 px se ocultan los enlaces.
 
 ## 5. Componentes
 
 | Componente | Clase | Descripción |
 |---|---|---|
-| Botón oscuro | `.btn--dark` | Píldora negra con texto blanco (acción principal sobre claro) |
+| Botón oscuro | `.btn--dark` | Píldora con degradado navy → negro y texto blanco; al hover el texto entra con degradado verde → rojo |
 | Botón blanco | `.btn--white` | Píldora blanca con texto negro (acción principal sobre oscuro, como en el hero de Adobe) |
 | Botón fantasma | `.btn--ghost` | Píldora con borde blanco sobre oscuro |
 | Lockup | `.lockup` | Logotipo CiiSA (26 px) · separador · logotipo Adobe (24 px). **CiiSA va primero** |
-| Tarjeta de solución | `.soln` | Fondo `--gray-50`, radio 16 px, franja superior de degradado de 5 px, etiqueta roja de Adobe, texto y píldoras de producto |
-| Columna de sector público | `.gov__col` | Tarjeta blanca con borde y lista de palomitas con degradado |
-| Beneficios | `.benef li` | Barras negras con borde izquierdo menta |
+| Tarjeta de solución | `.soln` | Radio 16 px, ilustración propia a sangre, barra de degradado de 5 px que se desplaza al hover, etiqueta navy, título con ícono de app oficial, texto y píldoras (Creative Cloud: top 4 de apps en 2 filas + botón) |
+| Tarjeta de sector | `.gov__col` | Empresas, gobierno y educación: edificio minimalista en 2D, promesa, lista de palomitas, píldoras de producto y nota de cómo se compra |
+| Sello "+" | `.plus` | Círculo navy → negro con el signo verde CiiSA centrado, entre las tarjetas de Adobe (sectores) y las de CiiSA |
+| Beneficios de CiiSA | `.benef li` | Cuatro tarjetas navy → negro con ilustración arriba y texto blanco |
+| Panel de apps | `.apps` | 12 apps de Creative Cloud con ícono y descripción (≤ 8 palabras); se abre con el botón de la tarjeta |
+| Ícono de producto | `.prod__logo`, `.mini__logo`, `.app__logo` | Archivo oficial de socio, sin modificar ni recolorear, junto al nombre |
 | Lista "por qué" | `.checks li` | Tarjeta gris con círculo de degradado y palomita azul marino |
 | Paso | `.steps li` | Número grande 900 con una raya de degradado |
 | Campos | `.field` | Fondo blanco, borde de 2 px, radio 8 px, 48 px de alto; foco azul con halo; error rojo y válido verde |
-| Ilustración del hero | `.stack .tile` | Cuatro mosaicos redondeados en degradado y vidrio, abstractos. **No son íconos de Adobe** |
+| Ilustración del hero | `.stack .tile` | Cuatro mosaicos translúcidos en rampas de verde y rojo hacia el navy, abstractos. **No son íconos de Adobe** |
 
 ## 6. Movimiento
 
-Aparición al hacer scroll (`.reveal`) con `IntersectionObserver`, escalonada. El degradado de las palabras del hero fluye lento (18 s). Todo se apaga con `prefers-reduced-motion`, y sin JavaScript el contenido es visible.
+Aparición al hacer scroll (`.reveal`, 1 s, entra al 20 % visible con 200 ms de espera y 140 ms entre hermanos); parallax del resplandor del hero, de los mosaicos y del fondo del formulario; fondo animado (degradado, aurora y cielo en canvas); loop seamless de las ilustraciones; texto con degradado en los CTAs al hover; y el degradado de las palabras del hero que fluye lento (18 s). Todo se apaga con `prefers-reduced-motion`, y sin JavaScript el contenido se ve completo.
 
 ## 7. Co-branding con Adobe
 
@@ -129,7 +143,7 @@ Aparición al hacer scroll (`.reveal`) con `IntersectionObserver`, escalonada. E
 
 ## 8. Accesibilidad
 
-Contraste AA (texto negro sobre blanco; texto blanco sobre `--night`; texto gris `#4b4b4b` sobre blanco y `--gray-50`). Foco visible azul de 3 px, enlace "Ir al formulario" al inicio, un solo `h1`, `aria-live` en errores, `inputmode` y `autocomplete`, inputs de 17 px (evita el zoom de iOS) y el error no depende solo del color.
+Contraste AA verificado: texto navy o negro sobre blanco; blanco sobre navy; texto secundario navy 600 (8.4:1 sobre blanco). El rojo de Adobe solo en texto grande sobre navy (3.3:1). Foco visible de 3 px: navy 700 sobre claro y verde CiiSA sobre fondos oscuros; enlace "Ir al formulario" al inicio, un solo `h1`, `aria-live` en los errores, ilustraciones decorativas con `alt` vacío y panel de apps con `aria-expanded`.
 
 ## 9. Cómo agregar algo nuevo
 

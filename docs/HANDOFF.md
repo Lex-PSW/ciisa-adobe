@@ -6,7 +6,7 @@ Punto de entrada para continuar el proyecto sin depender de quien lo empezó. L�
 
 ## 1. Qué es y en qué estado está
 
-Landing de **soluciones Adobe para empresas y gobierno** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Adobe Express, sector público, soluciones de CiiSA, por qué CiiSA, proceso y **formulario de cotización al final**. Sitio nuevo e independiente de CiiSA Beyond y de CiiSA + Lenovo, en su propio repositorio.
+Landing de **soluciones Adobe para empresas, gobierno y educación** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Adobe Express, sectores, soluciones de CiiSA, por qué CiiSA, proceso y **formulario de cotización al final**. Sitio nuevo e independiente de CiiSA Beyond y de CiiSA + Lenovo, en su propio repositorio.
 
 | Pieza | Estado |
 |---|---|
@@ -58,8 +58,8 @@ Landing de **soluciones Adobe para empresas y gobierno** operada por CiiSA: Crea
 | 1 | **Autorización de Adobe para el estilo y el logotipo** | Marca / Legal | Es el bloqueo principal. Adobe tiene una guía de marca y programas de socios con reglas de co-branding. Confirmar: (a) que CiiSA puede usar el logotipo de Adobe en un sitio propio y en qué versión; (b) si exigen aprobación previa de materiales; (c) el nivel de partnership que se puede declarar; (d) que el parecido visual con su sitio es aceptable o qué ajustes piden. Hasta tener respuesta **no se publica con dominio propio ni se difunde** |
 | 2 | **Logotipo de Adobe** | Marca | Hoy se usa la versión de Adobe que CiiSA ya tiene en sus materiales de socios (`assets/img/adobe-logo-*.svg`), recoloreada a rojo, negro y blanco (las versiones de una tinta que la guía de Adobe admite; **confirmarlo**). Sustituir por el archivo oficial si Adobe lo entrega. No deformar, animar ni rodear de efectos |
 | 3 | **Leyenda legal** | Legal | El pie lleva un texto genérico de marcas (Adobe, Creative Cloud, Acrobat, Photoshop, Illustrator, Premiere, InDesign, Firefly, Adobe Express). **Validarlo** con Legal y con Adobe |
-| 4 | **Nombres de producto vigentes** | Comercial | Adobe renombra con frecuencia (por ejemplo, *Adobe Sign* → *Acrobat Sign*). El sitio usa los nombres de ciisa.com. Confirmar contra el catálogo vigente |
-| 5 | **Imágenes de producto** | Marca / Adobe | El sitio usa una ilustración abstracta propia. Si se quieren capturas o fotografía de Adobe, solo con activos oficiales y su licencia. No descargar imágenes de adobe.com |
+| 4 | **Nombres de producto vigentes** | Comercial | Adobe renombra con frecuencia. El sitio ya usa *Acrobat Sign*, no *Adobe Sign*, y la guía de marca de socios pide el nombre completo en la primera mención. Confirmar contra el catálogo vigente, incluidas las descripciones de las 12 apps del panel |
+| 5 | **Imágenes y logos de producto** | Marca / Adobe | Las ilustraciones son propias. Los **íconos de app** (Creative Cloud, Firefly, Acrobat, Express y 12 apps del panel) son los archivos oficiales de socio, sin modificar, y **están pendientes de revisión de marca** (`brand@adobe.com`); confirmar que `fi_appicon` sea el de Firefly. No descargar imágenes de adobe.com |
 | 6 | **Validación de contenido** | Comercial CiiSA | Revisar `docs/CONTENIDO.md` completo, sobre todo "Adobe para gobierno" (afirmaciones de cumplimiento y de validez legal de la firma) |
 | 7 | **Flujo del formulario** | Automatización | Crear el flujo (sección 6), pegar la URL en `ENDPOINT` de `adobe-form.js` y probar de punta a punta |
 | 8 | **Destino de las solicitudes** | Comercial CiiSA | Quién recibe cada cotización, tiempo de respuesta prometido y a qué CRM o Excel van |
@@ -124,7 +124,7 @@ No hay tracking todavía. El formulario dispara el evento `adobe:lead` en `docum
 - **Marca de terceros** (sección 6): es el principal. Por eso el punto 1 bloquea.
 - **Tipografía:** el sitio usa Poppins de CiiSA, como pide la guía de Adobe para socios. No hay forma legítima de usar Adobe Clean aquí.
 - **Contenido que envejece:** nombres de producto y planes de Adobe cambian. El sitio no lista planes ni precios; revisar el copy cada trimestre.
-- **Afirmaciones para el sector público** (cumplimiento, validez legal de la firma, seguridad): vienen de ciisa.com y deben validarse por Legal antes de difundirse.
+- **Afirmaciones para gobierno y educación** (cumplimiento, validez legal de la firma, seguridad): vienen de ciisa.com y deben validarse por Legal antes de difundirse.
 - **URL firmada en un repo público:** es el diseño de Beyond; el flujo debe validar `origen`, evitar duplicados y poder regenerar la URL.
 - **Dependencia de una persona:** por eso existe este kit.
 
