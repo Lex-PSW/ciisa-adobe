@@ -29,6 +29,7 @@ Landing de **Adobe para empresas, gobierno y educación** operada por CiiSA, con
 | `site.js` | Aparición al hacer scroll, parallax, cielo animado, loop de las ilustraciones y panel de apps |
 | `assets/img/` | Logotipos, favicon de CiiSA, 15 ilustraciones SVG propias (con `alt`, `<title>` y `<desc>`), `og-image*.png` (4 formatos) y `producto/` (íconos de app oficiales, sin modificar). Las herramientas de ilustración están en `privada/ilustraciones/` (ignorada por git) |
 | `robots.txt`, `sitemap.xml` | SEO; usan la URL de GitHub Pages hasta que haya dominio (cambiarlas con el resto de URLs absolutas, ver `docs/HANDOFF.md`) |
+| `tracking.js` | Procedencia de campañas (UTM, identificadores de clic, `fuente`) y eventos al `dataLayer`; los píxeles solo cargan con ID en `CONFIG` (hoy vacíos) |
 | `adobe-form.js` | Validación y envío al flujo (`ENDPOINT` vacío = no envía) |
 | `docs/referencia-beyond/` | Copia de la documentación y estilos de CiiSA Beyond; solo lectura |
 

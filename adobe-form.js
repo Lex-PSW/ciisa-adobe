@@ -61,12 +61,12 @@
     function setStatus(msg, err) { status.textContent = msg || ''; status.classList.toggle('is-error', !!err); }
     function busy(b) { sending = b; if (label) label.textContent = b ? 'Enviando…' : base; refresh(); }
 
-    // Campaña de origen: UTM de la URL, guardadas en la sesión para no perderlas si navegan por el sitio
-    function utm() {
-      var out = {}, keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'], q = new URLSearchParams(location.search), saved = {};
-      try { saved = JSON.parse(sessionStorage.getItem('adobe:utm') || '{}'); } catch (e) {}
-      keys.forEach(function (k) { if (q.get(k)) saved[k] = q.get(k); out[k] = saved[k] || ''; });
-      try { sessionStorage.setItem('adobe:utm', JSON.stringify(saved)); } catch (e) {}
+    // Campaña de origen: la captura tracking.js (UTM, identificadores de clic, fuente y procedencia). Sin ese archivo, todo viaja vacío
+    function campana() {
+      var t = window.AdobeTracking, u = t ? t.getUtm() : {}, out = {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'li_fat_id', 'fbclid', 'ttclid'].forEach(function (k) { out[k] = u[k] || ''; });
+      out.fuente = t ? t.getFuente() : 'Directo';
+      out.procedencia = t ? t.getReferrer() : '';
       return out;
     }
 
@@ -81,7 +81,7 @@
         sector: form.sector.value, interes: form.interes.value, cantidad: form.cantidad.value, mensaje: (form.mensaje.value || '').trim(),
         privacidad: 'Aceptado', marketing: form.marketing && form.marketing.checked ? 'Sí' : 'No', fecha: new Date().toISOString(), origen: ORIGEN, pagina: location.origin + location.pathname
       };
-      var u = utm(); for (var k in u) data[k] = u[k];
+      var u = campana(); for (var k in u) data[k] = u[k];
       if (!ENDPOINT) { setStatus('El envío en línea aún no está activo. Escríbenos por WhatsApp y te atendemos de inmediato.', true); return; }
       busy(true);
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })

@@ -9,6 +9,7 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `index.html` | Una página. Secciones con id: `inicio`, `soluciones`, `sectores`, `por-que-ciisa`, `soluciones-ciisa`, `proceso`, `cotiza`. El `<nav>` y los CTAs enlazan a esos ids |
 | `styles.css` | Tokens en `:root`, componentes y responsive. Ajustes nuevos **al final** |
 | `site.js` | Cargador del sitio (`whenReady`) y carga diferida de las ilustraciones; clase `js` en `<html>` (también inline en el `<head>`); aparición de `.reveal`; pausa del hero; parallax (`data-parallax`, con `ResizeObserver`); cielo animado en canvas (`.sky`); incrusta y anima las ilustraciones de las tarjetas (loop seamless); botón del panel de apps |
+| `tracking.js` | UTM e identificadores de clic a `sessionStorage`, `fuente` y `procedencia`, eventos al `dataLayer` (`adobe_cta_cotiza`, `adobe_whatsapp`, `adobe_cotizacion_iniciada`, `adobe_cotizacion_completada`). Píxeles de Meta, LinkedIn y TikTok solo cargan si su ID está en `CONFIG` (hoy todos vacíos). Ningún evento lleva datos personales |
 | `adobe-form.js` | Todo el formulario (abajo) |
 | `assets/` | `types/` Poppins (400 a 900, los de CiiSA Beyond); `img/` logotipos de CiiSA y de Adobe, favicon de CiiSA, 15 ilustraciones (`ill-`, `sector-`, `svc-`, `ben-*.svg`) y `producto/` (íconos oficiales de app, sin modificar) |
 | Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `adobe.ciisa.com`. **Excepción:** `canonical`, `og:url`, `og:image` y `twitter:image` exigen URL absoluta y hoy apuntan a GitHub Pages: cambiarlas al activar el dominio |
@@ -40,11 +41,14 @@ El botón queda apagado hasta que todo es válido. Al enviar bien se muestra el 
   "nombre": "", "empresa": "", "puesto": "", "correo": "en minúsculas", "telefono": "",
   "sector": "Gobierno", "interes": "Acrobat y firma electrónica", "cantidad": "11 a 50", "mensaje": "",
   "privacidad": "Aceptado", "marketing": "Sí | No", "fecha": "ISO 8601 (UTC)", "origen": "landing-adobe",
-  "pagina": "https://…/ruta", "utm_source": "", "utm_medium": "", "utm_campaign": "", "utm_content": "", "utm_term": ""
+  "pagina": "https://…/ruta", "utm_source": "", "utm_medium": "", "utm_campaign": "", "utm_content": "", "utm_term": "",
+  "gclid": "", "li_fat_id": "", "fbclid": "", "ttclid": "", "fuente": "Google Ads | LinkedIn Ads | Meta Ads | TikTok Ads | … | Directo", "procedencia": "dominio de referencia o vacío"
 }
 ```
 
-- Las UTM se toman de la URL y se guardan en `sessionStorage` (`adobe:utm`); sin campaña viajan vacías.
+- `tracking.js` (adaptado del de Beyond) toma de la URL las UTM y los identificadores de clic (`gclid`, `li_fat_id`, `fbclid`, `ttclid`) y los guarda en `sessionStorage` (`adobe:utm`); sin campaña viajan vacíos.
+- `fuente` la calcula `tracking.js` con las mismas etiquetas que Beyond (más TikTok): identificador de clic, luego `utm_source`, luego el dominio de procedencia, y si no hay nada, `Directo`. `procedencia` es solo el dominio del referrer (primero de la sesión).
+- Si `tracking.js` no carga, esos campos viajan vacíos y `fuente` = `Directo`; el envío no se rompe.
 - **No cambies los `name`, el payload ni `origen` sin avisar a Automatización.**
 
 ### Respuesta esperada del flujo

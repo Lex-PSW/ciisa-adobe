@@ -87,7 +87,7 @@ Datos de este formulario respecto al de Lenovo: agrega **`sector`** (Empresa pri
 
 ## 8. Analítica
 
-No hay tracking todavía. El formulario dispara el evento `adobe:lead` en `document` y guarda las UTM en `sessionStorage` (`adobe:utm`) y en el payload. Para activarla: GTM o `tracking.js` de Beyond adaptado. Pedir el ID de contenedor a Marketing; no lo inventes.
+`tracking.js` (adaptado del de Beyond) ya captura UTM e identificadores de clic (`gclid`, `li_fat_id`, `fbclid`, `ttclid`), calcula `fuente` y `procedencia` y los manda en el payload; también empuja eventos al `dataLayer`. **No se carga ningún píxel ni etiqueta**: todos los ID de `CONFIG` están vacíos y el contenedor de GTM no está instalado. Para activarlo, pedir a Marketing los ID (Meta, LinkedIn Partner y conversión, TikTok y el contenedor de GTM); no los inventes ni copies los de Beyond. Antes de cargar píxeles, Legal confirma que el aviso de privacidad cubre la medición de campañas.
 
 ## 9. Arranque técnico
 
