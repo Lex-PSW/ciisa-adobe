@@ -8,14 +8,25 @@ Fecha de la consulta: **27 de octubre de 2026**. Todo se redactó con palabras p
 
 | Dato | Dónde se leyó | Cómo se usa |
 |---|---|---|
-| Sección **"Adobe para gobierno"**: transformación digital para el gobierno con Adobe y CiiSA; ayudar a empresas y entidades gubernamentales a transformar su flujo de trabajo digital con herramientas avanzadas y soporte especializado | `ciisa.com` (inicio) | Sección `#gobierno` y titular del sector público |
+| Sección **"Adobe para gobierno"**: transformación digital para el gobierno con Adobe y CiiSA; ayudar a empresas y entidades gubernamentales a transformar su flujo de trabajo digital con herramientas avanzadas y soporte especializado | `ciisa.com` (inicio) | Sección `#sectores` (empresas, gobierno y educación); la parte de gobierno sale de aquí |
 | "¿Por qué elegir Adobe con CiiSA?": tecnología de vanguardia (diseño, gestión documental, marketing), optimización para empresas y gobierno, soporte y asesoría | `ciisa.com` (inicio) | Sección `#por-que-ciisa` |
-| **Soluciones clave:** Acrobat Pro (digitalización, firma electrónica con validez legal, cifrado), Adobe Sign (sin papel, autenticación segura, menos costos), Creative Cloud (contenido institucional, informes, adaptación a plataformas), Experience Cloud (datos, análisis en tiempo real, participación) | `ciisa.com` (inicio) | Las cuatro columnas del sector público y las tarjetas de soluciones |
+| **Soluciones clave:** Acrobat Pro (digitalización, firma electrónica con validez legal, cifrado), Adobe Sign (sin papel, autenticación segura, menos costos), Creative Cloud (contenido institucional, informes, adaptación a plataformas), Experience Cloud (datos, análisis en tiempo real, participación; **retirado el 28 oct 2026**, ver sección 2) | `ciisa.com` (inicio) | Las cuatro columnas del sector público y las tarjetas de soluciones |
 | **Beneficios:** cumplimiento de normativas de seguridad y privacidad, procesos y costos, transparencia y accesibilidad, agilidad de servicios digitales | `ciisa.com` (inicio) | Las cuatro barras de beneficios |
 | "Como socio estratégico, CiiSA brinda asesoría, soporte y acompañamiento en la adopción de las soluciones Adobe" | `ciisa.com` (inicio) | Texto de "Tu aliado en la implementación de Adobe" |
 | Venta y licenciamiento: asesoría gratuita en adquisición, renovación y legalización de software; **Adobe** aparece en la lista junto a Office 365, Azure, Autodesk, IBM, etc. | `ciisa.com/software/` | Puntos de "Por qué CiiSA" |
 | Cifras: más de 30 años, más de 25 marcas, más de 50 consultores, 120 colaboradores | `ciisa.com` (inicio) | Franja de cifras |
 | Teléfonos (NL 811 257 8000, Coahuila 844 180 2330), domicilio fiscal y aviso de privacidad (`ciisa.com/aviso-de-privacidad/`) | `ciisa.com` (encabezado y pie) | Formulario, pie y casilla de privacidad |
+
+## 1b. Fuente CiiSA · ciisa.com/software (consultada el 28 oct 2026)
+
+La sección "Más allá de la licencia" habla **solo de lo que CiiSA hace alrededor de Adobe** (decisión del 28 oct): no se mencionan otras marcas ni otras líneas de CiiSA (seguridad, nube, respaldo, talento).
+
+| Dato | Cómo se usa |
+|---|---|
+| **Venta y licenciamiento:** asesoría gratuita en adquisición, renovación y legalización de software (confirmar que aplica a Adobe) | Tarjeta "Asesoría y licenciamiento" |
+| **Planes de adopción de tecnología** (consultoría) | Tarjeta "Adopción en tu equipo" |
+| Alta de licencias y usuarios en la consola de administración de Adobe (documentación de revendedor) | Tarjeta "Alta e implementación" |
+| Soporte de CiiSA, aviso de renovación y crecimiento de usuarios | Tarjeta "Soporte y renovación" |
 
 ## 2. Fuente Adobe · adobe.com/mx
 
@@ -24,10 +35,13 @@ Fecha de la consulta: **27 de octubre de 2026**. Todo se redactó con palabras p
 | **Creative Cloud:** Photoshop, Illustrator, Premiere y muchas aplicaciones más; el contenido creativo "más icónico del mundo" | `adobe.com/mx/` (inicio) | Tarjeta Creative Cloud (nombres de apps como etiquetas) |
 | **Firefly:** generar y editar imágenes, video, audio y diseños con IA | `adobe.com/mx/` (inicio) | Tarjeta Firefly |
 | **Acrobat:** crear, editar, compartir y firmar documentos con herramientas de PDF confiables; IA para ediciones y respuestas | `adobe.com/mx/` (inicio) | Tarjeta de Acrobat y firma |
-| **Adobe for Business:** unificar datos, contenido y flujos de trabajo con IA para personalizar a gran escala y demostrar el impacto | `adobe.com/mx/` (inicio) | Tarjeta de Experience Cloud / Adobe for Business |
+| **Adobe Express** (sustituye a Experience Cloud el 28 oct 2026): crear contenido de marca con plantillas, kit de marca y funciones de IA; viene incluido en Acrobat Studio y en Firefly for teams | Documentación de Adobe para revendedores (carpeta privada, 2026) | Tarjeta y columna de Adobe Express |
+| **Planes y administración:** planes para equipos y para empresa, por usuario, con una consola central de administración; Acrobat Studio con asistente de IA y respuestas citadas; Firefly para equipos | Documentación de Adobe para revendedores (carpeta privada, 2026) | Textos de las tarjetas y de "Licenciamiento a tu medida" |
 | Estilo visual: Adobe Clean (cuerpo) y Adobe Clean Display Black (titulares, peso 900); botones en píldora; tarjetas de 16 px | `adobe.com/mx/` (medido en el navegador) | `docs/DESIGN.md`, sección 1 |
 
-Nombres que usa el sitio como etiquetas: **Photoshop, Illustrator, Premiere, InDesign** (Creative Cloud), **Acrobat Pro, Adobe Sign** (documentos y firma; ciisa.com dice "Adobe Sign"), **Firefly** y **Experience Cloud**. InDesign no apareció en las páginas consultadas; es una aplicación conocida de Creative Cloud. **Confirmar contra el catálogo vigente.**
+Nombres que usa el sitio como etiquetas: **Photoshop, Illustrator, Premiere, InDesign** (Creative Cloud), **Acrobat Studio, Acrobat Pro, Acrobat Sign** (documentos y firma; la guía de marca de Adobe pide "Acrobat Sign", no "Adobe Sign"), **Firefly** y **Adobe Express**. InDesign no apareció en las páginas consultadas; es una aplicación conocida de Creative Cloud. **Confirmar contra el catálogo vigente.**
+
+**Apps de Creative Cloud (panel "Ver todas las apps"):** Photoshop, Illustrator, Premiere, After Effects, InDesign, Lightroom, Lightroom Classic, Audition, Animate, Character Animator, Dreamweaver y Fresco, con una descripción propia de máximo 8 palabras. **Validar nombres y descripciones contra el catálogo vigente**: Adobe renombra y retira apps, y no todas están en todos los planes (por eso el panel dice que la cotización indica qué incluye cada plan).
 
 ## 3. Lo que NO está en el sitio (a propósito)
 
@@ -35,12 +49,12 @@ Nombres que usa el sitio como etiquetas: **Photoshop, Illustrator, Premiere, InD
 - **Planes y SKU específicos** (Creative Cloud Pro, Teams, Enterprise, etc.). Se explican en la cotización.
 - **Casos de éxito, testimonios y logos de clientes con Adobe.** No hay evidencia en mano. *ciisa.com menciona clientes (InnovaSport, etc.) pero no se tomó nada de eso para este sitio.*
 - **Nivel de partnership con Adobe.** Se necesita confirmación documental (Handoff, punto 1).
-- **Imágenes, íconos de aplicación y logotipos de producto de Adobe.**
+- **Imágenes de adobe.com y capturas de producto.** Los íconos de app de los productos se usan solo con los archivos oficiales de socio, sin modificar (ver `docs/DESIGN.md`, "Logotipos de producto"), pendientes de revisión de marca.
 - **Afirmaciones de cumplimiento normativo concretas** (por ejemplo, leyes específicas): ciisa.com habla de "cumplimiento con normativas" en general; el sitio las repite sin citar normas.
 
 ## 4. Textos que requieren validación
 
-- **Sector público (`#gobierno`):** "Firma electrónica con validez legal", "cumplimiento de normativas de seguridad y privacidad", "protección y cifrado". Vienen de ciisa.com; deben validarse por Legal/Comercial antes de difundirse.
+- **Sectores (`#sectores`):** el tercer sector es **educación** (28 oct; se probó "universidades" y se revirtió). En gobierno, "validez legal" ya no se afirma; en educación, confirmar que CiiSA pueda ofrecer los programas de educación de Adobe (requieren su propia especialización). Antes, sector público: "Firma electrónica con validez legal", "cumplimiento de normativas de seguridad y privacidad", "protección y cifrado". Vienen de ciisa.com; deben validarse por Legal/Comercial antes de difundirse.
 - **"Asesoría gratuita en licenciamiento":** viene de la sección de software de ciisa.com; confirmar que aplica a Adobe.
 - **Opciones del formulario** ("Tipo de organización", "¿Qué te interesa?", "¿Cuántos usuarios?"): ajustar a como Comercial segmenta.
 

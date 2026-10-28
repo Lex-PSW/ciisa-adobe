@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160"><style>.sg{stroke-dasharray:150;animation:dr 5s ease-in-out infinite}@keyframes dr{0%{stroke-dashoffset:150}45%,100%{stroke-dashoffset:0}}.tw{animation:tw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes tw{0%,100%{opacity:.4;transform:scale(.85)}50%{opacity:1;transform:scale(1)}}@media (prefers-reduced-motion:reduce){*{animation:none!important}.sg{stroke-dashoffset:0}}</style><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#001c71"/><stop offset="1" stop-color="#000b3c"/></linearGradient><radialGradient id="gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#bcf200" stop-opacity=".35"/><stop offset="1" stop-color="#bcf200" stop-opacity="0"/></radialGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bcf200"/><stop offset="1" stop-color="#4f8b72"/></linearGradient><linearGradient id="r" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f86956"/><stop offset="1" stop-color="#793958"/></linearGradient></defs><rect width="320" height="160" fill="url(#bg)"/>
+<circle cx="236" cy="52" r="1.4" fill="#fff" opacity=".6"/><circle cx="70" cy="40" r="1.2" fill="#a5b5d4" opacity=".6"/><circle cx="270" cy="128" r="1.2" fill="#a5b5d4" opacity=".6"/>
+<rect x="92" y="30" width="100" height="116" rx="8" fill="#143580" opacity=".7" transform="rotate(-7 142 88)"/>
+<path d="M114 20 H176 L208 52 V144 a8 8 0 0 1 -8 8 H114 a8 8 0 0 1 -8 -8 V28 a8 8 0 0 1 8 -8Z" fill="#fff"/>
+<path d="M176 20 L208 52 H184 a8 8 0 0 1 -8 -8Z" fill="#ccd5e7"/>
+<rect x="120" y="32" width="26" height="9" rx="4.5" fill="#eb1000"/>
+<g fill="#a5b5d4"><rect x="120" y="54" width="62" height="4" rx="2"/><rect x="120" y="66" width="78" height="4" rx="2"/><rect x="120" y="78" width="70" height="4" rx="2"/><rect x="120" y="90" width="40" height="4" rx="2"/></g>
+<path class="sg" d="M122 124 C 130 104, 138 132, 146 114 S 160 104, 164 118 S 176 130, 196 108" fill="none" stroke="#eb1000" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="120" y1="132" x2="198" y2="132" stroke="#001c71" stroke-opacity=".25"/>
+<circle class="k-pop" cx="214" cy="124" r="16" fill="#bcf200"/><path d="M206 124 L212 130 L223 118" fill="none" stroke="#001c71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="214" cy="124" r="22" fill="none" stroke="#bcf200" stroke-opacity=".4" class="tw"/>
+</svg>

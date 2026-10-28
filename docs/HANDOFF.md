@@ -6,7 +6,7 @@ Punto de entrada para continuar el proyecto sin depender de quien lo empezó. L�
 
 ## 1. Qué es y en qué estado está
 
-Landing de **soluciones Adobe para empresas y gobierno** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Experience Cloud, sector público, por qué CiiSA, proceso y **formulario de cotización al final**. Sitio nuevo e independiente de CiiSA Beyond y de CiiSA + Lenovo, en su propio repositorio.
+Landing de **soluciones Adobe para empresas y gobierno** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Adobe Express, sector público, soluciones de CiiSA, por qué CiiSA, proceso y **formulario de cotización al final**. Sitio nuevo e independiente de CiiSA Beyond y de CiiSA + Lenovo, en su propio repositorio.
 
 | Pieza | Estado |
 |---|---|
@@ -45,7 +45,7 @@ Landing de **soluciones Adobe para empresas y gobierno** operada por CiiSA: Crea
 
 - **Sitio nuevo, repo nuevo**, hermano de `ciisa-beyond` y `ciisa-lenovo`. Mismo stack: HTML, CSS y JS vanilla, **sin framework ni build**.
 - **Estilo:** se mimetiza el *lenguaje* visual de Adobe (tema claro, titulares en peso 900, botones en píldora, tarjetas de 16 px, rojo Adobe como acento) con el sello de CiiSA (degradado verde → menta → cian como acento, hero oscuro). **No es una copia de adobe.com**: ni su composición, ni sus imágenes, ni sus textos, ni sus íconos de aplicación.
-- **Tipografía:** *Adobe Clean* es propietaria y no se puede alojar ni usar fuera de las propiedades de Adobe. Se usa **Source Sans 3** (código abierto, licencia SIL OFL; la familia de código abierto de Adobe), alojada en `assets/types`. La pila de fuentes ya nombra `Adobe Clean` primero: solo se verá si el usuario la tiene instalada.
+- **Tipografía:** *Adobe Clean* es propietaria y no se puede alojar ni usar fuera de las propiedades de Adobe. Se usa **Poppins**, la tipografía oficial de CiiSA (código abierto, SIL OFL), alojada en `assets/types`. La pila de fuentes ya nombra `Adobe Clean` primero: solo se verá si el usuario la tiene instalada.
 - **Dominio previsto `adobe.ciisa.com` por CNAME.** El archivo `CNAME` **no está en el repo** hasta que TI confirme el registro.
 - **Contenido propio:** redactado con palabras propias a partir de ciisa.com y del sitio oficial de Adobe. Sin precios, promociones ni planes concretos.
 - **Un CTA principal:** cotizar. El formulario va al final y todos los botones llevan a él.
@@ -57,7 +57,7 @@ Landing de **soluciones Adobe para empresas y gobierno** operada por CiiSA: Crea
 |---|---|---|---|
 | 1 | **Autorización de Adobe para el estilo y el logotipo** | Marca / Legal | Es el bloqueo principal. Adobe tiene una guía de marca y programas de socios con reglas de co-branding. Confirmar: (a) que CiiSA puede usar el logotipo de Adobe en un sitio propio y en qué versión; (b) si exigen aprobación previa de materiales; (c) el nivel de partnership que se puede declarar; (d) que el parecido visual con su sitio es aceptable o qué ajustes piden. Hasta tener respuesta **no se publica con dominio propio ni se difunde** |
 | 2 | **Logotipo de Adobe** | Marca | Hoy se usa la versión de Adobe que CiiSA ya tiene en sus materiales de socios (`assets/img/adobe-logo-*.svg`), recoloreada a rojo, negro y blanco (las versiones de una tinta que la guía de Adobe admite; **confirmarlo**). Sustituir por el archivo oficial si Adobe lo entrega. No deformar, animar ni rodear de efectos |
-| 3 | **Leyenda legal** | Legal | El pie lleva un texto genérico de marcas (Adobe, Creative Cloud, Acrobat, Photoshop, Illustrator, Premiere, InDesign, Firefly, Experience Cloud). **Validarlo** con Legal y con Adobe |
+| 3 | **Leyenda legal** | Legal | El pie lleva un texto genérico de marcas (Adobe, Creative Cloud, Acrobat, Photoshop, Illustrator, Premiere, InDesign, Firefly, Adobe Express). **Validarlo** con Legal y con Adobe |
 | 4 | **Nombres de producto vigentes** | Comercial | Adobe renombra con frecuencia (por ejemplo, *Adobe Sign* → *Acrobat Sign*). El sitio usa los nombres de ciisa.com. Confirmar contra el catálogo vigente |
 | 5 | **Imágenes de producto** | Marca / Adobe | El sitio usa una ilustración abstracta propia. Si se quieren capturas o fotografía de Adobe, solo con activos oficiales y su licencia. No descargar imágenes de adobe.com |
 | 6 | **Validación de contenido** | Comercial CiiSA | Revisar `docs/CONTENIDO.md` completo, sobre todo "Adobe para gobierno" (afirmaciones de cumplimiento y de validez legal de la firma) |
@@ -122,7 +122,7 @@ No hay tracking todavía. El formulario dispara el evento `adobe:lead` en `docum
 ## 12. Riesgos conocidos
 
 - **Marca de terceros** (sección 6): es el principal. Por eso el punto 1 bloquea.
-- **Tipografía:** Source Sans 3 se parece a Adobe Clean pero no es idéntica. No hay forma legítima de usar Adobe Clean aquí.
+- **Tipografía:** el sitio usa Poppins de CiiSA, como pide la guía de Adobe para socios. No hay forma legítima de usar Adobe Clean aquí.
 - **Contenido que envejece:** nombres de producto y planes de Adobe cambian. El sitio no lista planes ni precios; revisar el copy cada trimestre.
 - **Afirmaciones para el sector público** (cumplimiento, validez legal de la firma, seguridad): vienen de ciisa.com y deben validarse por Legal antes de difundirse.
 - **URL firmada en un repo público:** es el diseño de Beyond; el flujo debe validar `origen`, evitar duplicados y poder regenerar la URL.

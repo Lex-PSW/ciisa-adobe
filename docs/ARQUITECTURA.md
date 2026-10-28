@@ -10,7 +10,7 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `styles.css` | Tokens en `:root`, componentes y responsive. Ajustes nuevos **al final** |
 | `site.js` | Agrega la clase `js` a `<html>` y revela los `.reveal` al entrar en pantalla |
 | `adobe-form.js` | Todo el formulario (abajo) |
-| `assets/` | `types/` Source Sans 3 (latin y latin-ext); `img/` logotipos de CiiSA y de Adobe en blanco, negro y rojo |
+| `assets/` | `types/` Poppins (400 a 900, los de CiiSA Beyond); `img/` logotipos de CiiSA y de Adobe en blanco, negro y rojo |
 | Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `adobe.ciisa.com` |
 
 ## Formulario `[data-adobe-form]`
@@ -22,7 +22,7 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `correo` | email | Formato `x@y.zz` |
 | `telefono` | tel | 10 a 13 dígitos |
 | `sector` | select | Obligatorio: Empresa privada, Gobierno, Educación, Otra |
-| `interes` | select | Obligatorio: Creative Cloud, Acrobat y firma electrónica, Firefly, Experience Cloud, Varias, No sé |
+| `interes` | select | Obligatorio: Creative Cloud, Acrobat y firma electrónica, Firefly (IA creativa), Adobe Express, Varias soluciones, Todavía no lo sé (28 oct 2026: Experience Cloud sale del vocabulario y entra Adobe Express) |
 | `cantidad` | select | Obligatorio: rangos de usuarios |
 | `mensaje` | textarea | Opcional, máx. 600 |
 | `privacidad` | checkbox | Obligatoria |

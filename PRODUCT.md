@@ -20,7 +20,7 @@ CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento,
 
 ## Operating Context
 
-- Una sola página con scroll: hero → cifras → `#soluciones` → `#gobierno` → `#por-que-ciisa` → `#proceso` → `#cotiza` (formulario) → pie.
+- Una sola página con scroll: hero → cifras → `#soluciones` → `#sectores` → `#por-que-ciisa` → `#soluciones-ciisa` → `#proceso` → `#cotiza` (formulario) → pie.
 - Hero: en escritorio la animación de mosaicos va a la derecha del texto; en tablet y móvil (≤ 1024 px) va arriba del texto y del CTA, en tamaño compacto. Se pausa fuera de pantalla y con `prefers-reduced-motion` solo hace un fundido.
 - El formulario manda JSON a un flujo de Power Automate (`origen: "landing-adobe"` + UTM). Sin endpoint, valida pero no envía y muestra el teléfono de respaldo.
 - Sin backend propio; sitio estático en GitHub Pages.
@@ -28,16 +28,17 @@ CiiSA acompaña la **adopción** de Adobe: asesoría gratuita en licenciamiento,
 ## Capabilities and Constraints
 
 - HTML/CSS/JS vanilla, sin build ni framework (no agregar sin preguntar).
-- Tipografía **Source Sans 3** (código abierto). No usar *Adobe Clean* (propietaria).
-- Sin imágenes, íconos de aplicación ni capturas de Adobe sin licencia; ilustración propia.
+- Tipografía **Poppins**, la oficial de CiiSA (código abierto, como en CiiSA Beyond). No usar *Adobe Clean* (propietaria).
+- Sin imágenes ni capturas de Adobe sin licencia; ilustración propia. Los íconos de app de producto solo en su archivo oficial de socio, sin modificar ni recolorear, junto al nombre del producto (ver `docs/DESIGN.md`).
 - No inventar precios, planes, promociones, certificaciones, testimonios ni casos de éxito. Todo dato sale de `docs/CONTENIDO.md`.
 
 ## Brand Commitments
 
 - Marca que opera el sitio: **CiiSA**. Solo como acento (nunca texto en degradado sobre blanco).
 - **Paleta de acento decidida por el equipo (27 oct 2026):** solo **verde CiiSA `#bcf200` y rojo Adobe `#eb1000`**. Se quitan el menta de PSW (`#01fbce`) y el azul (`#00ccff`) de todos los degradados y ornamentos: texto `.grad`, subrayados, barras, puntos, mosaicos y resplandores. Degradado: `#bcf200 → #eb1000 → #bcf200`. Sustituye al orden `#bcf200 → #01fbce → #00ccff` de CiiSA Beyond.
+- **Mapa tonal (28 oct 2026):** el único negro es el navy del logo (`#001c71`); verde y rojo tienen rampas hacia el navy y el tope claro es blanco. Detalle en `docs/DESIGN.md`.
 - Rojo Adobe (`#eb1000`) como acento: el punto del kicker, los mosaicos rojos, los resplandores y el degradado. No se usa en botones.
-- El hero lleva el **ícono de Adobe** (el glifo de su logotipo, en una sola tinta blanca) fijo al centro de los mosaicos: no se anima ni lleva sombra.
+- El ícono "A" de Adobe **no se usa** como adorno ni como favicon (la guía de marca de socios lo prohíbe); el favicon es el isotipo de CiiSA.
 - Los logotipos de Adobe no se alteran, animan ni rodean de efectos; solo versiones de una tinta.
 - Adobe **autorizó por escrito** el uso de su marca, logotipo y estilo, según confirmó el equipo. Las condiciones exactas de uso y la leyenda legal siguen las indicaciones de esa autorización (`docs/HANDOFF.md` aún lo marca como pendiente: actualizarlo y archivar el documento).
 - CiiSA tiene un **nivel de partner con Adobe confirmado**. El nombre del nivel no está registrado aquí: no se nombra en el sitio hasta asentarlo, con el documento que lo respalde, en `docs/CONTENIDO.md`.

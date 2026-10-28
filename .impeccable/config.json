@@ -29,6 +29,51 @@
         ],
         "createdAt": "2026-10-27T20:22:24.250Z",
         "reason": "False positive: .soln::before is a 5px top bar (top/left/right 0), not a side border; the only real side-tab (.benef li) was removed"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-28T07:13:57.331Z",
+        "reason": "Resplandores suaves aceptados a propósito (CLAUDE.md): halos del hero y sombras de mosaicos en navy"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-28T07:13:57.804Z",
+        "reason": "Resplandores suaves aceptados a propósito (CLAUDE.md): halos del hero y sombras de mosaicos en navy"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-28T07:13:58.250Z",
+        "reason": "Falso positivo: contraste verificado en el navegador (todo texto cumple 4.5:1; el degradado verde-rojo es texto grande sobre navy, >=3:1)"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-28T07:24:47.262Z",
+        "reason": "Aurora y resplandores suaves pedidos a propósito para el fondo etéreo del hero y el formulario; aceptados en CLAUDE.md"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-28T07:24:47.765Z",
+        "reason": "Aurora y resplandores suaves pedidos a propósito para el fondo etéreo del hero y el formulario; aceptados en CLAUDE.md"
       }
     ]
   }

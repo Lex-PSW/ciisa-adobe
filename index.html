@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="es-MX">
+<html lang="es-MX" class="exp">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adobe para empresas y gobierno · CiiSA</title>
-<meta name="description" content="Creative Cloud, Acrobat, firma electrónica, Firefly y Experience Cloud para empresas y gobierno, con asesoría, licenciamiento y acompañamiento de CiiSA. Cotiza.">
+<title>Adobe para empresas, gobierno y educación · CiiSA</title>
+<meta name="description" content="Creative Cloud, Acrobat, firma electrónica, Firefly y Adobe Express para empresas, gobierno y educación, con asesoría, licenciamiento y acompañamiento de CiiSA. Cotiza.">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Adobe para empresas y gobierno · CiiSA">
+<meta property="og:title" content="Adobe para empresas, gobierno y educación · CiiSA">
 <meta property="og:description" content="Soluciones Adobe con asesoría, licenciamiento y acompañamiento de CiiSA. Cotiza.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/types/SourceSans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/types/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/types/Poppins-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <!-- Pendiente del handoff: og:image (1200x630), favicon definitivo y URL canónica (docs/HANDOFF.md) -->
 </head>
@@ -27,7 +28,7 @@
     </a>
     <nav class="nav__links" aria-label="Secciones">
       <a href="#soluciones">Soluciones</a>
-      <a href="#gobierno">Sector público</a>
+      <a href="#sectores">Sectores</a>
       <a href="#por-que-ciisa">Por qué CiiSA</a>
       <a href="#proceso">Cómo trabajamos</a>
     </nav>
@@ -39,17 +40,18 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero__glow" data-parallax="0.25" aria-hidden="true"></div>
+    <div class="sky" aria-hidden="true"><div class="sky__aurora"></div><canvas class="sky__stars"></canvas></div>
     <div class="wrap hero__in">
       <div class="hero__txt reveal">
         <p class="kicker kicker--dark"><span class="dot" aria-hidden="true"></span> CiiSA · Soluciones Adobe</p>
         <h1>Adobe para tu empresa o institución, <span class="grad">con CiiSA a tu lado</span></h1>
-        <p class="lead">Herramientas avanzadas de diseño, documentos, firma electrónica, inteligencia artificial y experiencia de cliente, con asesoría, licenciamiento y acompañamiento especializado para empresas y gobierno.</p>
+        <p class="lead">Herramientas avanzadas de diseño, documentos, firma electrónica, inteligencia artificial y creación ágil de contenido, con asesoría, licenciamiento y acompañamiento especializado para empresas, gobierno y educación.</p>
         <div class="hero__cta">
           <a class="btn btn--white" href="#cotiza" data-cta="hero">Cotiza con un especialista</a>
           <a class="btn btn--ghost" href="#soluciones">Ver soluciones</a>
         </div>
         <ul class="chips" aria-label="Soluciones Adobe">
-          <li>Creative Cloud</li><li>Acrobat</li><li>Firma electrónica</li><li>Firefly</li><li>Experience Cloud</li>
+          <li>Creative Cloud</li><li>Acrobat</li><li>Acrobat Sign</li><li>Firefly</li><li>Adobe Express</li>
         </ul>
       </div>
       <div class="hero__art reveal" aria-hidden="true">
@@ -58,7 +60,6 @@
           <div class="tile tile--b"><span></span></div>
           <div class="tile tile--c"><span></span></div>
           <div class="tile tile--d"><span></span></div>
-          <img class="stack__icon" src="assets/img/adobe-icon-blanco.svg" alt="" data-logo-por-validar>
         </div>
       </div>
     </div>
@@ -80,81 +81,112 @@
       </header>
       <div class="grid4">
         <article class="soln reveal">
+          <img class="soln__art" src="assets/img/ill-creative-cloud.svg" alt="" width="320" height="160" loading="lazy">
           <p class="soln__tag">Creatividad y diseño</p>
-          <h3>Creative Cloud</h3>
-          <p>Las aplicaciones con las que se crea el contenido creativo: diseño, fotografía, video e ilustración, para equipos de comunicación, marketing y producción.</p>
-          <ul class="mini"><li>Photoshop</li><li>Illustrator</li><li>Premiere</li><li>InDesign</li></ul>
+          <h3 class="prod"><img class="prod__logo" src="assets/img/producto/creative-cloud.png" alt="" width="32" height="32"><span>Creative Cloud</span></h3>
+          <p>Las aplicaciones con las que se crea el contenido creativo: diseño, fotografía, video e ilustración. Planes para equipos y para empresas, con una consola central para administrar las licencias.</p>
+          <ul class="mini mini--app"><li><img class="mini__logo" src="assets/img/producto/photoshop.svg" alt="" width="20" height="20">Photoshop</li><li><img class="mini__logo" src="assets/img/producto/illustrator.svg" alt="" width="20" height="20">Illustrator</li><li><img class="mini__logo" src="assets/img/producto/premiere.svg" alt="" width="20" height="20">Premiere</li><li><img class="mini__logo" src="assets/img/producto/indesign.svg" alt="" width="20" height="20">InDesign</li></ul>
+          <button type="button" class="apps-btn" aria-expanded="false" aria-controls="apps-cc" data-apps-toggle><span>Ver todas las apps</span><svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true" focusable="false"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </article>
+        <div class="apps" id="apps-cc" role="region" aria-label="Apps de Creative Cloud" hidden>
+          <div class="apps__head">
+            <p class="apps__title">Las apps de Creative Cloud</p>
+            <p class="apps__note">Qué apps incluye cada plan, te lo mostramos en tu cotización.</p>
+          </div>
+          <ul class="apps__grid">
+            <li class="app"><img class="app__logo" src="assets/img/producto/photoshop.svg" alt="" width="32" height="32" loading="lazy"><div><b>Photoshop</b><span>Edita y compone imágenes y fotografías.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/illustrator.svg" alt="" width="32" height="32" loading="lazy"><div><b>Illustrator</b><span>Ilustración y gráficos vectoriales escalables.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/premiere.svg" alt="" width="32" height="32" loading="lazy"><div><b>Premiere</b><span>Edición profesional de video para cualquier pantalla.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/after-effects.svg" alt="" width="32" height="32" loading="lazy"><div><b>After Effects</b><span>Animación, efectos visuales y motion graphics.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/indesign.svg" alt="" width="32" height="32" loading="lazy"><div><b>InDesign</b><span>Maquetación de revistas, informes y publicaciones.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/lightroom.svg" alt="" width="32" height="32" loading="lazy"><div><b>Lightroom</b><span>Organiza y revela fotografías con ajustes rápidos.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/lightroom-classic.svg" alt="" width="32" height="32" loading="lazy"><div><b>Lightroom Classic</b><span>Revelado y catálogo de fotografías en escritorio.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/audition.svg" alt="" width="32" height="32" loading="lazy"><div><b>Audition</b><span>Edición y mezcla de audio profesional.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/animate.svg" alt="" width="32" height="32" loading="lazy"><div><b>Animate</b><span>Animación 2D interactiva para web y video.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/character-animator.svg" alt="" width="32" height="32" loading="lazy"><div><b>Character Animator</b><span>Anima personajes a partir de tu rostro.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/dreamweaver.svg" alt="" width="32" height="32" loading="lazy"><div><b>Dreamweaver</b><span>Diseña y programa sitios web.</span></div></li>
+            <li class="app"><img class="app__logo" src="assets/img/producto/fresco.svg" alt="" width="32" height="32" loading="lazy"><div><b>Fresco</b><span>Dibujo y pintura digital con pincel.</span></div></li>
+          </ul>
+        </div>
         <article class="soln reveal">
+          <img class="soln__art" src="assets/img/ill-firefly.svg" alt="" width="320" height="160" loading="lazy">
           <p class="soln__tag">IA creativa</p>
-          <h3>Firefly</h3>
-          <p>Genera y edita imágenes, video, audio y diseños con IA generativa, integrada al flujo de trabajo de tu equipo creativo.</p>
+          <h3 class="prod"><img class="prod__logo" src="assets/img/producto/firefly.svg" alt="" width="32" height="32"><span>Firefly</span></h3>
+          <p>Genera y edita imágenes, video, audio y diseños con IA generativa pensada para uso comercial. Está integrada a Creative Cloud y también disponible para equipos.</p>
           <ul class="mini"><li>Imágenes</li><li>Video</li><li>Audio</li><li>Diseños</li></ul>
         </article>
         <article class="soln reveal">
+          <img class="soln__art" src="assets/img/ill-acrobat.svg" alt="" width="320" height="160" loading="lazy">
           <p class="soln__tag">Documentos y firma</p>
-          <h3>Acrobat y firma electrónica</h3>
-          <p>Crea, edita, comparte y firma documentos con herramientas de PDF confiables. Menos papel, menos tiempos y trámites más seguros.</p>
-          <ul class="mini"><li>Acrobat Pro</li><li>Adobe Sign</li><li>PDF seguro</li></ul>
+          <h3 class="prod"><img class="prod__logo" src="assets/img/producto/acrobat.svg" alt="" width="32" height="32"><span>Acrobat y firma electrónica</span></h3>
+          <p>Acrobat Studio, Pro y Standard para crear, editar, comparar y proteger PDF, y Acrobat Sign para enviar documentos a firma. Studio suma un asistente de IA con respuestas citadas. Menos papel, menos tiempos.</p>
+          <ul class="mini"><li>Acrobat Studio</li><li>Acrobat Pro</li><li>Acrobat Sign</li></ul>
         </article>
         <article class="soln reveal">
-          <p class="soln__tag">Adobe for Business</p>
-          <h3>Experience Cloud</h3>
-          <p>Unifica datos, contenido y flujos de trabajo para personalizar la experiencia de clientes y ciudadanos, y medir su impacto.</p>
-          <ul class="mini"><li>Datos</li><li>Contenido</li><li>Personalización</li><li>Analítica</li></ul>
+          <img class="soln__art" src="assets/img/ill-express.svg" alt="" width="320" height="160" loading="lazy">
+          <p class="soln__tag">Contenido ágil</p>
+          <h3 class="prod"><img class="prod__logo" src="assets/img/producto/express.png" alt="" width="32" height="32"><span>Adobe Express</span></h3>
+          <p>Crea publicaciones, presentaciones y materiales de marca en minutos, aun sin ser diseñador, con plantillas, kit de marca y funciones de IA. También viene incluido en Acrobat Studio.</p>
+          <ul class="mini"><li>Plantillas</li><li>Kit de marca</li><li>Redimensionar</li><li>Traducir</li></ul>
         </article>
       </div>
       <p class="nota">Los planes, productos y funciones de Adobe cambian con frecuencia. En tu cotización te mostramos lo vigente para tu caso.</p>
     </div>
   </section>
 
-  <!-- SECTOR PÚBLICO -->
-  <section class="sec sec--gray" id="gobierno">
+  <!-- SECTORES -->
+  <section class="sec sec--gray" id="sectores">
     <div class="wrap">
       <header class="sec__head reveal">
-        <p class="kicker">Adobe para gobierno</p>
-        <h2>Transformación digital para el <span class="underline">sector público</span></h2>
-        <p class="lead">Ayudamos a empresas y entidades gubernamentales a transformar su flujo de trabajo digital con herramientas avanzadas y soporte especializado.</p>
+        <p class="kicker">Para cada sector</p>
+        <h2 class="sector__title">Cada organización compra y usa Adobe distinto. <span class="underline">Te ayudamos a elegir bien</span></h2>
+        <p class="lead">Empresas, gobierno y educación tienen necesidades, reglas de compra y programas de licenciamiento distintos. CiiSA te orienta según el tuyo.</p>
       </header>
-      <div class="gov">
+      <div class="gov gov--3">
         <article class="gov__col reveal">
-          <h3>Acrobat Pro</h3>
+          <img class="sector__art" src="assets/img/sector-empresas.svg" alt="" width="320" height="160" loading="lazy">
+          <h3>Empresas</h3>
+          <p class="sector__promise">Más contenido y menos trámites para tus equipos.</p>
+          <ul class="ticks">
+            <li>Planes por usuario para equipos de comunicación, marketing y diseño</li>
+            <li>PDF y firma electrónica para contratos y procesos sin papel</li>
+            <li>IA generativa y plantillas de marca para producir más rápido</li>
+          </ul>
+          <ul class="mini"><li>Creative Cloud</li><li>Firefly</li><li>Acrobat</li><li>Adobe Express</li></ul>
+          <p class="sector__nota">Planes para equipos o para empresa, con administración central de licencias.</p>
+        </article>
+        <article class="gov__col reveal">
+          <img class="sector__art" src="assets/img/sector-gobierno.svg" alt="" width="320" height="160" loading="lazy">
+          <h3>Gobierno</h3>
+          <p class="sector__promise">Trámites más ágiles y una comunicación clara con la ciudadanía.</p>
           <ul class="ticks">
             <li>Digitalización de documentos oficiales con seguridad avanzada</li>
-            <li>Protección y cifrado de archivos sensibles</li>
-            <li>Firma electrónica con validez legal</li>
+            <li>Firma electrónica y autenticación de quien firma</li>
+            <li>Materiales institucionales con plantillas de marca</li>
           </ul>
+          <ul class="mini"><li>Acrobat Pro</li><li>Acrobat Sign</li><li>Creative Cloud</li><li>Adobe Express</li></ul>
+          <p class="sector__nota">Las compras de gobierno siguen programas y reglas específicas; te orientamos en el proceso.</p>
         </article>
         <article class="gov__col reveal">
-          <h3>Adobe Sign</h3>
+          <img class="sector__art" src="assets/img/sector-educacion.svg" alt="" width="320" height="160" loading="lazy">
+          <h3>Educación</h3>
+          <p class="sector__promise">Creatividad y documentos para enseñar y aprender.</p>
           <ul class="ticks">
-            <li>Eliminación del papel en procesos administrativos</li>
-            <li>Autenticación segura de quien firma</li>
-            <li>Menos costos y tiempos en trámites</li>
+            <li>Herramientas creativas para docentes, estudiantes y áreas de comunicación</li>
+            <li>PDF y firma electrónica para la gestión escolar</li>
+            <li>Contenido y presentaciones con plantillas para el aula</li>
           </ul>
-        </article>
-        <article class="gov__col reveal">
-          <h3>Creative Cloud</h3>
-          <ul class="ticks">
-            <li>Contenido digital para comunicación institucional</li>
-            <li>Diseño profesional de informes y materiales oficiales</li>
-            <li>Adaptación a distintas plataformas y audiencias</li>
-          </ul>
-        </article>
-        <article class="gov__col reveal">
-          <h3>Experience Cloud</h3>
-          <ul class="ticks">
-            <li>Gestión inteligente de datos para mejorar la experiencia ciudadana</li>
-            <li>Análisis en tiempo real para decidir mejor</li>
-            <li>Herramientas interactivas para la participación del público</li>
-          </ul>
+          <ul class="mini"><li>Creative Cloud</li><li>Acrobat</li><li>Acrobat Sign</li><li>Adobe Express</li></ul>
+          <p class="sector__nota">Los programas para educación tienen requisitos de elegibilidad; los revisamos contigo.</p>
         </article>
       </div>
+      <div class="plus reveal" aria-hidden="true"><span class="plus__mark">+</span></div>
+      <p class="plus__label reveal">Y en cualquier sector, esto es lo que suma CiiSA</p>
       <ul class="benef reveal">
-        <li>Cumplimiento de normativas de seguridad y privacidad de datos</li>
-        <li>Procesos administrativos más ágiles y con menos costo</li>
-        <li>Mayor transparencia y accesibilidad en la gestión pública</li>
-        <li>Agilidad en la entrega de servicios digitales</li>
+        <li><img class="benef__art" src="assets/img/ben-control.svg" alt="" width="320" height="160" loading="lazy"><span>Licencias, usuarios y accesos bajo control</span></li>
+        <li><img class="benef__art" src="assets/img/ben-proteccion.svg" alt="" width="320" height="160" loading="lazy"><span>Información sensible protegida</span></li>
+        <li><img class="benef__art" src="assets/img/ben-papel.svg" alt="" width="320" height="160" loading="lazy"><span>Menos papel y trámites más ágiles</span></li>
+        <li><img class="benef__art" src="assets/img/ben-ciisa.svg" alt="" width="320" height="160" loading="lazy"><span>Acompañamiento de CiiSA de principio a fin</span></li>
       </ul>
     </div>
   </section>
@@ -165,16 +197,55 @@
       <header class="sec__head sec__head--left reveal">
         <p class="kicker">Por qué CiiSA</p>
         <h2>Tu aliado en la <span class="underline">implementación de Adobe</span></h2>
-        <p class="lead">Como socio estratégico, te damos asesoría, soporte y acompañamiento en la adopción de las soluciones Adobe para que se implementen correctamente.</p>
+        <p class="lead">Te asesoramos en el licenciamiento, te ayudamos a implementar las soluciones Adobe y te damos soporte para que tu equipo las use con confianza.</p>
         <a class="btn btn--dark" href="#cotiza" data-cta="why">Hablar con un especialista</a>
       </header>
       <ul class="checks reveal">
         <li><b>Asesoría gratuita en licenciamiento.</b> Te orientamos en la adquisición, renovación y legalización de tu software.</li>
-        <li><b>Esquemas de suscripción y licenciamiento.</b> Adobe junto con el resto de tu software, con una sola asesoría.</li>
-        <li><b>Adaptado al sector público y privado.</b> Las herramientas se ajustan a las necesidades de tu organización.</li>
+        <li><b>Licenciamiento a tu medida.</b> Te ayudamos a elegir entre planes para equipos o para empresa, por usuario, y a administrarlos desde una sola consola.</li>
+        <li><b>Adobe junto con el resto de tu software.</b> Una sola asesoría para tus suscripciones y licencias.</li>
+        <li><b>Adaptado a empresas, gobierno y educación.</b> Las herramientas y el licenciamiento se ajustan a tu tipo de organización.</li>
         <li><b>Acompañamiento en la implementación y el uso.</b> Para sacar el máximo provecho de cada producto.</li>
         <li><b>Más de 30 años de experiencia.</b> Un equipo de más de 50 consultores y especialistas.</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- SOLUCIONES DE CIISA -->
+  <section class="sec" id="soluciones-ciisa">
+    <div class="wrap">
+      <header class="sec__head reveal">
+        <p class="kicker">Más allá de la licencia</p>
+        <h2>CiiSA te acompaña en cada etapa de tu Adobe, <span class="underline">de elegir a renovar</span></h2>
+        <p class="lead">No solo conseguimos la licencia: te ayudamos a elegir el plan, a ponerlo a trabajar y a sacarle provecho.</p>
+      </header>
+      <div class="grid4">
+        <article class="soln reveal">
+          <img class="soln__art" src="assets/img/svc-asesoria.svg" alt="" width="320" height="160" loading="lazy">
+          <p class="soln__tag">Antes de comprar</p>
+          <h3>Asesoría y licenciamiento</h3>
+          <p>Dimensionamos tus usuarios y te ayudamos a elegir entre planes para equipos o para empresa. La asesoría en adquisición, renovación y legalización es gratuita.</p>
+        </article>
+        <article class="soln reveal">
+          <img class="soln__art" src="assets/img/svc-implementacion.svg" alt="" width="320" height="160" loading="lazy">
+          <p class="soln__tag">Al arrancar</p>
+          <h3>Alta e implementación</h3>
+          <p>Damos de alta tus licencias y usuarios en la consola de administración y te ayudamos a ponerlas a trabajar en tus equipos.</p>
+        </article>
+        <article class="soln reveal">
+          <img class="soln__art" src="assets/img/svc-adopcion.svg" alt="" width="320" height="160" loading="lazy">
+          <p class="soln__tag">En el día a día</p>
+          <h3>Adopción en tu equipo</h3>
+          <p>Un plan de adopción para que cada área use las herramientas que le corresponden y les saque provecho.</p>
+        </article>
+        <article class="soln reveal">
+          <img class="soln__art" src="assets/img/svc-soporte.svg" alt="" width="320" height="160" loading="lazy">
+          <p class="soln__tag">Para seguir creciendo</p>
+          <h3>Soporte y renovación</h3>
+          <p>Soporte de CiiSA cuando lo necesitas, aviso a tiempo de tu renovación y asesoría para sumar usuarios o cambiar de plan.</p>
+        </article>
+      </div>
+      <p class="nota">Conoce más de CiiSA en <a href="https://ciisa.com" target="_blank" rel="noopener">ciisa.com</a>.</p>
     </div>
   </section>
 
@@ -186,15 +257,16 @@
         <h2>De la necesidad a tus equipos trabajando, <span class="underline">en tres pasos</span></h2>
       </header>
       <ol class="steps">
-        <li class="reveal"><i>01</i><h3>Cuéntanos qué necesitas</h3><p>Llena el formulario o llámanos. Un especialista revisa tu caso: usuarios, tipo de trabajo y sector.</p></li>
-        <li class="reveal"><i>02</i><h3>Recibe tu propuesta</h3><p>Te presentamos las soluciones Adobe recomendadas, el esquema de licenciamiento y los tiempos de implementación.</p></li>
-        <li class="reveal"><i>03</i><h3>Implementa y adopta</h3><p>Te acompañamos en la puesta en marcha, el uso y la renovación, con soporte de CiiSA.</p></li>
+        <li class="reveal"><i>01</i><h3>Cuéntanos qué necesitas</h3><p>Llena el formulario o llámanos. Un especialista revisa tu caso: cuántos usuarios son, qué tipo de trabajo hacen y de qué sector eres.</p></li>
+        <li class="reveal"><i>02</i><h3>Recibe tu propuesta</h3><p>Te presentamos las soluciones Adobe recomendadas, el plan de licenciamiento que conviene a tu caso (equipos o empresa) y los tiempos de implementación.</p></li>
+        <li class="reveal"><i>03</i><h3>Implementa y adopta</h3><p>Damos de alta tus licencias, te acompañamos en la puesta en marcha y el uso, y te avisamos para la renovación, con soporte de CiiSA.</p></li>
       </ol>
     </div>
   </section>
 
   <!-- FORMULARIO -->
   <section class="sec sec--form" id="cotiza" data-parallax="0.2">
+    <div class="sky" aria-hidden="true"><div class="sky__aurora"></div><canvas class="sky__stars"></canvas></div>
     <div class="wrap form-wrap">
       <header class="sec__head sec__head--left reveal">
         <p class="kicker kicker--dark">Cotiza</p>
@@ -231,7 +303,7 @@
               <option>Creative Cloud</option>
               <option>Acrobat y firma electrónica</option>
               <option>Firefly (IA creativa)</option>
-              <option>Experience Cloud</option>
+              <option>Adobe Express</option>
               <option>Varias soluciones</option>
               <option>Todavía no lo sé, necesito asesoría</option>
             </select>
@@ -284,7 +356,7 @@
       <a href="https://ciisa.com/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de Privacidad</a>
       <a href="https://www.adobe.com/mx/" target="_blank" rel="noopener">Adobe México</a>
     </div>
-    <p class="foot__legal">Adobe, el logotipo de Adobe, Creative Cloud, Acrobat, Photoshop, Illustrator, Premiere, InDesign, Firefly y Experience Cloud son marcas registradas o marcas de Adobe en Estados Unidos y en otros países. Los nombres de marca se usan solo para identificar los productos que CiiSA ofrece. Este sitio es operado por CiiSA. Las características, planes y disponibilidad pueden cambiar sin previo aviso. <!-- Validar este texto con Legal y con Adobe (docs/HANDOFF.md) --></p>
+    <p class="foot__legal">Adobe, el logotipo de Adobe, Acrobat, el logotipo de Adobe PDF, Adobe Express, el logotipo de Adobe Express, Adobe Firefly, el logotipo de Adobe Firefly, Creative Cloud, el logotipo de Creative Cloud, After Effects, Animate, Audition, Character Animator, Dreamweaver, Fresco, Illustrator, InDesign, Lightroom, Lightroom Classic, Photoshop y Premiere, y los logotipos de esas aplicaciones, son marcas registradas o marcas de Adobe en Estados Unidos y en otros países. Los nombres de marca se usan solo para identificar los productos que CiiSA ofrece. Este sitio es operado por CiiSA. Las características, planes y disponibilidad pueden cambiar sin previo aviso. <!-- Validar este texto con Legal y con Adobe (docs/HANDOFF.md) --></p>
   </div>
 </footer>
 

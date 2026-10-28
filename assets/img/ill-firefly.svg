@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160"><style>.tw{animation:tw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.d1{animation-delay:-.8s}.d2{animation-delay:-1.7s}.d3{animation-delay:-2.5s}@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#001c71"/><stop offset="1" stop-color="#000b3c"/></linearGradient><radialGradient id="gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#bcf200" stop-opacity=".35"/><stop offset="1" stop-color="#bcf200" stop-opacity="0"/></radialGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bcf200"/><stop offset="1" stop-color="#4f8b72"/></linearGradient><linearGradient id="r" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f86956"/><stop offset="1" stop-color="#793958"/></linearGradient></defs><rect width="320" height="160" fill="url(#bg)"/>
+<circle cx="160" cy="70" r="76" fill="url(#gl)"/>
+<path class="draw" pathLength="100" d="M30 112 C 80 84, 120 130, 170 104 S 260 80, 292 96" fill="none" stroke="#bcf200" stroke-opacity=".55" stroke-width="2.4" stroke-linecap="round"/>
+<path class="draw" pathLength="100" d="M30 118 C 82 92, 124 136, 172 112 S 262 90, 292 104" fill="none" stroke="#eb1000" stroke-opacity=".5" stroke-width="1.6" stroke-linecap="round"/>
+<path class="k-spin90" d="M160 22 Q160 70 202 70 Q160 70 160 118 Q160 70 118 70 Q160 70 160 22Z" fill="url(#g)"/>
+<path d="M160 22 Q160 70 202 70 Q160 70 160 118 Q160 70 118 70 Q160 70 160 22Z" fill="#fff" opacity=".35" transform="scale(.42) translate(222 98)"/>
+<path d="M240 30 Q240 46 256 46 Q240 46 240 62 Q240 46 224 46 Q240 46 240 30Z" fill="#f86956" class="tw"/>
+<path d="M80 34 Q80 46 92 46 Q80 46 80 58 Q80 46 68 46 Q80 46 80 34Z" fill="#bcf200" class="tw d2"/>
+<path d="M262 96 Q262 104 270 104 Q262 104 262 112 Q262 104 254 104 Q262 104 262 96Z" fill="#fff" class="tw d1"/>
+<path d="M58 84 Q58 90 64 90 Q58 90 58 96 Q58 90 52 90 Q58 90 58 84Z" fill="#ff9f8f" class="tw d3"/>
+<rect x="64" y="128" width="192" height="20" rx="10" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".35"/>
+<g fill="#fff" fill-opacity=".55"><rect x="80" y="136" width="46" height="4" rx="2"/><rect x="132" y="136" width="30" height="4" rx="2"/></g>
+<rect x="170" y="134" width="2" height="8" fill="#bcf200" class="tw"/>
+<circle class="k-pop" cx="238" cy="138" r="6" fill="#bcf200"/>
+</svg>
