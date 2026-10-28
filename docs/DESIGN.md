@@ -51,7 +51,7 @@ Poppins con titulares en 800 y espaciado negativo según tamaño (h1 −0.032em,
 
 ### Ilustraciones de las tarjetas
 
-Cuatro SVG propios en `assets/img/ill-*.svg` (320 × 160, decorativos con `alt` vacío) para las tarjetas de soluciones: diseño vectorial (Creative Cloud), destellos de IA (Firefly), documento con firma (Acrobat) y plantillas de marca (Adobe Express). Solo usan el mapa tonal; no copian ni imitan imágenes de Adobe ni usan sus logotipos. Animaciones suaves dentro del SVG, apagadas con `prefers-reduced-motion`.
+Cuatro SVG propios en `assets/img/ill-*.svg` (320 × 160, con `alt` descriptivo y `<title>`/`<desc>` en el SVG) para las tarjetas de soluciones: diseño vectorial (Creative Cloud), destellos de IA (Firefly), documento con firma (Acrobat) y plantillas de marca (Adobe Express). Solo usan el mapa tonal; no copian ni imitan imágenes de Adobe ni usan sus logotipos. Animaciones suaves dentro del SVG, apagadas con `prefers-reduced-motion`.
 
 ### Hero: una idea en cada tarjeta flotante
 
@@ -67,7 +67,11 @@ La tarjeta de Creative Cloud muestra el top 4 de apps (Photoshop, Illustrator, P
 
 ### Ilustraciones de sectores, servicios y beneficios
 
-11 SVG más en `assets/img/` (320 × 160, decorativos, mapa tonal): `sector-empresas` (panorama de rascacielos de San Pedro Garza García: siete torres con muro cortina, remates escalonados, afilados o inclinados, antena con luz roja y la Sierra Madre translúcida al fondo; evoca la zona, no reproduce un edificio en particular), `sector-gobierno` (palacio cívico simétrico con pórtico de seis columnas clásicas con capitel, fuste con estrías y base, frontón, cúpula baja, alas con ventanas y escalinata) y `sector-educacion` (educación: campus universitario contemporáneo con atrio de vidrio de techo inclinado, alas con ventanas corridas, marquesina, árboles y estudiantes; arquetipo de edificio, minimalista y en 2D: cuerpos translúcidos cuyo relleno y contorno bajan de ~50 % a 0 % de opacidad, planos que se cruzan como vidrio y un solo acento por edificio, en verde o rojo) en el encabezado de cada tarjeta de sector; `svc-asesoria`, `svc-implementacion`, `svc-adopcion` y `svc-soporte` en las tarjetas de "Más allá de la licencia"; `ben-control`, `ben-proteccion`, `ben-papel` y `ben-ciisa` en las cuatro tarjetas navy de CiiSA. Las de CiiSA (`svc-*` y `ben-*`) siguen el mismo estilo serio que los edificios: trazos finos y rellenos que bajan a 0 % de opacidad; `ben-ciisa` usa la C del logo con el círculo y el cuadrado de esquinas rectas en verde CiiSA. Entre las tarjetas de Adobe (sectores) y las de CiiSA va un sello "+" (`.plus`), con el signo en verde CiiSA dibujado con dos trazos centrados en el círculo con la frase "Y en cualquier sector, esto es lo que suma CiiSA".
+11 SVG más en `assets/img/` (320 × 160, con `alt` descriptivo, mapa tonal): `sector-empresas` (panorama de rascacielos de San Pedro Garza García: siete torres con muro cortina, remates escalonados, afilados o inclinados, antena con luz roja y la Sierra Madre translúcida al fondo; evoca la zona, no reproduce un edificio en particular), `sector-gobierno` (palacio cívico simétrico con pórtico de seis columnas clásicas con capitel, fuste con estrías y base, frontón, cúpula baja, alas con ventanas y escalinata) y `sector-educacion` (educación: campus universitario contemporáneo con atrio de vidrio de techo inclinado, alas con ventanas corridas, marquesina, árboles y estudiantes; arquetipo de edificio, minimalista y en 2D: cuerpos translúcidos cuyo relleno y contorno bajan de ~50 % a 0 % de opacidad, planos que se cruzan como vidrio y un solo acento por edificio, en verde o rojo) en el encabezado de cada tarjeta de sector; `svc-asesoria`, `svc-implementacion`, `svc-adopcion` y `svc-soporte` en las tarjetas de "Más allá de la licencia"; `ben-control`, `ben-proteccion`, `ben-papel` y `ben-ciisa` en las cuatro tarjetas navy de CiiSA. Las de CiiSA (`svc-*` y `ben-*`) siguen el mismo estilo serio que los edificios: trazos finos y rellenos que bajan a 0 % de opacidad; `ben-ciisa` usa la C del logo con el círculo y el cuadrado de esquinas rectas en verde CiiSA. Entre las tarjetas de Adobe (sectores) y las de CiiSA va un sello "+" (`.plus`), con el signo en verde CiiSA dibujado con dos trazos centrados en el círculo con la frase "Y en cualquier sector, esto es lo que suma CiiSA".
+
+### WhatsApp
+
+Botón fijo `.wa-fab` (traído de CiiSA Beyond y adaptado: navy → negro en reposo, degradado verde → rojo animado al hover y foco, 58 px y 52 px en móvil) y CTA `.wa-cta` en la sección del formulario, que sustituye a los teléfonos. Mismo enlace `wa.me` con el mensaje predefinido: "Hola, vi la página de Adobe con CiiSA y me interesa recibir asesoría para adquirir e implementar soluciones de Adobe en mi organización." La pregunta "¿Cuántos usuarios?" se acortó para que quede a la altura de "¿Qué te interesa?" en escritorio y tablet (el campo y su valor no cambian).
 
 ### Cargador y carga diferida
 
@@ -143,7 +147,7 @@ Aparición al hacer scroll (`.reveal`, 1 s, entra al 20 % visible con 200 ms de 
 
 ## 8. Accesibilidad
 
-Contraste AA verificado: texto navy o negro sobre blanco; blanco sobre navy; texto secundario navy 600 (8.4:1 sobre blanco). El rojo de Adobe solo en texto grande sobre navy (3.3:1). Foco visible de 3 px: navy 700 sobre claro y verde CiiSA sobre fondos oscuros; enlace "Ir al formulario" al inicio, un solo `h1`, `aria-live` en los errores, ilustraciones decorativas con `alt` vacío y panel de apps con `aria-expanded`.
+Contraste AA verificado: texto navy o negro sobre blanco; blanco sobre navy; texto secundario navy 600 (8.4:1 sobre blanco). El rojo de Adobe solo en texto grande sobre navy (3.3:1). Foco visible de 3 px: navy 700 sobre claro y verde CiiSA sobre fondos oscuros; enlace "Ir al formulario" al inicio, un solo `h1`, `aria-live` en los errores, ilustraciones de tarjetas con `alt` descriptivo (las del hero, decorativas, con `alt` vacío), secciones con `aria-labelledby` y panel de apps con `aria-expanded`.
 
 ## 9. Cómo agregar algo nuevo
 

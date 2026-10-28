@@ -18,7 +18,7 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 | Leyenda legal | ⬜ Por validar |
 | Solicitud de CNAME `adobe.ciisa.com` a TI | ⬜ Correo listo (`privada/correo-solicitud-cname.md`); falta enviarlo |
 | Analítica | ⬜ Por decidir (sección 7) |
-| `og:image`, favicon definitivo, URL canónica | ⬜ Por hacer |
+| `og:image` (1200×630), favicon de CiiSA, apple-touch-icon, canónica, Open Graph y Twitter Card | ✅ Hecho (URLs de GitHub Pages; cambiarlas al activar el dominio definitivo) |
 
 ## 2. Qué contiene el kit
 
@@ -66,7 +66,7 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 | 9 | **DNS** | TI | Enviar `privada/correo-solicitud-cname.md`; con la confirmación, crear `CNAME` en el repo y activar HTTPS forzado |
 | 10 | **Aviso de privacidad** | Legal | El formulario enlaza `https://ciisa.com/aviso-de-privacidad/`. Confirmar que cubre este uso |
 | 11 | **Analítica** | Marketing | Decidir GTM/GA4 y la conversión (sección 7) |
-| 12 | **Metadatos** | Diseño | `og:image` 1200×630, favicon definitivo (hoy usa el logotipo de Adobe en rojo, **cambiarlo por uno de CiiSA** si Adobe no autoriza el uso), canónica, `robots`/`sitemap` |
+| 12 | **Metadatos** | Diseño | Hecho: `og:image` 1200×630 (`assets/img/og-image.png`, se regenera con `privada/ilustraciones/og.mjs`), favicon de CiiSA, apple-touch-icon, canónica, Open Graph, Twitter Card y JSON-LD `@graph`. También `robots.txt`, `sitemap.xml`, `hreflang`, `alt` en las ilustraciones y secciones con nombre accesible. Pendiente: cambiar las URLs absolutas (canonical, `og:url`, `og:image`, `twitter:image`, `hreflang`, JSON-LD, `robots.txt` y `sitemap.xml`) al dominio definitivo y decidir `robots` (hoy `index, follow`) hasta la revisión de marca |
 
 ## 6. Riesgo de marca: por qué el estilo "tipo Adobe" necesita visto bueno
 
@@ -103,10 +103,10 @@ No hay tracking todavía. El formulario dispara el evento `adobe:lead` en `docum
 - [ ] Anclas y CTAs llevan a la sección correcta; "Cotiza" siempre llega al formulario.
 - [ ] Formulario: botón apagado hasta que todo es válido; mensajes por campo; privacidad obligatoria; campo trampa invisible.
 - [ ] Envío real llega al Excel, avisa al comercial y confirma al usuario; correo repetido no duplica.
-- [ ] Con el flujo caído se ve el aviso con el teléfono de respaldo.
+- [ ] Con el flujo caído se ve el aviso que remite a WhatsApp. Confirmar que el número de WhatsApp sea el que Comercial quiere para Adobe.
 - [ ] Contraste AA, foco visible, `prefers-reduced-motion` respetado, el sitio se lee sin JavaScript.
 - [ ] Autorización de Adobe por escrito archivada; leyenda legal validada.
-- [ ] `og:image`, favicon, canónica y metadatos finales.
+- [ ] Al activar el dominio: actualizar canonical, `og:url`, `og:image`, `twitter:image`, `hreflang`, JSON-LD, `robots.txt` y `sitemap.xml` (buscar `lex-psw.github.io`); validar la vista previa al compartir (LinkedIn, WhatsApp, X).
 - [ ] Sin secretos ni datos personales en el historial de git.
 
 ## 11. Roles

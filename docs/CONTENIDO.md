@@ -15,7 +15,7 @@ Fecha de la consulta: **27 de octubre de 2026**. Todo se redactó con palabras p
 | "Como socio estratégico, CiiSA brinda asesoría, soporte y acompañamiento en la adopción de las soluciones Adobe" | `ciisa.com` (inicio) | Texto de "Tu aliado en la implementación de Adobe" |
 | Venta y licenciamiento: asesoría gratuita en adquisición, renovación y legalización de software; **Adobe** aparece en la lista junto a Office 365, Azure, Autodesk, IBM, etc. | `ciisa.com/software/` | Puntos de "Por qué CiiSA" |
 | Cifras: más de 30 años, más de 25 marcas, más de 50 consultores, 120 colaboradores | `ciisa.com` (inicio) | Franja de cifras |
-| Teléfonos (NL 811 257 8000, Coahuila 844 180 2330), domicilio fiscal y aviso de privacidad (`ciisa.com/aviso-de-privacidad/`) | `ciisa.com` (encabezado y pie) | Formulario, pie y casilla de privacidad |
+| WhatsApp (el de CiiSA Beyond; el formulario ya no muestra teléfonos), domicilio fiscal y aviso de privacidad (`ciisa.com/aviso-de-privacidad/`) | `ciisa.com` (encabezado y pie) | Formulario, pie y casilla de privacidad |
 
 ## 1b. Fuente CiiSA · ciisa.com/software (consultada el 28 oct 2026)
 

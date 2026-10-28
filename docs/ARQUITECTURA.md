@@ -11,7 +11,9 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `site.js` | Cargador del sitio (`whenReady`) y carga diferida de las ilustraciones; clase `js` en `<html>` (también inline en el `<head>`); aparición de `.reveal`; pausa del hero; parallax (`data-parallax`, con `ResizeObserver`); cielo animado en canvas (`.sky`); incrusta y anima las ilustraciones de las tarjetas (loop seamless); botón del panel de apps |
 | `adobe-form.js` | Todo el formulario (abajo) |
 | `assets/` | `types/` Poppins (400 a 900, los de CiiSA Beyond); `img/` logotipos de CiiSA y de Adobe, favicon de CiiSA, 15 ilustraciones (`ill-`, `sector-`, `svc-`, `ben-*.svg`) y `producto/` (íconos oficiales de app, sin modificar) |
-| Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `adobe.ciisa.com` |
+| Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `adobe.ciisa.com`. **Excepción:** `canonical`, `og:url`, `og:image` y `twitter:image` exigen URL absoluta y hoy apuntan a GitHub Pages: cambiarlas al activar el dominio |
+| Metadatos | `<head>`: descripción, `robots`, canónica, Open Graph (`og:image` 1200×630, `assets/img/og-image.png`), Twitter Card `summary_large_image`, `apple-touch-icon` (180×180) y JSON-LD `@graph` (Organization, WebSite, WebPage y la lista de servicios de CiiSA, solo con textos ya presentes en la página), `hreflang` es-MX. La imagen se regenera con `privada/ilustraciones/og.mjs` |
+| SEO y accesibilidad | `robots.txt` y `sitemap.xml` en la raíz (URLs de GitHub Pages: cambiarlas con el dominio). Cada `<section>` lleva `aria-labelledby` a su título; enlace "Saltar al contenido"; las ilustraciones llevan `alt` descriptivo (y `<title>`/`<desc>` en el SVG), salvo las del hero, que son decorativas |
 
 ## Formulario `[data-adobe-form]`
 
@@ -49,7 +51,7 @@ El botón queda apagado hasta que todo es válido. Al enviar bien se muestra el 
 
 - `200` con `{"ok":true}` si guardó; `403` si `origen` no es `landing-adobe`.
 - **Todas las respuestas con los mismos encabezados CORS**, o el navegador las bloquea aunque el flujo funcione.
-- Si falla o no hay red, el front muestra un aviso con el teléfono de respaldo (811 257 8000) y no pierde lo escrito.
+- Si falla o no hay red, el front muestra un aviso que remite a WhatsApp y no pierde lo escrito. El WhatsApp (botón fijo y CTA del formulario, mismo número y mensaje) abre `wa.me` con un texto predefinido; el número es el de WhatsApp de CiiSA Beyond.
 
 ### `ENDPOINT` vacío
 

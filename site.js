@@ -230,7 +230,7 @@
   function incrustar(img) {
     fetch(img.getAttribute('src')).then(function (r) { return r.ok ? r.text() : Promise.reject(); }).then(function (txt) {
       var i = ++n;
-      txt = txt.replace(/<\?xml[^>]*\?>/, '').replace(/<style[\s\S]*?<\/style>/g, '');
+      txt = txt.replace(/<\?xml[^>]*\?>/, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<(title|desc)>[\s\S]*?<\/\1>/g, ''); // el texto ya viaja en el alt del <img>; sin <title> no sale tooltip
       // ids únicos por ilustración, para que los degradados y recortes de una no pisen a otra
       var ids = (txt.match(/\sid="[^"]+"/g) || []).map(function (s) { return s.slice(5, -1); });
       ids.forEach(function (id) { txt = txt.split('id="' + id + '"').join('id="' + id + '-i' + i + '"').split('url(#' + id + ')').join('url(#' + id + '-i' + i + ')'); });
@@ -240,7 +240,9 @@
       if (!svg || svg.nodeName.toLowerCase() !== 'svg') return;
       svg.setAttribute('class', (img.getAttribute('class') || '') + ' ill');
       svg.setAttribute('data-ill', (img.getAttribute('src') || '').split('/').pop().replace('.svg', ''));
-      svg.setAttribute('aria-hidden', 'true');
+      // con alt, la ilustración sigue siendo una imagen con nombre; sin alt (hero) es decorativa
+      var alt = img.getAttribute('alt');
+      if (alt) { svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', alt); } else { svg.removeAttribute('role'); svg.setAttribute('aria-hidden', 'true'); }
       svg.setAttribute('focusable', 'false');
       svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
       // capa móvil: todo menos defs, fondo y resplandor; el resplandor respira aparte

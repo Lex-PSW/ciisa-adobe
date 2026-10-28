@@ -1,5 +1,5 @@
 // Formulario de cotización de Adobe: validación por campo, botón apagado hasta que todo es válido y POST JSON a un flujo de Power Automate.
-// Contrato completo en docs/ARQUITECTURA.md. Mientras ENDPOINT esté vacío, el formulario valida pero NO envía: muestra el aviso de respaldo (teléfono).
+// Contrato completo en docs/ARQUITECTURA.md. Mientras ENDPOINT esté vacío, el formulario valida pero NO envía: muestra el aviso de respaldo (WhatsApp).
 // La URL del flujo es una URL firmada: no la copies a documentos ni chats (queda en este archivo, como en Beyond).
 (function () {
   'use strict';
@@ -82,11 +82,11 @@
         privacidad: 'Aceptado', marketing: form.marketing && form.marketing.checked ? 'Sí' : 'No', fecha: new Date().toISOString(), origen: ORIGEN, pagina: location.origin + location.pathname
       };
       var u = utm(); for (var k in u) data[k] = u[k];
-      if (!ENDPOINT) { setStatus('El envío en línea aún no está activo. Llámanos al 811 257 8000 y te atendemos de inmediato.', true); return; }
+      if (!ENDPOINT) { setStatus('El envío en línea aún no está activo. Escríbenos por WhatsApp y te atendemos de inmediato.', true); return; }
       busy(true);
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
         .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); show(data.nombre); document.dispatchEvent(new CustomEvent('adobe:lead')); })
-        .catch(function () { setStatus('No pudimos enviar tu solicitud. Inténtalo de nuevo o llámanos al 811 257 8000.', true); })
+        .catch(function () { setStatus('No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos por WhatsApp.', true); })
         .then(function () { busy(false); });
     });
 

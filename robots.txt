@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lex-psw.github.io/ciisa-adobe/sitemap.xml
