@@ -26,6 +26,7 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `cantidad` | select | Obligatorio: rangos de usuarios |
 | `mensaje` | textarea | Opcional, máx. 600 |
 | `privacidad` | checkbox | Obligatoria |
+| `marketing` | checkbox | Opcional, sin marcar por defecto y fuera de la validación: no habilita ni bloquea el botón. Viaja siempre como `"Sí"` o `"No"` |
 | `website` | texto oculto | **Campo trampa**: si viene lleno se finge éxito y no se envía |
 
 El botón queda apagado hasta que todo es válido. Al enviar bien se muestra el agradecimiento y se dispara `adobe:lead` en `document` (sin datos personales).
@@ -36,7 +37,7 @@ El botón queda apagado hasta que todo es válido. Al enviar bien se muestra el 
 {
   "nombre": "", "empresa": "", "puesto": "", "correo": "en minúsculas", "telefono": "",
   "sector": "Gobierno", "interes": "Acrobat y firma electrónica", "cantidad": "11 a 50", "mensaje": "",
-  "privacidad": "Aceptado", "fecha": "ISO 8601 (UTC)", "origen": "landing-adobe",
+  "privacidad": "Aceptado", "marketing": "Sí | No", "fecha": "ISO 8601 (UTC)", "origen": "landing-adobe",
   "pagina": "https://…/ruta", "utm_source": "", "utm_medium": "", "utm_campaign": "", "utm_content": "", "utm_term": ""
 }
 ```

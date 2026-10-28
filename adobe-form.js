@@ -79,7 +79,7 @@
         nombre: form.nombre.value.trim(), empresa: form.empresa.value.trim(), puesto: form.puesto.value.trim(),
         correo: form.correo.value.trim().toLowerCase(), telefono: form.telefono.value.trim(),
         sector: form.sector.value, interes: form.interes.value, cantidad: form.cantidad.value, mensaje: (form.mensaje.value || '').trim(),
-        privacidad: 'Aceptado', fecha: new Date().toISOString(), origen: ORIGEN, pagina: location.origin + location.pathname
+        privacidad: 'Aceptado', marketing: form.marketing && form.marketing.checked ? 'Sí' : 'No', fecha: new Date().toISOString(), origen: ORIGEN, pagina: location.origin + location.pathname
       };
       var u = utm(); for (var k in u) data[k] = u[k];
       if (!ENDPOINT) { setStatus('El envío en línea aún no está activo. Llámanos al 811 257 8000 y te atendemos de inmediato.', true); return; }
