@@ -93,8 +93,12 @@
     function show(nombre) {
       var first = String(nombre || '').trim().split(/\s+/)[0] || '', slot = thanks.querySelector('[data-adobe-name]');
       if (slot) slot.textContent = first;
-      form.hidden = true; thanks.hidden = false; thanks.focus();
-      thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // El agradecimiento es mucho más bajo que el formulario: se fija el alto de la caja antes del cambio para que la sección no se
+      // encoja ni la página salte, y el mensaje queda centrado dentro. Sin scroll forzado: solo si la caja quedó fuera de la vista
+      var box = form.parentNode, r = box.getBoundingClientRect();
+      box.style.minHeight = Math.ceil(r.height) + 'px'; box.classList.add('is-done');
+      form.hidden = true; thanks.hidden = false; thanks.focus({ preventScroll: true });
+      if (r.top < 0 || r.bottom > window.innerHeight) box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
     refresh();
   });

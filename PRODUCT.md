@@ -12,7 +12,7 @@ Responsables de comunicación, marketing, diseño, TI, compras y administración
 
 ## Product Purpose
 
-Landing de soluciones **CiiSA + Adobe** en un subdominio propio (`adobe.ciisa.com`, por confirmar). Explica qué ofrece CiiSA en Adobe (cuatro soluciones de Adobe, tres sectores —empresas, gobierno y educación— y los servicios de CiiSA) y **lleva al formulario de cotización**. **Éxito = solicitudes de cotización enviadas.**
+Landing de soluciones **CiiSA + Adobe** en un subdominio propio (`creative.ciisa.com`, por confirmar). Explica qué ofrece CiiSA en Adobe (cuatro soluciones de Adobe, tres sectores —empresas, gobierno y educación— y los servicios de CiiSA) y **lleva al formulario de cotización**. **Éxito = solicitudes de cotización enviadas.**
 
 ## Positioning
 

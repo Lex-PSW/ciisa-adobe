@@ -105,7 +105,7 @@
   skies.forEach(function (sky) {
     var cv = sky.querySelector('canvas'), host = sky.parentNode, ctx = cv.getContext('2d');
     if (!ctx) return;
-    var w = 0, h = 0, stars = [], sparks = [], orns = [], ptr = null, raf = 0, last = 0, visible = true, link = 110;
+    var w = 0, h = 0, stars = [], sparks = [], orns = [], ptr = null, raf = 0, last = 0, tNow = 0, visible = true, link = 110;
 
     function rnd(a, b) { return a + Math.random() * (b - a); }
     function pick(list) { return list[Math.floor(Math.random() * list.length)]; }
@@ -127,12 +127,18 @@
       }
     }
 
+    // Cambiar de alto (un error de validación, el aviso de envío, el agradecimiento) no debe reiniciar el cielo: solo se reescalan las posiciones.
+    // Se vuelve a sembrar únicamente la primera vez o si cambia el ancho de verdad (girar el teléfono, redimensionar la ventana)
     function size() {
       var r = host.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      w = Math.max(1, r.width); h = Math.max(1, r.height);
+      var ow = w, oh = h, nw = Math.max(1, r.width), nh = Math.max(1, r.height);
+      if (stars.length && Math.abs(nw - ow) < 40 && Math.abs(nh - oh) < 1) return;
+      w = nw; h = nh;
       cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seed(); draw(0);
+      if (!stars.length || Math.abs(nw - ow) >= 40) seed();
+      else [stars, sparks, orns].forEach(function (list) { list.forEach(function (p) { p.x *= nw / ow; p.y *= nh / oh; }); });
+      draw(tNow);
     }
 
     function star4(x, y, s, a, c) {
@@ -185,7 +191,7 @@
       var i, p;
       for (i = 0; i < stars.length; i++) { p = stars[i]; p.x += p.vx * dt; p.y += p.vy * dt; if (p.x < -4) p.x = w + 4; else if (p.x > w + 4) p.x = -4; if (p.y < -4) p.y = h + 4; else if (p.y > h + 4) p.y = -4; }
       for (i = 0; i < orns.length; i++) { p = orns[i]; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt; if (p.x < -30) p.x = w + 30; else if (p.x > w + 30) p.x = -30; if (p.y < -30) p.y = h + 30; else if (p.y > h + 30) p.y = -30; }
-      draw(now / 1000);
+      tNow = now / 1000; draw(tNow);
       raf = requestAnimationFrame(step);
     }
     function start() { if (!reduce && !raf && visible && !document.hidden) { last = performance.now(); raf = requestAnimationFrame(step); } }

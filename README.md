@@ -2,7 +2,7 @@
 
 Landing de **Adobe para empresas, gobierno y educación** operada por CiiSA: Creative Cloud, Firefly, Acrobat y firma electrónica, Adobe Express, sector público, soluciones de CiiSA, por qué CiiSA, cómo trabajamos y **formulario de cotización al final**. Mimetiza el lenguaje visual de Adobe (tema claro, titulares pesados, botones en píldora) con el sello de CiiSA.
 
-- **Dominio previsto:** `adobe.ciisa.com` (CNAME en solicitud; ver `docs/HANDOFF.md`). **No hay archivo `CNAME` en este repo todavía, a propósito.**
+- **Dominio previsto:** `creative.ciisa.com` (CNAME en solicitud; ver `docs/HANDOFF.md`). **No hay archivo `CNAME` en este repo todavía, a propósito.**
 - **Stack:** HTML, CSS y JavaScript sin framework ni paso de build (igual que CiiSA Beyond y CiiSA + Lenovo). No agregues un framework ni un bundler sin acordarlo antes.
 - **Única pieza de servidor:** un flujo de Power Automate que recibe el formulario (por crear; contrato en `docs/ARQUITECTURA.md`).
 - **Métrica que manda:** solicitudes de cotización enviadas.

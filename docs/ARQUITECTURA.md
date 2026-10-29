@@ -12,7 +12,7 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `tracking.js` | UTM e identificadores de clic a `sessionStorage`, `fuente` y `procedencia`, eventos al `dataLayer` (`adobe_cta_cotiza`, `adobe_whatsapp`, `adobe_cotizacion_iniciada`, `adobe_cotizacion_completada`). Píxeles de Meta, LinkedIn y TikTok solo cargan si su ID está en `CONFIG` (hoy todos vacíos). Ningún evento lleva datos personales |
 | `adobe-form.js` | Todo el formulario (abajo) |
 | `assets/` | `types/` Poppins (400 a 900, los de CiiSA Beyond); `img/` logotipos de CiiSA y de Adobe, favicon de CiiSA, 15 ilustraciones (`ill-`, `sector-`, `svc-`, `ben-*.svg`) y `producto/` (íconos oficiales de app, sin modificar) |
-| Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `adobe.ciisa.com`. **Excepción:** `canonical`, `og:url`, `og:image` y `twitter:image` exigen URL absoluta y hoy apuntan a GitHub Pages: cambiarlas al activar el dominio |
+| Rutas | Todas **relativas**, para que funcione igual en `…github.io/ciisa-adobe/` y en `creative.ciisa.com`. **Excepción:** `canonical`, `og:url`, `og:image` y `twitter:image` exigen URL absoluta y hoy apuntan a GitHub Pages: cambiarlas al activar el dominio |
 | Metadatos | `<head>`: descripción, `robots`, canónica, Open Graph (`og:image` 1200×630, `assets/img/og-image.png`, y una segunda 1200×1200 `og-image-1x1.png`), Twitter Card `summary_large_image` (`twitter:image` 2:1, `og-image-2x1.png`), `apple-touch-icon` (180×180) y JSON-LD `@graph` (Organization, WebSite, WebPage y la lista de servicios de CiiSA, solo con textos ya presentes en la página), `hreflang` es-MX. La imagen se regenera con `privada/ilustraciones/og.mjs` |
 | SEO y accesibilidad | `robots.txt` y `sitemap.xml` en la raíz (URLs de GitHub Pages: cambiarlas con el dominio). Cada `<section>` lleva `aria-labelledby` a su título; enlace "Saltar al contenido"; las ilustraciones llevan `alt` descriptivo (y `<title>`/`<desc>` en el SVG), salvo las del hero, que son decorativas |
 
@@ -32,7 +32,7 @@ Sitio estático (HTML, CSS y JS vanilla, sin build) servido por GitHub Pages. La
 | `marketing` | checkbox | Opcional, sin marcar por defecto y fuera de la validación: no habilita ni bloquea el botón. Viaja siempre como `"Sí"` o `"No"` |
 | `website` | texto oculto | **Campo trampa**: si viene lleno se finge éxito y no se envía |
 
-El botón queda apagado hasta que todo es válido. Al enviar bien se muestra el agradecimiento y se dispara `adobe:lead` en `document` (sin datos personales).
+El botón queda apagado hasta que todo es válido. Al enviar bien se muestra el agradecimiento y se dispara `adobe:lead` en `document` (sin datos personales). El cambio es fluido: la caja conserva el alto del formulario (`min-height` fijado por `adobe-form.js`), el agradecimiento queda centrado dentro y solo hay scroll si la caja quedó fuera de la vista. `.form[hidden]` y `.gracias[hidden]` llevan `display: none` explícito porque `.form { display: grid }` anula el atributo `hidden`. El cielo de `site.js` no se vuelve a sembrar cuando solo cambia el alto de la sección (errores de validación, avisos): reescala posiciones y solo reinicia si el ancho cambia 40 px o más.
 
 ### Payload (POST JSON al flujo)
 

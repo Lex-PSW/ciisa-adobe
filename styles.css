@@ -728,3 +728,13 @@ html .btn.btn.btn--dark:is(:hover, :focus-visible):not(:disabled) {
 /* SEO y accesibilidad: enlace "Saltar al contenido", visible solo al enfocarlo con teclado */
 .skip { position: fixed; left: 12px; top: -64px; z-index: 1000; padding: 12px 20px; border-radius: 999px; background: var(--navy-900); color: #fff; font-weight: 600; transition: top .2s; }
 .skip:focus-visible { top: 12px; outline: 3px solid var(--green-300); outline-offset: 2px; }
+
+/* Formulario fluido: al enviar, la caja conserva el alto del formulario (lo fija adobe-form.js) y el agradecimiento queda centrado
+   dentro, con una entrada suave; así la sección no se encoge ni la página salta. */
+.formbox.is-done { display: grid; align-content: center; box-sizing: border-box; }
+.formbox.is-done .gracias { animation: gracias-in .5s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes gracias-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .formbox.is-done .gracias { animation: none; } }
+/* Causa raíz del salto al enviar: `.form { display: grid }` anulaba el atributo `hidden`, así que el formulario seguía visible y el
+   agradecimiento se apilaba debajo (la sección crecía ~220 px). `hidden` debe ganar siempre en estos dos bloques. */
+.form[hidden], .gracias[hidden] { display: none; }

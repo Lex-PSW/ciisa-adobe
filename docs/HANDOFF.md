@@ -16,7 +16,7 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 | Flujo de Power Automate que recibe el formulario | ⬜ Por crear (sección 6) |
 | Autorización de uso de marca, logotipo y estilo de Adobe | ⬜ **Por validar con Adobe (sección 5, bloqueo)** |
 | Leyenda legal | ⬜ Por validar |
-| Solicitud de CNAME `adobe.ciisa.com` a TI | ⬜ Correo listo (`privada/correo-solicitud-cname.md`); falta enviarlo |
+| Solicitud de CNAME `creative.ciisa.com` a TI | ⬜ Correo listo (`privada/correo-solicitud-cname.md`); falta enviarlo |
 | Analítica | ⬜ Por decidir (sección 7) |
 | `og:image` (1200×630), favicon de CiiSA, apple-touch-icon, canónica, Open Graph y Twitter Card | ✅ Hecho (URLs de GitHub Pages; cambiarlas al activar el dominio definitivo) |
 
@@ -46,7 +46,7 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 - **Sitio nuevo, repo nuevo**, hermano de `ciisa-beyond` y `ciisa-lenovo`. Mismo stack: HTML, CSS y JS vanilla, **sin framework ni build**.
 - **Estilo:** se mimetiza el *lenguaje* visual de Adobe (tema claro, titulares en peso 900, botones en píldora, tarjetas de 16 px, rojo Adobe como acento) con el sello de CiiSA (degradado verde → menta → cian como acento, hero oscuro). **No es una copia de adobe.com**: ni su composición, ni sus imágenes, ni sus textos, ni sus íconos de aplicación.
 - **Tipografía:** *Adobe Clean* es propietaria y no se puede alojar ni usar fuera de las propiedades de Adobe. Se usa **Poppins**, la tipografía oficial de CiiSA (código abierto, SIL OFL), alojada en `assets/types`. La pila de fuentes ya nombra `Adobe Clean` primero: solo se verá si el usuario la tiene instalada.
-- **Dominio previsto `adobe.ciisa.com` por CNAME.** El archivo `CNAME` **no está en el repo** hasta que TI confirme el registro.
+- **Dominio previsto `creative.ciisa.com` por CNAME.** El archivo `CNAME` **no está en el repo** hasta que TI confirme el registro.
 - **Contenido propio:** redactado con palabras propias a partir de ciisa.com y del sitio oficial de Adobe. Sin precios, promociones ni planes concretos.
 - **Un CTA principal:** cotizar. El formulario va al final y todos los botones llevan a él.
 - **Repositorio público:** nada de secretos ni datos personales en git.
@@ -94,7 +94,7 @@ Datos de este formulario respecto al de Lenovo: agrega **`sector`** (Empresa pri
 1. Crear el repositorio en GitHub bajo la misma organización que `ciisa-beyond` (nombre sugerido: `ciisa-adobe`), público, y subir `main`.
 2. Settings → Pages → *Deploy from a branch* → `main` / raíz (queda en `…github.io/ciisa-adobe/`; las rutas son relativas).
 3. **Solo después del visto bueno de Adobe (punto 1):** enviar el correo de DNS.
-4. Con el CNAME confirmado: agregar `CNAME` (una línea: `adobe.ciisa.com`), esperar la validación y activar *Enforce HTTPS*.
+4. Con el CNAME confirmado: agregar `CNAME` (una línea: `creative.ciisa.com`), esperar la validación y activar *Enforce HTTPS*.
 5. Pegar el `ENDPOINT`, probar, y recién entonces compartir la URL.
 
 ## 10. Checklist de aceptación
