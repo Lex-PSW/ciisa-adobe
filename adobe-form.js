@@ -8,7 +8,7 @@
 
   // Filtros estáticos contra datos de relleno (form-filtros.js, se carga antes). Sin ese archivo el formulario valida solo lo básico
   var F = window.AdobeFiltros || {};
-  function filtro(campo, v) { return F[campo] ? F[campo](v) : ''; }
+  function filtro(campo, v, form) { return F[campo] ? F[campo](v, form) : ''; }
 
   var RULES = {
     nombre: function (v) {
@@ -17,8 +17,8 @@
       if (v.split(/\s+/).filter(function (p) { return p.length >= 2; }).length < 2) return 'Incluye nombre y apellido.';
       return filtro('nombre', v);
     },
-    empresa: function (v) { return v.length >= 2 ? filtro('empresa', v) : 'Escribe el nombre de tu empresa.'; },
-    puesto: function (v) { return v.length >= 2 ? filtro('puesto', v) : 'Escribe tu puesto.'; },
+    empresa: function (v, el) { return v.length >= 2 ? filtro('empresa', v, el && el.form) : 'Escribe el nombre de tu empresa.'; },
+    puesto: function (v, el) { return v.length >= 2 ? filtro('puesto', v, el && el.form) : 'Escribe tu puesto.'; },
     correo: function (v) {
       if (!v) return 'Escribe tu correo.';
       if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v)) return 'Revisa el formato: nombre@empresa.com';
@@ -46,6 +46,11 @@
     var status = form.querySelector('[data-adobe-status]'), thanks = document.querySelector('[data-adobe-thanks]');
     var base = label ? label.textContent : '', sending = false, names = Object.keys(RULES);
     form.setAttribute('novalidate', '');
+
+    // Tiempo mínimo de llenado: un bot completa el formulario en menos de un segundo. Se cuenta desde la primera interacción; si se envía antes de
+    // MIN_LLENADO_MS se pide revisar y reintentar (no se descarta en silencio, por si el navegador autocompletó todo de golpe)
+    var MIN_LLENADO_MS = 3500, t0 = 0;
+    ['focusin', 'input', 'change'].forEach(function (ev) { form.addEventListener(ev, function () { if (!t0) t0 = Date.now(); }); });
 
     function wrap(el) { return el.closest('.field'); }
     function check(name, show) {
@@ -81,6 +86,7 @@
       var ok = names.map(function (n) { return check(n, true); }).every(Boolean);
       if (!ok || sending) { var bad = form.querySelector('[aria-invalid="true"]'); if (bad) bad.focus(); return; }
       if (form.website && form.website.value) { show(form.nombre.value); return; }          // campo trampa lleno = bot: se finge éxito
+      if (!t0 || Date.now() - t0 < MIN_LLENADO_MS) { setStatus('Un momento: revisa tus datos y vuelve a enviar.'); return; }
       var data = {
         nombre: form.nombre.value.trim(), empresa: form.empresa.value.trim(), puesto: form.puesto.value.trim(),
         correo: form.correo.value.trim().toLowerCase(), telefono: form.telefono.value.trim(),
@@ -91,8 +97,11 @@
       if (!ENDPOINT) { setStatus('El envío en línea aún no está activo. Escríbenos por WhatsApp y te atendemos de inmediato.', true); return; }
       busy(true);
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-        .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); show(data.nombre); document.dispatchEvent(new CustomEvent('adobe:lead')); })
-        .catch(function () { setStatus('No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos por WhatsApp.', true); })
+        .then(function (res) { if (!res.ok) { var err = new Error('HTTP ' + res.status); err.status = res.status; throw err; } show(data.nombre); document.dispatchEvent(new CustomEvent('adobe:lead')); })
+        .catch(function (err) {
+          // 429: el flujo llegó a su límite de envíos por hora; se pide esperar o escribir por WhatsApp en vez del error genérico
+          setStatus(err && err.status === 429 ? 'Estamos recibiendo muchas solicitudes en este momento. Inténtalo de nuevo en unos minutos o escríbenos por WhatsApp.' : 'No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos por WhatsApp.', true);
+        })
         .then(function () { busy(false); });
     });
 
