@@ -6,18 +6,23 @@
   var ENDPOINT = '';   // <- pegar aquí la URL del disparador HTTP del flujo (ver docs/HANDOFF.md, sección 6)
   var ORIGEN = 'landing-adobe';
 
+  // Filtros estáticos contra datos de relleno (form-filtros.js, se carga antes). Sin ese archivo el formulario valida solo lo básico
+  var F = window.AdobeFiltros || {};
+  function filtro(campo, v) { return F[campo] ? F[campo](v) : ''; }
+
   var RULES = {
     nombre: function (v) {
       if (!v) return 'Escribe tu nombre y apellido.';
       if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' .-]+$/.test(v)) return 'Usa solo letras.';
       if (v.split(/\s+/).filter(function (p) { return p.length >= 2; }).length < 2) return 'Incluye nombre y apellido.';
-      return '';
+      return filtro('nombre', v);
     },
-    empresa: function (v) { return v.length >= 2 ? '' : 'Escribe el nombre de tu empresa.'; },
-    puesto: function (v) { return v.length >= 2 ? '' : 'Escribe tu puesto.'; },
+    empresa: function (v) { return v.length >= 2 ? filtro('empresa', v) : 'Escribe el nombre de tu empresa.'; },
+    puesto: function (v) { return v.length >= 2 ? filtro('puesto', v) : 'Escribe tu puesto.'; },
     correo: function (v) {
       if (!v) return 'Escribe tu correo.';
-      return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v) ? '' : 'Revisa el formato: nombre@empresa.com';
+      if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v)) return 'Revisa el formato: nombre@empresa.com';
+      return filtro('correo', v);
     },
     telefono: function (v) {
       if (!v) return 'Escribe tu teléfono.';
@@ -25,8 +30,9 @@
       var d = v.replace(/\D/g, '');
       if (d.length < 10) return 'Debe tener al menos 10 dígitos.';
       if (d.length > 13) return 'Tiene demasiados dígitos.';
-      return '';
+      return filtro('telefono', v);
     },
+    mensaje: function (v) { return filtro('mensaje', v); },
     sector: function (v) { return v ? '' : 'Elige el tipo de organización.'; },
     interes: function (v) { return v ? '' : 'Elige qué te interesa.'; },
     cantidad: function (v) { return v ? '' : 'Elige una opción.'; },

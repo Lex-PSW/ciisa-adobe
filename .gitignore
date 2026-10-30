@@ -1,5 +1,6 @@
 # Lo que NO debe ser público va en privada/ (se comparte por zip, ver docs/HANDOFF.md)
 privada/
+docs/
 
 # Contexto privado de cada máquina
 CLAUDE.local.md

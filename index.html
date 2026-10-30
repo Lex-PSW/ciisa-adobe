@@ -345,7 +345,7 @@
             </select>
             <p class="err" id="e-cantidad" aria-live="polite"></p>
           </div>
-          <div class="field field--full"><label for="f-mensaje">Cuéntanos más (opcional)</label><textarea id="f-mensaje" name="mensaje" rows="3" maxlength="600"></textarea></div>
+          <div class="field field--full"><label for="f-mensaje">Cuéntanos más (opcional)</label><textarea id="f-mensaje" name="mensaje" rows="3" maxlength="600"></textarea><p class="err" id="e-mensaje" aria-live="polite"></p></div>
           <div class="field field--full hp" aria-hidden="true"><label for="f-web">No llenar</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="field field--full check">
             <label class="chk"><input type="checkbox" name="privacidad" required><span>He leído y acepto el <a href="https://ciisa.com/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de Privacidad</a>.</span></label>
@@ -361,8 +361,8 @@
         </form>
         <div class="gracias" data-adobe-thanks hidden tabindex="-1">
           <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="M14 25l7 7 13-15"/></svg>
-          <h3>¡Gracias, <span data-adobe-name></span>!</h3>
-          <p>Recibimos tu solicitud. Un especialista de CiiSA te contactará pronto con tu propuesta de Adobe.</p>
+          <h3>¡Recibimos tu solicitud, <span data-adobe-name></span>!</h3>
+          <p>Te acabamos de enviar un correo, revísalo por favor.</p>
         </div>
       </div>
     </div>
@@ -389,6 +389,7 @@
 
 <script src="tracking.js" defer></script>
 <script src="site.js" defer></script>
+<script src="form-filtros.js" defer></script>
 <script src="adobe-form.js" defer></script>
 </body>
 </html>

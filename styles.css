@@ -738,3 +738,84 @@ html .btn.btn.btn--dark:is(:hover, :focus-visible):not(:disabled) {
 /* Causa raíz del salto al enviar: `.form { display: grid }` anulaba el atributo `hidden`, así que el formulario seguía visible y el
    agradecimiento se apilaba debajo (la sección crecía ~220 px). `hidden` debe ganar siempre en estos dos bloques. */
 .form[hidden], .gracias[hidden] { display: none; }
+
+/* Página de confirmación de correo (validar.html): mismo cielo navy del hero, tarjeta centrada y pie sencillo. Sin animaciones: el
+   estado cambia al instante para que lectores de pantalla lo anuncien (aria-live en la tarjeta). */
+.val-body { background: linear-gradient(135deg, var(--navy-1000) 0%, var(--navy-900) 46%, var(--navy-950) 78%, var(--navy-1000) 100%); min-height: 100vh; display: flex; flex-direction: column; color: var(--paper); }
+.val { flex: 1; display: grid; place-items: center; padding: calc(var(--nav-h) + 40px) 24px 40px; }
+.val__card { width: min(560px, 100%); background: var(--paper); color: var(--navy-900); border-radius: 24px; padding: clamp(28px, 5vw, 48px); box-shadow: 0 24px 60px rgba(0, 5, 31, 0.55); }
+.val__eyebrow { margin: 0 0 14px; font: 700 12px/1 var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--red-600); display: flex; align-items: center; gap: 10px; }
+.val__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-500); }
+.val__card h1 { margin: 0 0 12px; font-size: clamp(26px, 4vw, 34px); line-height: 1.15; color: var(--navy-900); }
+.val__card p { margin: 0 0 28px; color: var(--navy-700); }
+.val__card [hidden] { display: none; }
+.val__foot { padding: 20px 24px 28px; text-align: center; font-size: 14px; color: var(--navy-300); background: var(--navy-950); }
+.val__foot p { margin: 0; }
+.val__foot a { color: var(--navy-200); }
+
+/* validar.html: enlace secundario bajo el botón de las pantallas de gracias (el WhatsApp es el mismo número del sitio) */
+.val__sec { margin: 20px 0 0; font-size: 15px; }
+.val__sec a { color: var(--navy-700); font-weight: 600; }
+
+/* validar.html: sin saltos. (1) La tarjeta nace en "espera" y JS decide el estado antes de mostrar nada, así nunca se ve un estado
+   equivocado; (2) alto mínimo para que el cambio de estado no encoja ni estire la tarjeta; (3) la marca animada del cargador del
+   sitio, en un cuadro navy porque su letra es blanca; (4) transición suave entre páginas del mismo sitio (navegadores con View
+   Transitions entre documentos; en los demás se ignora). La barra superior conserva su lugar entre páginas. */
+.val__card { min-height: 380px; }
+.val__card > div:not([hidden]) { animation: val-in .28s ease both; }
+@keyframes val-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@view-transition { navigation: auto; }
+.nav { view-transition-name: nav; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
+@media (prefers-reduced-motion: reduce) {
+  .val__card > div:not([hidden]) { animation: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none; }
+}
+
+/* validar.html: el título recibe el foco por script para que los lectores de pantalla anuncien el estado nuevo; el recuadro de foco
+   sobre un texto que no es interactivo solo estorba a la vista, así que se quita (el botón y los enlaces conservan el suyo). */
+.val__card h1:focus { outline: none; }
+
+/* validar.html: fondo del hero (degradado oscuro + cielo de site.js) fijo detrás de todo, y un "tono" que cambia con el estado: verde
+   CiiSA si todo salió bien, naranja (mezcla del degradado verde → rojo) para avisos y rojo Adobe para errores. El tono vive en
+   data-tono del body (lo pone validar.js). La barra de progreso reemplaza al logo animado. */
+.val-fondo { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: linear-gradient(160deg, var(--navy-1100) 0%, var(--navy-1000) 38%, var(--navy-950) 70%, var(--navy-1100) 100%); background-size: 200% 200%; animation: sky-shift 34s ease-in-out infinite alternate; }
+.val-tono { position: absolute; inset: 0; opacity: 0; transition: opacity .7s ease; background: radial-gradient(70% 58% at 50% 50%, var(--tono-1), transparent 76%), radial-gradient(46% 42% at 6% 94%, var(--tono-2), transparent 70%), radial-gradient(42% 38% at 96% 8%, var(--tono-2), transparent 70%); }
+.val-body { --aviso: color-mix(in srgb, var(--ciisa-green) 38%, var(--adobe-red)); --acento: var(--ciisa-green); --acento-2: var(--adobe-red); --tono-1: transparent; --tono-2: transparent; --halo: transparent; }
+.val-body[data-tono="exito"] { --tono-1: rgba(188, 242, 0, 0.30); --tono-2: rgba(188, 242, 0, 0.22); --halo: rgba(188, 242, 0, 0.5); --acento: var(--ciisa-green); --acento-2: var(--green-400); }
+.val-body[data-tono="aviso"] { --tono-1: color-mix(in srgb, var(--aviso) 38%, transparent); --tono-2: color-mix(in srgb, var(--aviso) 26%, transparent); --halo: color-mix(in srgb, var(--aviso) 55%, transparent); --acento: var(--aviso); --acento-2: color-mix(in srgb, var(--ciisa-green) 62%, var(--adobe-red)); }
+.val-body[data-tono="error"] { --tono-1: rgba(235, 16, 0, 0.34); --tono-2: rgba(235, 16, 0, 0.24); --halo: rgba(235, 16, 0, 0.5); --acento: var(--adobe-red); --acento-2: var(--red-400); }
+.val-body:not([data-tono="neutro"]) .val-tono { opacity: 1; }
+.val, .val__foot { position: relative; z-index: 1; }
+.val__card { position: relative; overflow: hidden; box-shadow: 0 24px 60px rgba(0, 5, 31, 0.55), 0 0 90px -10px var(--halo); transition: box-shadow .7s ease; }
+.val__card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 6px; background: linear-gradient(90deg, var(--acento), var(--acento-2)); }
+.val__dot { background: var(--acento-2); }
+.val__bar { height: 12px; border-radius: 999px; background: var(--navy-100); overflow: hidden; margin: 8px 0 28px; }
+.val__bar-fill { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--ciisa-green), var(--adobe-red), var(--ciisa-green)); background-size: 200% 100%; animation: val-shine 1.4s linear infinite; transition: width 3s cubic-bezier(.1, .7, .2, 1); }
+@keyframes val-shine { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .val-fondo { animation: none; }
+  .val__bar-fill { animation: none; transition: none; }
+}
+
+/* validar.html, pantallas de éxito: el WhatsApp pasa a ser el llamado principal (botón navy con el glifo del botón flotante del sitio y,
+   al pasar el cursor, el degradado de marca como el .wa-fab), "Conoce cómo trabajamos" queda como secundario y debajo un enlace a ciisa.com. */
+.val__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 4px; }
+.val__sec--up { margin: 0 0 12px; font-weight: 600; color: var(--navy-700); }
+.btn--wa svg { flex: none; }
+.btn--wa:hover:not(:disabled), .btn--wa:focus-visible { background: var(--gradient); background-size: 200% 100%; color: var(--navy-900); animation: flow 6s ease-in-out infinite; }
+.btn--out { background: transparent; color: var(--navy-900); border-color: var(--navy-900); }
+.btn--out:hover { background: var(--navy-100); }
+@media (max-width: 520px) { .val__ctas .btn { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .btn--wa:hover:not(:disabled), .btn--wa:focus-visible { animation: none; } }
+
+/* validar.html en pantallas angostas (320–380 px): los botones llevaban el texto en una sola línea y se cortaban ("Escríbenos por
+   WhatsAp…"). Ahora el texto puede pasar a dos líneas, la tarjeta gana ancho útil con menos relleno y la etiqueta baja el espaciado. */
+@media (max-width: 520px) {
+  .val__ctas .btn { white-space: normal; text-align: center; line-height: 1.25; padding: 12px 20px; }
+}
+@media (max-width: 380px) {
+  .val { padding-left: 16px; padding-right: 16px; }
+  .val__card { padding: 24px 20px; }
+  .val__eyebrow { letter-spacing: 0.1em; }
+}
