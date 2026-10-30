@@ -3,7 +3,7 @@
 // La URL del flujo es una URL firmada: no la copies a documentos ni chats (queda en este archivo, como en adobe-form.js).
 (function () {
   'use strict';
-  var ENDPOINT = '';   // <- pegar aquí la URL del disparador HTTP de AD-2 (no subirla al commit)
+  var ENDPOINT = 'https://default4699fbe477a74846ad709ce4e38413.35.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/01/workflows/ba7afaa18a5a4d788b61fd9a51f98a73/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xat4C3_lEOVesvz5Mf006D6qnZITYy7p4D01t9Nd1lQ';   // URL firmada del disparador HTTP de AD-2. Si hay abuso, se regenera en Power Automate y se actualiza aquí
   var ORIGEN = 'landing-adobe';
 
   var root = document.getElementById('val');

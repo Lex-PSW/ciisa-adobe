@@ -3,7 +3,7 @@
 // La URL del flujo es una URL firmada: no la copies a documentos ni chats (queda en este archivo, como en Beyond).
 (function () {
   'use strict';
-  var ENDPOINT = '';   // <- pegar aquí la URL del disparador HTTP del flujo (ver docs/HANDOFF.md, sección 6)
+  var ENDPOINT = 'https://default4699fbe477a74846ad709ce4e38413.35.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/20/workflows/c4ab6d8f8dca4b4caaaa131307ec9665/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3e0HarCJSmclaW2mlUvUqZjesuqElZ16nlsJzK1eJhM';   // URL firmada del disparador HTTP de AD-1. Si hay abuso, se regenera en Power Automate y se actualiza aquí
   var ORIGEN = 'landing-adobe';
 
   // Filtros estáticos contra datos de relleno (form-filtros.js, se carga antes). Sin ese archivo el formulario valida solo lo básico
