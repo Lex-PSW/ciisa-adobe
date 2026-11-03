@@ -819,3 +819,6 @@ html .btn.btn.btn--dark:is(:hover, :focus-visible):not(:disabled) {
   .val__card { padding: 24px 20px; }
   .val__eyebrow { letter-spacing: 0.1em; }
 }
+
+/* Agradecimiento: nota de verificación del correo bajo el mensaje principal. Más tenue y estrecha para que no compita con el mensaje */
+.gracias__nota { max-width: 40ch; margin: 14px auto 0; font-size: 15px; line-height: 1.55; color: var(--gray-600); }
