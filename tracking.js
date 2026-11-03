@@ -1,9 +1,9 @@
 // Seguimiento de campañas de CiiSA + Adobe. Adaptado de tracking.js de CiiSA Beyond.
 // - Píxeles de Meta (Facebook/Instagram), LinkedIn Insight Tag y TikTok: se cargan solo si su ID
 //   está configurado abajo. Sin ID no se carga nada de ese proveedor (estado actual: ninguno).
-// - Google Ads: la etiqueta gtag.js está en el <head> de index.html (cuenta AW-17545418070). Las conversiones se envían
-//   desde aquí con gtag('event', 'conversion') y solo si su etiqueta está en CONFIG (sin etiqueta no se envía nada).
-//   Además se empujan eventos al dataLayer por si más adelante se instala Google Tag Manager.
+// - Google: la etiqueta gtag.js está en el <head> de index.html (cuenta AW-17545418070). Este archivo SOLO entrega los eventos
+//   (nombres fijos, ver EVENTOS_GOOGLE y docs/ARQUITECTURA.md); las metas y conversiones las define y mide Marketing
+//   (Tráfico) en Google Ads / GA4 / GTM a partir de esos eventos, sin tocar código. También se empujan al dataLayer.
 // - Captura UTM e identificadores de clic de la URL para que la cotización guarde de qué campaña vino.
 // A los píxeles nunca se les envían datos personales (nombre, correo, teléfono).
 (function () {
@@ -11,10 +11,16 @@
     META_PIXEL_ID: '',                // Administrador de eventos de Meta → ID del píxel (solo números)
     LINKEDIN_PARTNER_ID: '',          // Campaign Manager → Insight Tag → Partner ID
     LINKEDIN_LEAD_CONVERSION_ID: '',  // Campaign Manager → Conversiones → ID de la conversión de cotización
-    TIKTOK_PIXEL_ID: '',              // TikTok Ads Manager → Eventos → ID del píxel
-    GOOGLE_ADS_ID: 'AW-17545418070',  // Debe coincidir con el de la etiqueta gtag.js de index.html
-    GOOGLE_ADS_LEAD_LABEL: '',        // Google Ads → Metas → Conversiones → "Cotización enviada" → etiqueta (la parte después de la "/")
-    GOOGLE_ADS_WHATSAPP_LABEL: ''     // Opcional: conversión de clic a WhatsApp
+    TIKTOK_PIXEL_ID: ''               // TikTok Ads Manager → Eventos → ID del píxel
+  };
+
+  // Nombre del evento que recibe Google (gtag) por cada acción del sitio. Son el contrato con Tráfico: no los cambies sin avisar.
+  // generate_lead es el evento recomendado de Google para un prospecto; los demás son propios.
+  var EVENTOS_GOOGLE = {
+    cotizacion_completada: 'generate_lead',
+    cotizacion_iniciada: 'cotizacion_iniciada',
+    cta_cotiza: 'clic_cotiza',
+    whatsapp: 'clic_whatsapp'
   };
 
   window.dataLayer = window.dataLayer || [];
@@ -132,13 +138,14 @@
     window.dataLayer.push(payload);
 
     var fbq = window.fbq, lintrk = window.lintrk, ttq = window.ttq;
-    // Conversiones de Google Ads: sin datos personales, solo el identificador de la conversión
-    function adsConversion(label) {
-      if (label && typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: CONFIG.GOOGLE_ADS_ID + '/' + label });
+    // Evento para Google (la etiqueta gtag.js del head): sin datos personales, con la procedencia de la campaña para segmentar
+    if (EVENTOS_GOOGLE[name] && typeof window.gtag === 'function') {
+      var g = { fuente: computeFuente(), utm_source: utm.utm_source || '', utm_medium: utm.utm_medium || '', utm_campaign: utm.utm_campaign || '' };
+      if (extra && extra.ubicacion) g.ubicacion = extra.ubicacion;
+      window.gtag('event', EVENTOS_GOOGLE[name], g);
     }
     switch (name) {
       case 'cotizacion_completada':
-        adsConversion(CONFIG.GOOGLE_ADS_LEAD_LABEL);
         if (fbq) fbq('track', 'Lead', { content_name: 'CiiSA + Adobe' });
         if (lintrk && CONFIG.LINKEDIN_LEAD_CONVERSION_ID) lintrk('track', { conversion_id: Number(CONFIG.LINKEDIN_LEAD_CONVERSION_ID) });
         if (ttq && CONFIG.TIKTOK_PIXEL_ID) ttq.track('SubmitForm');
@@ -151,7 +158,6 @@
         if (ttq && CONFIG.TIKTOK_PIXEL_ID) ttq.track('ClickButton');
         break;
       case 'whatsapp':
-        adsConversion(CONFIG.GOOGLE_ADS_WHATSAPP_LABEL);
         if (fbq) fbq('track', 'Contact');
         if (ttq && CONFIG.TIKTOK_PIXEL_ID) ttq.track('Contact');
         break;

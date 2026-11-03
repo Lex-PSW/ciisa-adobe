@@ -67,4 +67,13 @@ Pasos y lecciones: `docs/HANDOFF.md`, sección 7. Columnas sugeridas para la tab
 
 ## Analítica
 
-`index.html` carga la etiqueta de Google (gtag.js, cuenta de Google Ads `AW-17545418070`) al inicio del `<head>`. Comparte el `dataLayer` con `tracking.js`, pero `gtag.js` solo procesa comandos `gtag()`, no los objetos `adobe_*`. Por eso `tracking.js` envía las conversiones con `gtag('event','conversion',{send_to:'AW-…/<etiqueta>'})` cuando `CONFIG.GOOGLE_ADS_LEAD_LABEL` (cotización enviada) o `GOOGLE_ADS_WHATSAPP_LABEL` (clic a WhatsApp) tienen valor; **hoy están vacías, así que no se envía ninguna conversión**. El ID de `CONFIG` debe coincidir con el de la etiqueta. Más detalle y pendientes en `docs/HANDOFF.md`, sección 8.
+El sitio **entrega** los datos; las metas y conversiones las define y mide Marketing (Tráfico) en Google Ads, GA4 o GTM, sin tocar código. `index.html` carga la etiqueta de Google (gtag.js, cuenta `AW-17545418070`) al inicio del `<head>` y `tracking.js` envía estos eventos (sin datos personales):
+
+| Acción en el sitio | Evento a Google (gtag) | Evento al dataLayer | Parámetros |
+|---|---|---|---|
+| Cotización enviada (el flujo respondió 200) | `generate_lead` | `adobe_cotizacion_completada` | `fuente`, `utm_source`, `utm_medium`, `utm_campaign` |
+| Primer campo tocado del formulario | `cotizacion_iniciada` | `adobe_cotizacion_iniciada` | igual |
+| Clic en un botón de cotizar | `clic_cotiza` | `adobe_cta_cotiza` | igual, más `ubicacion` |
+| Clic en WhatsApp | `clic_whatsapp` | `adobe_whatsapp` | igual, más `ubicacion` |
+
+Los nombres de evento son el contrato con Tráfico: no se cambian sin avisar. El `dataLayer` también recibe los `adobe_*` con todas las UTM e identificadores de clic, por si se instala GTM. Los mismos datos de campaña (UTM, `gclid`, `fuente`, `procedencia`) viajan en el payload de la cotización al flujo, así que la fila del Excel dice de qué campaña vino cada prospecto. Guía para quien mide: `privada/medicion-trafico.md`. Pendientes en `docs/HANDOFF.md`, sección 8.
