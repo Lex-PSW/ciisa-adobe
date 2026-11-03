@@ -11,7 +11,9 @@
     META_PIXEL_ID: '',                // Administrador de eventos de Meta → ID del píxel (solo números)
     LINKEDIN_PARTNER_ID: '',          // Campaign Manager → Insight Tag → Partner ID
     LINKEDIN_LEAD_CONVERSION_ID: '',  // Campaign Manager → Conversiones → ID de la conversión de cotización
-    TIKTOK_PIXEL_ID: ''               // TikTok Ads Manager → Eventos → ID del píxel
+    TIKTOK_PIXEL_ID: '',              // TikTok Ads Manager → Eventos → ID del píxel
+    // Conversión de Google Ads "Solicitar cotización | Adobe" (la creó Tráfico; el fragmento va aquí y no en el head, ver abajo)
+    GOOGLE_ADS_LEAD: { send_to: 'AW-17545418070/9WgSCPnftbEdENaqp65B', value: 1.0, currency: 'MXN' }
   };
 
   // Nombre del evento que recibe Google (gtag) por cada acción del sitio. Son el contrato con Tráfico: no los cambies sin avisar.
@@ -146,6 +148,9 @@
     }
     switch (name) {
       case 'cotizacion_completada':
+        // El fragmento de conversión de Google debe dispararse al enviarse la cotización, no al cargar la página: en el head contaría
+        // cada visita como conversión. Va aquí, solo con la cotización confirmada por el flujo
+        if (CONFIG.GOOGLE_ADS_LEAD && typeof window.gtag === 'function') window.gtag('event', 'conversion', CONFIG.GOOGLE_ADS_LEAD);
         if (fbq) fbq('track', 'Lead', { content_name: 'CiiSA + Adobe' });
         if (lintrk && CONFIG.LINKEDIN_LEAD_CONVERSION_ID) lintrk('track', { conversion_id: Number(CONFIG.LINKEDIN_LEAD_CONVERSION_ID) });
         if (ttq && CONFIG.TIKTOK_PIXEL_ID) ttq.track('SubmitForm');
