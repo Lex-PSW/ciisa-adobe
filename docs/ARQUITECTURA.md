@@ -67,4 +67,4 @@ Pasos y lecciones: `docs/HANDOFF.md`, sección 7. Columnas sugeridas para la tab
 
 ## Analítica
 
-Sin tracking incluido. Ver `docs/HANDOFF.md`, sección 8.
+`index.html` carga la etiqueta de Google (gtag.js, cuenta de Google Ads `AW-17545418070`) al inicio del `<head>`. Comparte el `dataLayer` con `tracking.js`, pero `gtag.js` solo procesa comandos `gtag()`, no los objetos `adobe_*`. Por eso `tracking.js` envía las conversiones con `gtag('event','conversion',{send_to:'AW-…/<etiqueta>'})` cuando `CONFIG.GOOGLE_ADS_LEAD_LABEL` (cotización enviada) o `GOOGLE_ADS_WHATSAPP_LABEL` (clic a WhatsApp) tienen valor; **hoy están vacías, así que no se envía ninguna conversión**. El ID de `CONFIG` debe coincidir con el de la etiqueta. Más detalle y pendientes en `docs/HANDOFF.md`, sección 8.
