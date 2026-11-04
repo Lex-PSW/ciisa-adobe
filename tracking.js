@@ -1,6 +1,7 @@
 // Seguimiento de campañas de CiiSA + Adobe. Adaptado de tracking.js de CiiSA Beyond.
 // - Píxeles de Meta (Facebook/Instagram), LinkedIn Insight Tag y TikTok: se cargan solo si su ID
-//   está configurado abajo. Sin ID no se carga nada de ese proveedor (estado actual: ninguno).
+//   está configurado abajo Y la persona aceptó "Publicidad" en el aviso de cookies (cookies.js). Sin ID no se carga nada de ese
+//   proveedor (estado actual: ninguno).
 // - Google: la etiqueta gtag.js está en el <head> de index.html (cuenta AW-17545418070). Este archivo SOLO entrega los eventos
 //   (nombres fijos, ver EVENTOS_GOOGLE y docs/ARQUITECTURA.md); las metas y conversiones las define y mide Marketing
 //   (Tráfico) en Google Ads / GA4 / GTM a partir de esos eventos, sin tocar código. También se empujan al dataLayer.
@@ -98,6 +99,13 @@
     return r;
   }
 
+  /* ---------- Píxeles de publicidad ---------- */
+  // Solo se cargan si la persona aceptó la categoría "Publicidad" en el aviso de cookies (cookies.js). Sin ese archivo o sin aceptación
+  // no se carga nada. Si acepta después, se cargan en ese momento; si la retira, se les avisa y no se les manda más
+  var pixelesCargados = false;
+  function cargarPixeles() {
+    if (pixelesCargados) return;
+    pixelesCargados = true;
   /* ---------- Meta Pixel ---------- */
   if (CONFIG.META_PIXEL_ID) {
     /* eslint-disable */
@@ -135,6 +143,19 @@
     }(window, document, 'ttq');
     /* eslint-enable */
   }
+  }
+
+  function permitePublicidad() { return !!(window.AdobeConsent && window.AdobeConsent.get().publicidad); }
+  function retirarPublicidad() {
+    if (!pixelesCargados) return;
+    if (window.fbq) window.fbq('consent', 'revoke');
+    if (window.ttq && window.ttq.disableCookie) window.ttq.disableCookie();
+  }
+  if (permitePublicidad()) cargarPixeles();
+  document.addEventListener('adobe:consent', function (e) {
+    if (e.detail && e.detail.publicidad) { if (window.fbq) window.fbq('consent', 'grant'); if (window.ttq && window.ttq.enableCookie) window.ttq.enableCookie(); cargarPixeles(); }
+    else retirarPublicidad();
+  });
 
   /* ---------- Envío de eventos a todos los proveedores ---------- */
   function track(name, extra) {
@@ -143,7 +164,8 @@
     if (extra) Object.keys(extra).forEach(function (k) { payload[k] = extra[k]; });
     window.dataLayer.push(payload);
 
-    var fbq = window.fbq, lintrk = window.lintrk, ttq = window.ttq;
+    // Los píxeles de publicidad solo reciben eventos mientras la persona tenga aceptada esa categoría
+    var ads = permitePublicidad(), fbq = ads ? window.fbq : null, lintrk = ads ? window.lintrk : null, ttq = ads ? window.ttq : null;
     // Evento para Google (la etiqueta gtag.js del head): sin datos personales, con la procedencia de la campaña para segmentar
     if (EVENTOS_GOOGLE[name] && typeof window.gtag === 'function') {
       var g = { fuente: computeFuente(), utm_source: utm.utm_source || '', utm_medium: utm.utm_medium || '', utm_campaign: utm.utm_campaign || '' };

@@ -822,3 +822,44 @@ html .btn.btn.btn--dark:is(:hover, :focus-visible):not(:disabled) {
 
 /* Agradecimiento: nota de verificación del correo bajo el mensaje principal. Más tenue y estrecha para que no compita con el mensaje */
 .gracias__nota { max-width: 40ch; margin: 14px auto 0; font-size: 15px; line-height: 1.55; color: var(--gray-600); }
+
+/* Aviso de cookies (cookies.js): tarjeta acotada abajo a la izquierda, ocultable, sin bloquear la página. Aceptar y rechazar pesan lo mismo.
+   En pantallas angostas ocupa el ancho con margen de 12 px y, si el detalle no cabe, hace scroll dentro de la tarjeta. Va por encima del
+   WhatsApp flotante (z-index 100) mientras está abierta. [hidden] explícito porque display:grid/flex anula el atributo. */
+.ck[hidden], .ck-tab[hidden], .ck__vista[hidden] { display: none; }
+.ck { position: fixed; left: 24px; bottom: 24px; z-index: 120; width: min(420px, calc(100vw - 48px)); max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain; padding: 22px 22px 20px; border-radius: var(--radius-lg); background: var(--paper); color: var(--navy-900); border: 1px solid var(--navy-200); box-shadow: 0 24px 60px rgba(0, 5, 31, 0.35), 0 2px 8px rgba(0, 5, 31, 0.12); animation: ck-in .4s cubic-bezier(.22, 1, .36, 1); }
+@keyframes ck-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.ck__x { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--navy-600); cursor: pointer; transition: background .2s, color .2s; }
+.ck__x svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.ck__x:hover { background: var(--navy-100); color: var(--navy-900); }
+.ck :is(.ck__x, .ck__link, .ck__sw, .btn):focus-visible, .ck-tab:focus-visible, .foot__cookies:focus-visible { outline: 3px solid var(--navy-600); outline-offset: 2px; }
+.ck__t { margin: 0 34px 8px 0; font: 700 18px/1.3 var(--font-body); color: var(--navy-900); }
+.ck__t:focus { outline: none; }
+.ck__p { margin: 0 0 16px; font-size: 15px; line-height: 1.55; color: var(--navy-700); }
+.ck__p a { color: var(--navy-900); font-weight: 600; text-underline-offset: 2px; }
+.ck__acts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ck .btn { min-height: 44px; padding: 0 12px; font-size: 15px; }
+.ck__link { display: block; margin: 12px auto 0; padding: 8px 12px; border: 0; background: none; font: 600 15px/1.2 var(--font-body); color: var(--navy-900); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ck__link:hover { color: var(--navy-600); }
+.ck__list { display: grid; gap: 4px; margin: 0 0 16px; padding: 0; list-style: none; }
+.ck__row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--navy-100); cursor: pointer; }
+.ck__list li:first-child .ck__row { border-top: 0; padding-top: 4px; }
+.ck__rt { display: grid; gap: 3px; font-size: 14px; line-height: 1.45; color: var(--navy-700); }
+.ck__rt strong { font-size: 16px; color: var(--navy-900); }
+.ck__sw { appearance: none; -webkit-appearance: none; flex: none; position: relative; width: 46px; height: 26px; margin: 2px 0 0; border: 0; border-radius: 999px; background: var(--navy-100); box-shadow: inset 0 0 0 2px var(--navy-500); cursor: pointer; transition: background .2s, box-shadow .2s; }
+.ck__sw::after { content: ''; position: absolute; top: 5px; left: 5px; width: 16px; height: 16px; border-radius: 50%; background: var(--navy-500); transition: transform .2s, background .2s, width .2s, height .2s, top .2s, left .2s; }
+.ck__sw:checked { background: var(--navy-900); box-shadow: none; }
+.ck__sw:checked::after { top: 3px; left: 3px; width: 20px; height: 20px; background: #fff; transform: translateX(20px); }
+.ck__sw:disabled { opacity: .55; cursor: not-allowed; }
+.ck__ok .ck__t { margin-bottom: 6px; }
+.ck__ok .ck__p { margin-bottom: 0; }
+.ck-tab { position: fixed; left: 24px; bottom: 24px; z-index: 110; min-height: 40px; padding: 0 18px; border: 1px solid var(--navy-200); border-radius: 999px; background: var(--paper); color: var(--navy-900); font: 600 15px/1 var(--font-body); box-shadow: 0 8px 24px rgba(0, 5, 31, 0.25); cursor: pointer; transition: background .2s; }
+.ck-tab:hover { background: var(--navy-100); }
+.foot__cookies { padding: 0; border: 0; background: none; font: inherit; font-size: 16px; color: rgba(255, 255, 255, 0.8); cursor: pointer; }
+.foot__cookies:hover { color: var(--paper); text-decoration: underline; }
+@media (max-width: 640px) {
+  .ck { left: 12px; right: 12px; bottom: 12px; width: auto; max-height: calc(100dvh - 24px); padding: 20px 18px 18px; }
+  .ck-tab { left: 12px; bottom: 12px; }
+}
+@media (max-width: 360px) { .ck__acts { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ck { animation: none; } .ck__sw, .ck__sw::after { transition: none; } }
