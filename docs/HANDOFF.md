@@ -16,9 +16,9 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 | Flujo de Power Automate que recibe el formulario | ⬜ Por crear (sección 6) |
 | Autorización de uso de marca, logotipo y estilo de Adobe | ⬜ **Por validar con Adobe (sección 5, bloqueo)** |
 | Leyenda legal | ⬜ Por validar |
-| Solicitud de CNAME `creative.ciisa.com` a TI | ⬜ Correo listo (`privada/correo-solicitud-cname.md`); falta enviarlo |
+| CNAME `creative.ciisa.com` | ✅ Activo (resuelve a `lex-psw.github.io`); archivo `CNAME` en el repo. Falta confirmar HTTPS forzado en Settings → Pages |
 | Analítica | ⬜ Por decidir (sección 7) |
-| `og:image` (1200×630), favicon de CiiSA, apple-touch-icon, canónica, Open Graph y Twitter Card | ✅ Hecho (URLs de GitHub Pages; cambiarlas al activar el dominio definitivo) |
+| `og:image` (1200×630), favicon de CiiSA, apple-touch-icon, canónica, Open Graph y Twitter Card | ✅ Hecho (URLs ya en `creative.ciisa.com`) |
 
 ## 2. Qué contiene el kit
 
@@ -46,7 +46,7 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 - **Sitio nuevo, repo nuevo**, hermano de `ciisa-beyond` y `ciisa-lenovo`. Mismo stack: HTML, CSS y JS vanilla, **sin framework ni build**.
 - **Estilo:** se mimetiza el *lenguaje* visual de Adobe (tema claro, titulares en peso 900, botones en píldora, tarjetas de 16 px, rojo Adobe como acento) con el sello de CiiSA (degradado verde → menta → cian como acento, hero oscuro). **No es una copia de adobe.com**: ni su composición, ni sus imágenes, ni sus textos, ni sus íconos de aplicación.
 - **Tipografía:** *Adobe Clean* es propietaria y no se puede alojar ni usar fuera de las propiedades de Adobe. Se usa **Poppins**, la tipografía oficial de CiiSA (código abierto, SIL OFL), alojada en `assets/types`. La pila de fuentes ya nombra `Adobe Clean` primero: solo se verá si el usuario la tiene instalada.
-- **Dominio previsto `creative.ciisa.com` por CNAME.** El archivo `CNAME` **no está en el repo** hasta que TI confirme el registro.
+- **Dominio `creative.ciisa.com` por CNAME, activo.** El archivo `CNAME` está en el repo; las URLs absolutas del sitio ya usan el dominio.
 - **Contenido propio:** redactado con palabras propias a partir de ciisa.com y del sitio oficial de Adobe. Sin precios, promociones ni planes concretos.
 - **Un CTA principal:** cotizar. El formulario va al final y todos los botones llevan a él.
 - **Repositorio público:** nada de secretos ni datos personales en git.
@@ -63,7 +63,7 @@ Landing de **soluciones Adobe para empresas, gobierno y educación** operada por
 | 6 | **Validación de contenido** | Comercial CiiSA | Revisar `docs/CONTENIDO.md` completo, sobre todo "Adobe para gobierno" (afirmaciones de cumplimiento y de validez legal de la firma) |
 | 7 | **Flujo del formulario** | Automatización | Crear el flujo (sección 6), pegar la URL en `ENDPOINT` de `adobe-form.js` y probar de punta a punta |
 | 8 | **Destino de las solicitudes** | Comercial CiiSA | Quién recibe cada cotización, tiempo de respuesta prometido y a qué CRM o Excel van |
-| 9 | **DNS** | TI | Enviar `privada/correo-solicitud-cname.md`; con la confirmación, crear `CNAME` en el repo y activar HTTPS forzado |
+| 9 | **DNS** | TI | Hecho: registro activo y `CNAME` en el repo. Pendiente: activar *Enforce HTTPS* en Settings → Pages y actualizar en el flujo AD-1 la liga y las imágenes del correo al nuevo dominio |
 | 10 | **Aviso de privacidad** | Legal | El formulario enlaza `https://ciisa.com/aviso-de-privacidad/`. Confirmar que cubre este uso |
 | 11 | **Analítica** | Marketing | Decidir GTM/GA4 y la conversión (sección 7) |
 | 12 | **Metadatos** | Diseño | Hecho: imágenes destacadas en 4 formatos (`og-image.png` 1.91:1 de 1200×630 para Facebook, LinkedIn, WhatsApp y Teams; `og-image-2x1.png` para X; `og-image-1x1.png` 1200×1200 y `og-image-16x9.png` 1600×900 para publicaciones; se regeneran con `privada/ilustraciones/og.mjs`), favicon de CiiSA, apple-touch-icon, canónica, Open Graph, Twitter Card y JSON-LD `@graph`. También `robots.txt`, `sitemap.xml`, `hreflang`, `alt` en las ilustraciones y secciones con nombre accesible. Pendiente: cambiar las URLs absolutas (canonical, `og:url`, `og:image`, `twitter:image`, `hreflang`, JSON-LD, `robots.txt` y `sitemap.xml`) al dominio definitivo y decidir `robots` (hoy `index, follow`) hasta la revisión de marca |
@@ -106,7 +106,7 @@ Datos de este formulario respecto al de Lenovo: agrega **`sector`** (Empresa pri
 - [ ] Con el flujo caído se ve el aviso que remite a WhatsApp. Confirmar que el número de WhatsApp sea el que Comercial quiere para Adobe.
 - [ ] Contraste AA, foco visible, `prefers-reduced-motion` respetado, el sitio se lee sin JavaScript.
 - [ ] Autorización de Adobe por escrito archivada; leyenda legal validada.
-- [ ] Al activar el dominio: actualizar canonical, `og:url`, `og:image`, `twitter:image`, `hreflang`, JSON-LD, `robots.txt` y `sitemap.xml` (buscar `lex-psw.github.io`); validar la vista previa al compartir (LinkedIn, WhatsApp, X).
+- [x] Al activar el dominio (4 nov 2026): actualizados canonical, `og:url`, `og:image`, `twitter:image`, `hreflang`, JSON-LD, `robots.txt` y `sitemap.xml` (buscar `lex-psw.github.io`); validar la vista previa al compartir (LinkedIn, WhatsApp, X).
 - [ ] Sin secretos ni datos personales en el historial de git.
 
 ## 11. Roles

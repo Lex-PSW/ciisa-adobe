@@ -11,7 +11,7 @@ Landing de **Adobe para empresas, gobierno y educación** operada por CiiSA, con
 ## Reglas
 
 - **Sin framework ni build.** HTML, CSS y JS vanilla. No agregues nada de eso sin preguntar.
-- **No existe archivo `CNAME` y no se crea** hasta que TI confirme el registro DNS de `creative.ciisa.com` y Adobe autorice el uso (ver `docs/HANDOFF.md`).
+- **El archivo `CNAME` (`creative.ciisa.com`) existe y no se borra**: lo usa GitHub Pages para el dominio propio. El registro DNS ya está activo. Pendiente: la revisión de marca de Adobe (ver `docs/HANDOFF.md`).
 - **Se mimetiza el lenguaje de Adobe, no su sitio.** No copies composición, imágenes ni textos de adobe.com. Los íconos de app de producto solo en su archivo oficial de socio (`assets/img/producto/`), sin modificar ni recolorear. El lockup siempre lleva **CiiSA primero** y el pie dice que el sitio lo opera CiiSA.
 - **Tipografía:** Poppins, la oficial de CiiSA (en `assets/types`, los mismos archivos que CiiSA Beyond). No uses *Adobe Clean* ni la alojes: es propietaria.
 - **Color:** mapa tonal (ver `docs/DESIGN.md`): el único negro es el navy del logo `#001c71`; verde CiiSA `#bcf200` y rojo Adobe `#eb1000` bajan hacia el navy y suben hacia el blanco (tokens `--navy-*`, `--green-*`, `--red-*`). Solo el navy puede bajar hacia el negro (`--navy-950`, `--navy-1000`). Nada de `#000` ni grises neutros. Degradado verde → rojo, solo como acento; nunca texto en degradado sobre fondo blanco.
@@ -28,7 +28,7 @@ Landing de **Adobe para empresas, gobierno y educación** operada por CiiSA, con
 | `styles.css` | CSS completo con tokens en `:root` |
 | `site.js` | Aparición al hacer scroll, parallax, cielo animado, loop de las ilustraciones y panel de apps |
 | `assets/img/` | Logotipos, favicon de CiiSA, 15 ilustraciones SVG propias (con `alt`, `<title>` y `<desc>`), `og-image*.png` (4 formatos) y `producto/` (íconos de app oficiales, sin modificar). Las herramientas de ilustración están en `privada/ilustraciones/` (ignorada por git) |
-| `robots.txt`, `sitemap.xml` | SEO; usan la URL de GitHub Pages hasta que haya dominio (cambiarlas con el resto de URLs absolutas, ver `docs/HANDOFF.md`) |
+| `robots.txt`, `sitemap.xml` | SEO; usan la URL absoluta `https://creative.ciisa.com/` (si el dominio cambia, cambiarlas con las demás, ver `docs/HANDOFF.md`) |
 | `tracking.js` | Procedencia de campañas (UTM, identificadores de clic, `fuente`) y eventos al `dataLayer`; los píxeles solo cargan con ID en `CONFIG` (hoy vacíos) |
 | `adobe-form.js` | Validación y envío al flujo (`ENDPOINT` vacío = no envía) |
 | `docs/referencia-beyond/` | Copia de la documentación y estilos de CiiSA Beyond; solo lectura |
