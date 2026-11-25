@@ -14,6 +14,7 @@ Fecha de la consulta: **27 de octubre de 2026**. Todo se redactó con palabras p
 | **Beneficios:** cumplimiento de normativas de seguridad y privacidad, procesos y costos, transparencia y accesibilidad, agilidad de servicios digitales | `ciisa.com` (inicio) | Las cuatro barras de beneficios |
 | "Como socio estratégico, CiiSA brinda asesoría, soporte y acompañamiento en la adopción de las soluciones Adobe" | `ciisa.com` (inicio) | Texto de "Tu aliado en la implementación de Adobe" |
 | Venta y licenciamiento: asesoría gratuita en adquisición, renovación y legalización de software; **Adobe** aparece en la lista junto a Office 365, Azure, Autodesk, IBM, etc. | `ciisa.com/software/` | Puntos de "Por qué CiiSA" |
+| **Partner y Reseller de Adobe** (sin nombrar el nivel). Pedido del equipo de Demand Gen (25 nov 2026): el tráfico frío no debe confundir el sitio con la web oficial de Adobe para individuos; hay que decir que CiiSA es Partner/Reseller desde los primeros 3 segundos. El nivel de partner está confirmado por el equipo, pero su nombre y el documento siguen pendientes (ver sección 3) | Chat del equipo (Demand Gen) | Etiqueta superior y primera frase del hero |
 | Cifras: más de 30 años, más de 25 marcas, más de 50 consultores, 120 colaboradores | `ciisa.com` (inicio) | Franja de cifras |
 | WhatsApp (el de CiiSA Beyond; el formulario ya no muestra teléfonos), domicilio fiscal y aviso de privacidad (`ciisa.com/aviso-de-privacidad/`) | `ciisa.com` (encabezado y pie) | Formulario, pie y casilla de privacidad |
 
